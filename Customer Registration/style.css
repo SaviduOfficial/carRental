@@ -1,0 +1,47 @@
+body {
+	
+	background-image: url('https://unsplash.com/photos/VuPIUePS_vU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NTJ8fHZlaGljbGV8ZW58MHx8fHwxNzI4MjYyNDI1fDA&force=true');
+	background-size: 1366px 768px;
+	
+}
+
+
+h1 {
+	
+	text-align: center;	
+}
+
+.wrapper {	
+	
+	position: relative;
+	left: 35%;
+	width: 400px;
+	height: 620px;
+	border: 3px solid black;
+	border-radius: 10px;	
+}
+
+.login_form_box {
+	
+	padding-left: 40px;
+}
+
+.form_text {
+	
+	font-weight: bold;	
+}
+
+.submit_btn {
+	
+	position: relative;
+	top: 15px;
+	background: steelBlue;
+	border-radius: 7px;
+	color: white;
+	font-size: 25px;	
+}
+
+.input_box {
+
+	border-radius: 5px;
+}
