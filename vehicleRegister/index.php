@@ -28,13 +28,13 @@
       <div class='panel-body'>
 
         <!---Form Start--->
-        <form class='form-horizontal' role='form' action="" method="POST">
+        <form class='form-horizontal' role='form' action="validate.php" method="POST">
 
             <!---1st Selection--->
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' >Vehicle Type</label>
             <div class='col-md-2'>
-              <select class='form-control'  name="vehicletype">
+              <select class='form-control'  name="vehicletype" required>
                 <option>Car</option>
                 <option>Van</option>
                 <option>Tuk-Tuk</option>
@@ -51,12 +51,13 @@
               </div>
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
-                  <input class='form-control'  placeholder='First Name' type='text' name="firstName">
+                  <input class='form-control'  placeholder='First Name' type='text' name="firstName" required>
                 </div>
               </div>
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
-                  <input class='form-control'  placeholder='Last Name' type='text' name="lastName">
+                  <input class='form-control'  placeholder='Last Name' type='text' name="lastName" required>
+                  
                 </div>
               </div>
             </div>
@@ -68,12 +69,12 @@
             <div class='col-md-6'>
               <div class='form-group'>
                 <div class='col-md-11'>
-                  <input class='form-control' id='id_email' placeholder='E-mail' type='text'>
+                  <input class='form-control' id='id_email' placeholder='E-mail' type='text' name="email" required>
                 </div>
               </div>
               <div class='form-group internal'>
                 <div class='col-md-11'>
-                  <input class='form-control' id='id_phone' placeholder='Phone: (xxx) - xxx xxxx' type='text'>
+                  <input class='form-control' minlength="10" id='id_phone' placeholder='Phone: xxx xxx xxxx' type='text' name="phoneNumber" required>
                 </div>
               </div>
             </div>
@@ -90,7 +91,7 @@
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='vehicleBrand'>Vehicle Make</label>
             <div class='col-md-2'>
-              <select class='form-control' id='vehicleBrand' name="vehicleMake" onchange="loadModels()">
+              <select class='form-control' id='vehicleBrand' name="vehicleMake" onchange="loadModels()" required>
               <option value="">Select Make</option>
               <?php
                 // Loop through the array of objects and create an <option> for each "name" field
@@ -105,7 +106,7 @@
             <!-- Populate Vehicle models-->
              <div><label class='control-label col-md-1 col-md-offset-0'>Model</label></div>
             <div class='col-md-2'>
-              <select class='form-control' id="vehicleModel" name="vehicleModel">
+              <select class='form-control' id="vehicleModel" name="vehicleModel" required>
                  <option value=''> Select Model </option>
                  <script>var brandData = <?php echo json_encode($brands); ?>;
                 </script> 
@@ -119,7 +120,7 @@
             <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2'> Model Year</label>
             <div class='col-md-2'>
-              <select class='form-control'  id="vehicleYear" name="year">
+              <select class='form-control'  id="vehicleYear" name="year" required>
             <!-- Dynamically populated-->
               </select>
             </div>
@@ -130,7 +131,7 @@
             <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' > Engine Capacity</label>
             <div class='col-md-2'>
-              <select class='form-control'  id="vehicleYear" name="eCapacity">
+              <select class='form-control'  id="vehicleYear" name="eCapacity" required>
                 <option>less than 100cc</option>
                 <option>100cc - 150 cc</option>
                 <option>150cc - 250cc</option>
@@ -151,7 +152,7 @@
 
             <div><label class='control-label col-md-1 col-md-offset-0'>Milage</label></div>
             <div class='col-md-2'>
-              <input class='form-control' type="number" name="milage" placeholder="milage">
+              <input class='form-control' type="number" name="milage" placeholder="milage" required>
         
             </div>
 
@@ -164,12 +165,12 @@
             <div class='col-md-8'>
               <div class='col-md-2'>
                 <div class='form-group internal'>
-                  <input class='form-control col-md-8' placeholder='ABS' type='text' name="regNoPrt1">
+                  <input class='form-control col-md-8' placeholder='ABS' type='text' name="regNoPrt1" required>
                 </div>
               </div>
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
-                  <input class='form-control' placeholder='8886' type='number' name="regNoPrt2">
+                  <input class='form-control' placeholder='8886' type='text' name="regNoPrt2" required>
                 </div>
               </div>
             </div>
@@ -177,9 +178,9 @@
 
         <!--8th selection -->
           <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' >Feul Type</label>
+            <label class='control-label col-md-2 col-md-offset-2' >Fuel Type</label>
             <div class='col-md-2'>
-            <select class='form-control'  id="vehicleYear" name="eCapacity">
+            <select class='form-control'  id="vehicleYear" name="fuelType" required>
                 <option>Petrol 92 Octane</option>
                 <option>Petrol 95 Octane</option>
                 <option>Auto Diesel</option>
@@ -197,7 +198,7 @@
             <div class='col-md-8'>
               <div class='col-md-3'>
                 <div class='form-group internal'>
-                  <select class='form-control' name="colour">
+                  <select class='form-control' name="colour" required>
                     <option>Black</option>
                     <option>Blue</option>
                     <option>Brown</option>

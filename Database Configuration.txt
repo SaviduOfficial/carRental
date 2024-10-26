@@ -1,0 +1,17 @@
+Configuration of database file
+
+
+-----------------------------------------------------------------
+1.In every PHP file where you need to access the database, include the config.php file at the beginning, like this:
+
+<?php
+include 'config.php';
+// Now you can use $conn for database queries
+?>
+
+---------------------------------------------------------------------
+
+2. After cloning the project (github repository cloning), each contributor should:
+
+    * Open config.php in a code editor.
+    * Update $username, $password, and $database as per their own local database setup.
