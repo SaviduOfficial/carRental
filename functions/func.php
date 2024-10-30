@@ -101,8 +101,9 @@ function usernameValidate($username, $link, $tablemame)
 }
 
 
-//check Password from database when login
 
+
+//check Password from database when login
 function passwordCheck($password, $link, $uname)
 {
     if (passwordValidate($password)) {
@@ -139,239 +140,18 @@ function passwordCheck($password, $link, $uname)
     }
 }
 
-// amount assign
-
-function ammountAssign($units)
-{
 
 
-    if ($units > 0 && $units < 61) {
-        $chargePerUnit = UnitCharge($units, 1);
-        $temp = $units;
-        $amount = $temp * $chargePerUnit;
-        //$_SESSION['amount'] = $amount;
-        return $amount;
-    } else if ($units > 60 && $units < 91) {
-        $chargePerUnit = UnitCharge($units, 2);
-        $temp = $units - 60;
-        $amount = $temp * $chargePerUnit;
-        //$_SESSION['amount'] = $amount;
-        return $amount;
-    } else if ($units > 90 && $units < 121) {
-        $chargePerUnit = UnitCharge($units, 3);
-        $temp = $units - 90;
-        $amount = $temp * $chargePerUnit;
-        //$_SESSION['amount'] = $amount;
-        return $amount;
-    } else if ($units > 120 && $units < 181) {
-        $chargePerUnit = UnitCharge($units, 4);
-        $temp = $units - 120;
-        $amount = $temp * $chargePerUnit;
-        //$_SESSION['amount'] = $amount;
-        return $amount;
-    } else if ($units > 180) {
-        $chargePerUnit = UnitCharge($units, 5);
-        $temp = $units - 180;
-        $amount = $temp * $chargePerUnit;
-        //$_SESSION['amount'] = $amount;
-        return $amount;
-    } else {
-        echo "Please enter valid Number";
-    }
-}
-
-
-
-
-
-//usage assign 
-function usageAssign($units)
-{
-
-    if ($units > 0 && $units < 61) {
-        $temp = $units;
-        $_SESSION['units'] = 0;
-        return $temp;
-    } else if ($units > 60 && $units < 91) {
-        $temp = $units - 60;
-        $units = $units - $temp;
-        $_SESSION['units'] = $units;
-        return $temp;
-    } else if ($units > 90 && $units < 121) {
-        $temp = $units - 90;
-        $units = $units - $temp;
-        $_SESSION['units'] = $units;
-        return $temp;
-    } else if ($units > 120 && $units < 181) {
-        $temp = $units - 120;
-        $units = $units - $temp;
-        $_SESSION['units'] = $units;
-        return $temp;
-    } else if ($units > 180) {
-        $temp = $units - 180;
-        $units = $units - $temp;
-        $_SESSION['units'] = $units;
-        return $temp;
-    } else {
-        echo "Please enter valid Number";
-    }
-}
-
-
-//unit usage calculator
-function unitUsage($units)
-{
-
-    $amount = 0;
-    $temp = 0;
-    $FixedCharge = 0;
-
-
-    if ($units > 180) {
-        $FixedCharge = FixCharge($units, 5);
-    } else if ($units > 120) {
-        $FixedCharge = FixCharge($units, 4);
-    } else if ($units > 90) {
-        $FixedCharge = FixCharge($units, 3);
-    } else if ($units > 60) {
-        $FixedCharge = FixCharge($units, 2);
-    } else if ($units > 0) {
-        $FixedCharge = FixCharge($units, 1);
-    } else {
-        echo "Please enter valid Number";
+// Calculate Vehicle rental charge
+function vehicleRental($Finalmileage, $cost, $addtional){
+        $totalCost = $Finalmileage * $cost;
+        $totalCost += $addtional;
+        return $totalCost;
+    
     }
 
-    while ($units > 0) {
-        if ($units > 180) {
-            $chargePerUnit = UnitCharge($units, 5);
-            $temp = $units - 180;
-            $amount = $amount + ($temp * $chargePerUnit);
-            $units = $units - $temp;
-        } else if ($units > 120) {
-            $chargePerUnit = UnitCharge($units, 4);
-            $temp = $units - 120;
-            $amount = $amount + ($temp * $chargePerUnit);
-            $units = $units - $temp;
-        } else if ($units > 90) {
-            $chargePerUnit = UnitCharge($units, 3);
-            $temp = $units - 90;
-            $amount = $amount + ($temp * $chargePerUnit);
-            $units = $units - $temp;
-        } else if ($units > 60) {
-            $chargePerUnit = UnitCharge($units, 2);
-            $temp = $units - 60;
-            $amount = $amount + ($temp * $chargePerUnit);
-            $units = $units - $temp;
-        } else if ($units > 0 && $units < 61) {
-            $chargePerUnit = UnitCharge($units, 1);
-            $temp = $units;
-            $amount = $amount + ($temp * $chargePerUnit);
-            $units = $units - $temp;
-        } else {
-            echo "Please enter valid Number";
-        }
-    }
-
-    $_SESSION['FixedCharge'] = $FixedCharge;
-    //adding fixed charge
-    return $amount;
-}
 
 
-
-//get Unit Charge
-function UnitCharge($units, $id_no)
-{
-
-    $link = mysqli_connect('localhost', 'root', '', 'waterbills');
-
-    if ($link->connect_error) {
-        die("Connection failed: " . $link->connect_error);
-    }
-
-    $query = $link->prepare("SELECT energy_charge_lkr_kWh, fixed_charge_LKR_month FROM water_bill_units WHERE id_no=?;");
-    $query->bind_param('i', $id_no);
-    $query->execute();
-
-    $result = $query->get_result();
-
-    if ($result->num_rows > 0) {
-        // get data of row
-        while ($row = $result->fetch_assoc()) {
-            $chargePerUnit = $row["energy_charge_lkr_kWh"];
-            return $chargePerUnit;
-        }
-    } else {
-        echo "Something worng with query or water bill units table";
-    }
-}
-
-//Get Fixcharge
-function FixCharge($units, $id_no)
-{
-
-    $link = mysqli_connect('localhost', 'root', '', 'waterbills');
-
-    if ($link->connect_error) {
-        die("Connection failed: " . $link->connect_error);
-    }
-
-    $query = $link->prepare("SELECT energy_charge_lkr_kWh, fixed_charge_LKR_month FROM water_bill_units WHERE id_no=?;");
-    $query->bind_param('i', $id_no);
-    $query->execute();
-
-    $result = $query->get_result();
-
-    if ($result->num_rows > 0) {
-        // get data of row
-        while ($row = $result->fetch_assoc()) {
-            $FixedCharge = $row["fixed_charge_LKR_month"];
-            return $FixedCharge;
-        }
-    } else {
-        echo "Something worng with query or water bill units table";
-    }
-}
-
-
-// check the year
-function yearValidate($year)
-{
-    if ($year > 2024) {
-        return false;
-    } else if ($year < 1990) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-//check the month
-function monthValidate($month)
-{
-    if ($month < 0) {
-        return false;
-    } else if ($month > 12) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-//validate units
-
-function unitValidate($units)
-{
-    if (preg_match('/a-zA-Z/', $units)) {
-
-        return false;
-    } else if ($units > 50000) {
-
-        return false;
-    } else {
-        return true;
-    }
-}
 
 
 //SUPER USER FUNCTIONS

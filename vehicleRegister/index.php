@@ -145,7 +145,7 @@
                 <option>2500cc - 3000cc</option>
                 <option>more than 3000cc</option>
                 <option>Electric</option>
-                <option>Other</option>
+                
 
               </select>
             </div>
