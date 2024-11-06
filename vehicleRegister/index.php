@@ -131,18 +131,18 @@
             <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' > Engine Capacity</label>
             <div class='col-md-2'>
-              <select class='form-control'  id="vehicleYear" name="eCapacity" required>
+              <select class='form-control'   name="eCapacity" required>
                 <option>less than 100cc</option>
                 <option>100cc - 150 cc</option>
-                <option>150cc - 250cc</option>
-                <option>250cc - 610cc</option>
-                <option>610cc - 800cc</option>
-                <option>800cc - 1000cc</option>
-                <option>1000cc - 1300cc</option>
-                <option>1300cc - 1500cc</option>
-                <option>1500cc - 2000cc</option>
-                <option>2000cc - 2500cc</option>
-                <option>2500cc - 3000cc</option>
+                <option>151cc - 250cc</option>
+                <option>251cc - 610cc</option>
+                <option>611cc - 800cc</option>
+                <option>801cc - 1000cc</option>
+                <option>1001cc - 1300cc</option>
+                <option>1301cc - 1500cc</option>
+                <option>1501cc - 2000cc</option>
+                <option>2001cc - 2500cc</option>
+                <option>2501cc - 3000cc</option>
                 <option>more than 3000cc</option>
                 <option>Electric</option>
                 

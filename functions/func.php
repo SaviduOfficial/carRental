@@ -142,7 +142,53 @@ function passwordCheck($password, $link, $uname)
 
 
 
-// Calculate Vehicle rental charge
+//initial rental charge for a vehicle
+function rentalchargeforvehicle($eCapacityvalue){
+    if($eCapacityvalue == "less than 100cc"){
+        return "Rs.20.00 perKm + Rs.500.00";
+
+    }elseif($eCapacityvalue == "100cc - 150 cc"){
+        return "Rs.30.00 perKm + Rs.500.00";
+
+    }elseif($eCapacityvalue == "151cc - 250cc"){
+        return "Rs.30.00 perKm + Rs.1000.00";
+
+    }elseif($eCapacityvalue == "251cc - 610cc"){
+        return "Rs.40.00 perKm + Rs.1000.00";
+
+    }elseif($eCapacityvalue == "611cc - 800cc"){
+        return "Rs.40.00 perKm + Rs.1000.00";
+
+    }elseif($eCapacityvalue == "801cc - 1000cc"){
+        return "Rs.40.00 perKm + Rs.1500.00";
+
+    }elseif($eCapacityvalue == "1001cc - 1300cc"){
+        return "Rs.50.00 perKm + Rs.1500.00";
+
+    }elseif($eCapacityvalue == "1301cc - 1500cc"){
+        return "Rs.50.00 perKm + Rs. 2000.00";
+
+    }elseif($eCapacityvalue == "1501cc - 2000cc"){
+        return "Rs.80.00 perKm + Rs.2500.00";
+
+    }elseif($eCapacityvalue == "2001cc - 2500cc"){
+        return "Rs.100.00 perKm + Rs.3000.00";
+
+    }elseif($eCapacityvalue == "2501cc - 3000cc"){
+        return "Rs.100.00 perKm + Rs.4000.00";
+
+    }elseif($eCapacityvalue == "more than 3000cc"){
+        return "Rs.150.00 perKm + Rs.5000.00";
+
+    }elseif($eCapacityvalue == "Electric"){
+        return "Rs.80.00 perKm + Rs.2500.00";
+    }
+
+
+}
+
+
+// Calculate Vehicle rental charge after a trip
 function vehicleRental($Finalmileage, $cost, $addtional){
         $totalCost = $Finalmileage * $cost;
         $totalCost += $addtional;
@@ -155,49 +201,3 @@ function vehicleRental($Finalmileage, $cost, $addtional){
 
 
 //SUPER USER FUNCTIONS
-
-//change  charge for each range 
-function changeCharge($range, $charge)
-{
-
-    try {
-        $link = mysqli_connect('localhost', 'root', '', 'waterbills');
-
-        $query = $link->prepare("UPDATE water_bill_units SET energy_charge_lkr_kWh=$charge  WHERE id_no=?;");
-
-        if ($range == 1) {
-            $query->bind_param('i', $range);
-            $query->execute();
-            $query->close();
-            $link->close();
-        } else if ($range == 2) {
-            $query->bind_param('i', $range);
-            $query->execute();
-            $query->close();
-            $link->close();
-        } else if ($range == 3) {
-            $query->bind_param('i', $range);
-            $query->execute();
-            $query->close();
-            $link->close();
-        } else if ($range == 4) {
-            $query->bind_param('i', $range);
-            $query->execute();
-            $query->close();
-            $link->close();
-        } else if ($range == 1) {
-            $query->bind_param('i', $range);
-            $query->execute();
-            $query->close();
-            $link->close();
-        } else {
-            echo 'something went wrong';
-        }
-
-
-        return true;
-    } catch (Exception $e) {
-        echo "<br> <h3> Error: " . $e->getMessage() . " <h3/>";
-        return false;
-    }
-}
