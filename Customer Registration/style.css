@@ -1,47 +1,103 @@
 body {
-	
-	background-image: url('https://unsplash.com/photos/VuPIUePS_vU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NTJ8fHZlaGljbGV8ZW58MHx8fHwxNzI4MjYyNDI1fDA&force=true');
-	background-size: 1366px 768px;
-	
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #a8e0ff, #ffd3a5);
 }
 
+.container {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 90%;
+    background: white;
+}
+
+.registration-form, .info-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.registration-form {
+    background: #f9f9f9;
+    border-right: 2px solid #ddd;
+    
+}
+
+.info-section {
+    text-align: center;
+    background: #f0f4f7;
+}
 
 h1 {
-	
-	text-align: center;	
+    margin: 0;
+    font-size: 24px;
 }
 
-.wrapper {	
-	
-	position: relative;
-	left: 35%;
-	width: 400px;
-	height: 620px;
-	border: 3px solid black;
-	border-radius: 10px;	
+p {
+    margin: 8px 0;
 }
 
-.login_form_box {
-	
-	padding-left: 40px;
+form {
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.form_text {
-	
-	font-weight: bold;	
+label {
+    margin-top: 12px;
 }
 
-.submit_btn {
-	
-	position: relative;
-	top: 15px;
-	background: steelBlue;
-	border-radius: 7px;
-	color: white;
-	font-size: 25px;	
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+    padding: 10px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
 }
 
-.input_box {
+input[type="checkbox"] {
+    margin-top: 10px;
+}
 
-	border-radius: 5px;
+.btn {
+    margin-top: 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
+a {
+    color: #ff9800;
+}
+
+.info-section .logo {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.logo img {
+    max-width: 85%; /* Ensures the image does not exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes any unwanted bottom spacing */
+    margin: 0 auto; /* Centers the image if the container has a defined width */
+}
+
+.terms-container {
+    display: flex;
+    
+}
+
+.terms-container label {
+    margin-left: 5px; /* Adds a little space between the checkbox and label */
 }
