@@ -6,7 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #a8e0ff, #ffd3a5);
+    background: url('Desktop - 1 Login.png') no-repeat center center;
+    background-size: cover;
 }
 
 .container {
