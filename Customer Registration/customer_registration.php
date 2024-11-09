@@ -1,3 +1,43 @@
+<?php
+include '../db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $address = $_POST['address'];
+    $username = $_POST['username'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm-password'];
+
+    // Simple validation
+    if ($password !== $confirmPassword) {
+        echo "Passwords do not match!";
+        exit;
+    }
+
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    // Insert user data into the database
+    $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, address, username, mobile, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $firstName, $lastName, $address, $username, $mobile, $email, $hashedPassword);
+
+    if ($stmt->execute()) {
+        echo "Registration successful!";
+        header("Location: ../Customer Login/customer_login.php"); // Redirect to login page
+        exit;
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +51,18 @@
         <div class="registration-form">
             <h1>Welcome!</h1>
             <p>Already have an account? <a href="../Customer Login/customer_login.php">Log In</a></p>
-            <form method="POST" action="customer_login.php">
+            <form method="POST" action="">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required>
 
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
 
                 <label for="address">Address:</label>
-                <input type="text" id="address" class="form-control" placeholder="Address" required>
+                <input type="text" id="address" name="address" class="form-control" placeholder="Address" required>
 
                 <label for="username">Username:</label>
-                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
                 
                 <label for="mobile">Mobile Number</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
@@ -54,3 +94,4 @@
     </div>
 </body>
 </html>
+
