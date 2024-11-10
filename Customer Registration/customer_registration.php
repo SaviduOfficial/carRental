@@ -1,46 +1,56 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Page Title</title>
-	<link rel="stylesheet" href="style.css">
-	
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <div class="registration-form">
+            <h1>Welcome!</h1>
+            <p>Already have an account? <a href="../Customer Login/customer_login.php">Log In</a></p>
+            <form method="POST" action="customer_login.php">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
 
-	<div class="wrapper">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
 
-		<h1>Customer Registration</h1>
-		
-		<div class="login_form_box">
-			<form method="post" id="signup_form">
-			
-				<p class="form_text">First name:</p>
-				<input class="input_box" type="text" placeholder="First Name" required="">
-				
-				<p class="form_text">Last name:</p>
-				<input class="input_box" type="text" placeholder="Last Name" required="">
-				
-				<p class="form_text">Username</p>
-				<input class="input_box" type="text" placeholder="Username" required="">
-				
-				<p class="form_text">Password</p>
-				<input class="input_box" type="password" placeholder="Password" required="">
-			
-				<p class="form_text">Address</p>
-				<input class="input_box" type="text" placeholder="Address" required="">
+                <label for="address">Address:</label>
+                <input type="text" id="address" class="form-control" placeholder="Address" required>
 
-				<p class="form_text">Contact Number</p>
-				<input class="input_box" type="number" placeholder="Contact Number" required="">
-				
-				<p class="form_text">Email</p>
-				<input class="input_box" type="email" placeholder="Email Address" required=""><br/>
-				
-				<button type="submit" class="submit_btn">Submit</button>
-				
-			</form>
-		</div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
 
-	</div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
 
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Your Password" required>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                
+                <div>
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I have read and agree to the <a href="#">Terms of Service</a></label>
+                </div>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+        <div class="info-section">
+            <div class="logo">
+                <img src="../VRSLOGO.PNG" alt="Company Logo">
+            </div>
+            <h2>Looking for a Rental Vehicle?</h2>
+            <p>Your journey starts here! Simply sign up to create your account and you'll be able to access and manage your bookings in no time.</p>
+        </div>
+    </div>
 </body>
+</html>
