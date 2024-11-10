@@ -1,16 +1,56 @@
 <?php
-include "config.php"; // Database connection
+include "../config.php"; // Database connection
+
+session_start();
+
+$_SESSION['selection'];
+$_SESSION['VehicleID'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the values from the form
+    if($_SESSION['selection'] === 'mileage'){
+        $vehicleID = $_SESSION['VehicleID'];
+        $Mileage = $_POST['Mileage'];
+
+            $query = "UPDATE registered_vehicles 
+            SET  Milage = ? 
+            WHERE VehicleID = ?";
+            
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ss", $Mileage, $vehicleID);
+
+
+        if ($stmt->execute()) {
+        echo "Vehicle details updated successfully.";
+        } else {
+        echo "Error updating vehicle details.";
+        }
+
+        $stmt->close();
+        }
+    $conn->close();
+
+
+
+
+    }else{
+
     $vehicleID = $_POST['VehicleID'];
-    $color = $_POST['Color'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+    $Mileage = $_POST['Mileage'];
     // Add other fields here if necessary
 
-    // Update query (e.g., update the color)
-    $query = "UPDATE registered_vehicles SET Color = ? WHERE VehicleID = ?";
+    // Update query to set multiple fields
+    $query = "UPDATE registered_vehicles 
+              SET First_Name = ?, Last_Name = ?, email = ?, contact_Number = ?, Milage = ? 
+              WHERE VehicleID = ?";
+              
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $color, $vehicleID);
+    $stmt->bind_param("ssssss", $fname, $lname, $email, $contact, $Mileage, $vehicleID);
+    
     
     if ($stmt->execute()) {
         echo "Vehicle details updated successfully.";
@@ -19,8 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt->close();
+    $conn->close();
 }
-$conn->close();
+
 
 
 
