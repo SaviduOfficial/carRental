@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2024 at 07:10 PM
+-- Generation Time: Nov 10, 2024 at 01:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,6 +73,9 @@ CREATE TABLE `bookings` (
   `CustomerID` varchar(25) DEFAULT NULL,
   `First_Name` varchar(25) DEFAULT NULL,
   `Last_Name` varchar(25) DEFAULT NULL,
+  `contact_Number` varchar(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `paid_unpaid` varchar(10) DEFAULT 'unpaid',
   `Rental_chage` varchar(25) DEFAULT NULL,
   `image_1` varchar(255) DEFAULT NULL,
   `initialMileage` varchar(8) NOT NULL,
@@ -118,9 +121,10 @@ CREATE TABLE `registered_vehicles` (
   `Regi_No_p1` varchar(5) DEFAULT NULL,
   `Regi_No_p2` varchar(5) DEFAULT NULL,
   `Fuel_type` varchar(25) DEFAULT NULL,
+  `transmission` varchar(9) DEFAULT NULL,
   `colour` varchar(25) DEFAULT NULL,
   `availability` varchar(6) DEFAULT NULL,
-  `Renatal_charge` varchar(25) DEFAULT NULL,
+  `Renatal_charge` varchar(35) DEFAULT NULL,
   `image_1` varchar(255) DEFAULT NULL,
   `image_2` varchar(255) DEFAULT NULL,
   `image_3` varchar(255) DEFAULT NULL,
@@ -128,6 +132,20 @@ CREATE TABLE `registered_vehicles` (
   `image_5` varchar(255) DEFAULT NULL,
   `image_6` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `registered_vehicles`
+--
+
+INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`) VALUES
+('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125000', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
+('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg'),
+('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg'),
+('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg'),
+('SSB7055', 'Car', 'Savidu', 'Illankoon', 'savidu@gmail.com', '0779634865', 'Nissan', '240SX', '2000', '2501cc - 3000cc', '51000', 'SSB', '7055', 'Petrol 95 Octane', 'Manual', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/blacknissan1.jpg', 'uploads/blacknissan2.jpg', 'uploads/blacknissan3.jpg', 'uploads/blacknissan4.jpg', 'uploads/blacknissan5.jpg', 'uploads/blacknissan6.jpg'),
+('TK1155', 'Bike', 'amila', 'rajaraththna', 'amilai@gmail.com', '0771114565', 'Bajaj', 'CT 100', '2015', '100cc - 150 cc', '5000', 'TK', '1155', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/ct1001.jpg', 'uploads/ct1002.jpg', 'uploads/ct1003.jpg', 'uploads/ct1004.jpg', 'uploads/ct1005.jpg', 'uploads/ct1006.jpg'),
+('YP8555', 'Tuk-Tuk', 'bluetuk', 'BeGamini', 'bluegamini@gmail.com', '0771112860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35025', 'YP', '8555', 'Petrol 92 Octane', 'Manual', 'Blue', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/bluetuk1.jpg', 'uploads/bluetuk2.jpg', 'uploads/bluetuk3.jpg', 'uploads/bluetuk4.jpg', 'uploads/bluetuk5.jpg', 'uploads/bluetuk6.jpg'),
+('YP8575', 'Tuk-Tuk', 'redtuk', 'Gamini', 'gamini@gmail.com', '0778222860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35000', 'YP', '8575', 'Petrol 92 Octane', 'Manual', 'Red', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/redtuk1.jpg', 'uploads/redtuk2.jpg', 'uploads/redtuk3.jpg', 'uploads/redtuk4.jpg', 'uploads/redtuk5.jpg', 'uploads/redtuk6.jpg');
 
 -- --------------------------------------------------------
 

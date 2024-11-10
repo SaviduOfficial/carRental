@@ -1,0 +1,347 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+
+}
+  
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+}
+
+.navbar{
+    top: 0;
+    left: 0;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+
+
+.logo{
+    width: 150px;
+    height: 120px;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px ;
+    border-radius: 50%;
+
+}
+
+.navbar_list ul li{
+    list-style:none;
+    display:inline-block;
+    margin: 0 20px;
+    position: relative;
+    margin-top: 40px;
+
+}
+
+.navbar_list ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.navbar_list ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: palevioletred;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar_list ul li:hover::after{
+    width: 100%;
+}
+
+.hamburger {
+  top: 4rem;
+  right: 1rem;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50px;
+  z-index: 1500;
+  margin-top: 30px;
+
+}
+
+.hamburger:before,
+.hamburger:after,
+.hamburger div {
+  background: #fff;
+  content: "";
+  display: none;
+  height: 6px;
+  border-radius: 3px;
+  margin: 7px 0;
+  transition: 0.5s;
+}
+
+
+
+
+.hamburger:hover:before {
+  transform: translateY(12px) rotate(135deg);
+
+}
+.hamburger:hover:after {
+  transform: translateY(-12px) rotate(-135deg);
+
+}
+.hamburger:hover div {
+  transform: scale(0);
+
+}
+ 
+.gallery #ts1 {
+    text-align: center;
+
+}
+
+.gallery h3{
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+
+
+.gallery{
+    margin-top: 165px;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: left;
+
+}
+
+
+.gallery .content{
+    width: 100%;
+    margin: 15px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-top: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    transition: 0.4s;
+    background-color: rgba(221, 227, 233, 0.952);
+    overflow: hidden;
+    height:auto;
+    padding-bottom: 50px;
+    
+
+}
+
+
+
+.gallery #BC {
+    width: 95%;
+    height: 60%;
+    text-align: left;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+#header {
+    margin-top: 173px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 40px;
+    color: white;
+    background: 100%;
+    background-color: black;
+    opacity: 0.8;
+
+}
+
+
+.btn {
+    margin-top: 20px;
+    background-color: #24272b;
+    color: #c0c7d6;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: 0.3s;
+    margin-left: -250px;
+    
+  }
+  
+  .btn:hover {
+    background-color: #000000;
+    box-shadow: 0 0 0 5px #051c3d5f;
+    color: #fff;
+  }
+  
+
+.gallery .textstyle p{
+    font-size: 16px;
+    text-align: left;
+    color: black;
+    margin: 2px;
+    overflow: hidden;
+    margin-left: 40px;
+
+}
+
+/* Container for the whole image gallery */
+.image-gallery {
+    display: flex; /* Arrange items in a row */
+    align-items: flex-start; /* Align items to the top */
+    gap: 10px; /* Space between the large and small images */
+}
+
+/* Style for the large image on the left */
+.large-image {
+    width: 700px; /* Adjust as needed */
+    margin-left: 40px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.gallery .textstyle .smallimages{
+
+    width: 130px; /* Set desired width */
+    height: 100px; /* Set desired height */
+    object-fit: cover; /* Scale and crop the image to fill the box */
+    margin-left: 20px; /* Adjust as needed for positioning */
+    border-radius: 5px; /* Optional: round the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for better appearance */
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+
+.gallery .textstyle h1{
+    font-size: 35px;
+    text-align: left;
+    color: black;
+    margin-top: 20px;
+    margin-left: 40px;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+}
+
+
+@media (max-width:800px){
+   .gallery h3{
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+    padding-top: 10px;
+    }
+
+    .gallery p{
+    text-align: center;
+    font-size: 8px;
+    margin: 0;
+    padding-top: 0px;
+    display: none;
+    }
+
+    .gallery h4{
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+    padding-top: 5px;
+    }
+
+}
+
+
+@media (max-width: 800px){
+
+    .hamburger:before,
+    .hamburger:after,
+    .hamburger div{
+        background: #fff;
+        content: "";
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        margin: 7px 0;
+        transition: 0.5s;
+        cursor: pointer;
+
+    }
+
+    .navbar_list ul{
+        height: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: black;
+        opacity: 0.85;
+        transition: 0.5s;
+        z-index: 1000;
+        text-align: center;
+        overflow: hidden;
+
+    }
+
+    .navbar_list ul li{
+        display: block;
+        width: fit-content;
+        margin: 60px auto 0 auto;
+        text-align: center;
+        transition: 0.4s;
+    }
+
+    .navbar_list ul.active{
+       height: 530px;
+       transition: height 0.4s ease-in-out;
+   }
+
+   .logo{
+        width: 140px;
+        height: 100px;
+        cursor: pointer;
+        margin-left: 35px;
+        margin-top: 20px;
+        border-radius: 50%;
+
+    }
+
+    .navbar {
+        position: fixed; /* Fixed position to keep it at the top */
+        width: 100%;    /* Make the navigation bar full width */
+        z-index: 100;    /* Ensure the navigation bar is on top of other content */
+    }
+
+
+  
+    
+  
+}
+
+
+
+
+
+
+
+
+

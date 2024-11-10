@@ -199,5 +199,110 @@ function vehicleRental($Finalmileage, $cost, $addtional){
 
 
 
+// check uploads folder file names before saving
+
+function checkFileExists($fileName, $uploadDir) {
+    // Check if the file already exists in the directory
+    $targetFile = $uploadDir . basename($fileName);
+    
+    if (file_exists($targetFile)) {
+        // Return true if file exists, so you can show the message
+        return true;
+    } else {
+        // Return false if file does not exist
+        return false;
+    }
+}
+
+
+//Booking Confirmation
+
+function insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
+$Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, $Last_Name, $contact_Number, 
+$email, $image_1, $initialMileage) {
+
+    $sql = "INSERT INTO bookings (Booking_Date, Return_Date, Pickup_address, VehicleID, Vehicle_type, Vehicle_make, 
+    Vehicle_model, Regi_no_p1, Regi_no_p2, Fuel_type, colour, CustomerID, First_Name, Last_Name, contact_Number, 
+    email, image_1, initialMileage)
+
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type,
+     $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, 
+     $Last_Name, $contact_Number, $email, $image_1, $initialMileage);
+    
+    if ($stmt->execute()) {
+        echo "Booking inserted successfully.";
+         // Get the last inserted ID (BID)
+        $BID = $conn->insert_id;
+
+        // Store BID in session to access it on the receipt page
+        $_SESSION['BID'] = $BID;
+        /*header("location: ./BookingRecipt");*/
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+
+
+
+// for the Booking Receipt
+
+function getBookingDetails($conn, $BID) {
+    // Prepare the SQL query to retrieve all data from the bookings table for a specific BID
+    $sql = "SELECT * FROM bookings WHERE BID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $BID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if data is found, fetch it, and assign to variables
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Assign each field to a PHP variable
+        $BID = $row['BID'];
+        $Booking_Date = $row['Booking_Date'];
+        $Return_Date = $row['Return_Date'];
+        $Pickup_address = $row['Pickup_address'];
+        $VehicleID = $row['VehicleID'];
+        $Vehicle_type = $row['Vehicle_type'];
+        $Vehicle_make = $row['Vehicle_make'];
+        $Vehicle_model = $row['Vehicle_model'];
+        $Regi_no_p1 = $row['Regi_no_p1'];
+        $Regi_no_p2 = $row['Regi_no_p2'];
+        $Fuel_type = $row['Fuel_type'];
+        $colour = $row['colour'];
+        $CustomerID = $row['CustomerID'];
+        $First_Name = $row['First_Name'];
+        $Last_Name = $row['Last_Name'];
+        $contact_Number = $row['contact_Number'];
+        $email = $row['email'];
+        $paid_unpaid = $row['paid_unpaid'];
+        $Rental_charge = $row['Rental_chage'];
+        $image_1 = $row['image_1'];
+        $initialMileage = $row['initialMileage'];
+        $finalMileage = $row['finalMileage'];
+
+        // Return an associative array of all the variables
+        return compact(
+            'BID', 'Booking_Date', 'Return_Date', 'Pickup_address', 
+            'VehicleID', 'Vehicle_type', 'Vehicle_make', 'Vehicle_model', 
+            'Regi_no_p1', 'Regi_no_p2', 'Fuel_type', 'colour', 
+            'CustomerID', 'First_Name', 'Last_Name', 'contact_Number', 
+            'email', 'paid_unpaid', 'Rental_charge', 'image_1', 
+            'initialMileage', 'finalMileage'
+        );
+
+    } else {
+        return null; // Return null if no data found
+    }
+}
+
+
 
 //SUPER USER FUNCTIONS

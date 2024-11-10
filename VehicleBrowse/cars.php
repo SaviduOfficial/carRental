@@ -2,6 +2,9 @@
 // Connect to the database
 include "../config.php";
 
+
+session_start();
+
 // Query to fetch vehicle details
 $query = "SELECT * FROM registered_vehicles WHERE Vehicle_type = 'Car'";
 $result = $conn->query($query);
@@ -54,15 +57,18 @@ $result = $conn->query($query);
             <?php
                 // Loop through each vehicle in the result set and create a tile for each one
                 while ($row = $result->fetch_assoc()) {
+                    $vehicleID = $row['VehicleID'];
                     $vehicleImage = $row['image_1'];  
                     $vehicleMake = $row['Vehicle_make'];   
                     $vehicleModel = $row['Vehicle_model'];  
                     $vehicleRentPrice = $row['Renatal_charge'];  
+                    
                 ?>
 
 
                  <div class="content">
-                    <img src="images/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
+                 <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
+                    <img src="../vehicleRegister/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
                         <div class="textstyle">
                             <h3><?php echo $vehicleMake; ?></h3>
                             <p><?php echo $vehicleModel; ?></p>
