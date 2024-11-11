@@ -1,3 +1,38 @@
+<?php
+include '../db.php';
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Prepare and execute a query to fetch user data
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Verify password
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id']; // Set session variable
+            header("Location: ../Home/home.php"); // Redirect to home page
+            exit;
+        } else {
+            echo "Invalid password!";
+        }
+    } else {
+        echo "No user found with that username!";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +46,10 @@
         <div class="registration-form">
             <h1>Welcome!</h1>
             <p>Already have an account? <a href="../Customer Registration/customer_registration.php">Sign up</a></p>
-            <form method="POST" action="customer_login.php">
+            <form method="POST" action="">
                 
                 <label for="username">Username:</label>
-                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
                 
                 <label for="mobile">Mobile Number</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
