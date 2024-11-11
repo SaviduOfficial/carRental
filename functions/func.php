@@ -107,7 +107,7 @@ function usernameValidate($username, $link, $tablemame)
 function passwordCheck($password, $link, $uname)
 {
     if (passwordValidate($password)) {
-        $query = $link->prepare("SELECT passwords FROM userinfo WHERE username = ?;");
+        $query = $link->prepare("SELECT Customer_password FROM customers WHERE username = ?;");
         try {
             if ($query === false) {
                 die("prepare failed: " . $link->error);
