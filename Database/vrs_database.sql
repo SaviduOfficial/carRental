@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2024 at 01:39 PM
+-- Generation Time: Nov 11, 2024 at 06:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,7 +58,7 @@ CREATE TABLE `availability` (
 --
 
 CREATE TABLE `bookings` (
-  `BID` int(255) NOT NULL,
+  `BID` int(11) NOT NULL,
   `Booking_Date` varchar(25) DEFAULT NULL,
   `Return_Date` varchar(25) DEFAULT NULL,
   `Pickup_address` varchar(255) DEFAULT NULL,
@@ -82,6 +82,13 @@ CREATE TABLE `bookings` (
   `finalMileage` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, `VehicleID`, `Vehicle_type`, `Vehicle_make`, `Vehicle_model`, `Regi_no_p1`, `Regi_no_p2`, `Fuel_type`, `colour`, `CustomerID`, `First_Name`, `Last_Name`, `contact_Number`, `email`, `paid_unpaid`, `Rental_chage`, `image_1`, `initialMileage`, `finalMileage`) VALUES
+(1, '2024-11-11', '2024-11-13', 'myAddress', '3014568', 'Car', 'Mercedes-Benz', 'E320', '301', '4568', 'Petrol 95 Octane', 'Black', 'TestCust1', 'Test', 'Cust1', '0112742559', 'cust1@gmail.com', 'unpaid', '14000', 'uploads/benzblack1.jpg', '67100', '67200');
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +106,13 @@ CREATE TABLE `customers` (
   `Driving_license_No` varchar(25) DEFAULT NULL,
   `username` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`CID`, `First_Name`, `Last_Name`, `Address`, `email`, `Customer_password`, `Contact_number`, `Driving_license_No`, `username`) VALUES
+('TestCust1', 'Test', 'Cust1', 'myAddress', 'cust1@gmail.com', 'helloworld123', '0112742559', NULL, 'TestCust1');
 
 -- --------------------------------------------------------
 
@@ -138,7 +152,8 @@ CREATE TABLE `registered_vehicles` (
 --
 
 INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`) VALUES
-('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125000', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
+('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
+('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
 ('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg'),
 ('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg'),
 ('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg'),
@@ -154,10 +169,30 @@ INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `L
 --
 
 CREATE TABLE `rentalcharge` (
-  `ID` int(8) NOT NULL,
-  `EngineCapacity` varchar(10) NOT NULL,
-  `Cost` float NOT NULL
+  `ID` int(11) NOT NULL,
+  `EngineCapacity` varchar(30) NOT NULL,
+  `ratePerKm` decimal(10,2) DEFAULT NULL,
+  `additional_charge` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rentalcharge`
+--
+
+INSERT INTO `rentalcharge` (`ID`, `EngineCapacity`, `ratePerKm`, `additional_charge`) VALUES
+(1, 'less than 100cc', 20.00, 500.00),
+(2, '100cc - 150cc', 30.00, 500.00),
+(3, '151cc - 250cc', 30.00, 1000.00),
+(4, '251cc - 610cc', 40.00, 1000.00),
+(5, '611cc - 800cc', 40.00, 1000.00),
+(6, '801cc - 1000cc', 40.00, 1500.00),
+(7, '1001cc - 1300cc', 50.00, 1500.00),
+(8, '1301cc - 1500cc', 50.00, 2000.00),
+(9, '1501cc - 2000cc', 80.00, 2500.00),
+(10, '2001cc - 2500cc', 100.00, 3000.00),
+(11, '2501cc - 3000cc', 100.00, 4000.00),
+(12, 'more than 3000cc', 150.00, 5000.00),
+(13, 'Electric', 80.00, 2500.00);
 
 --
 -- Indexes for dumped tables
@@ -206,6 +241,22 @@ ALTER TABLE `registered_vehicles`
 --
 ALTER TABLE `rentalcharge`
   ADD PRIMARY KEY (`ID`,`EngineCapacity`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `rentalcharge`
+--
+ALTER TABLE `rentalcharge`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
