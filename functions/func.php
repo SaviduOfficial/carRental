@@ -184,6 +184,7 @@ function rentalchargeforvehicle($eCapacityvalue)
     }
 }
 
+//In the vehicle register table to assign values get form rental charge table to vehicles
 function getRentalChargeRate($eCapacityvalue)
 {
     // Include the database configuration file
@@ -225,17 +226,58 @@ function getRentalChargeRate($eCapacityvalue)
 }
 
 
+//rental charge calculation function part 1
+function totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity) {
+    include "../config.php";
+    global $conn; // Use the database connection established in config.php
+
+    // Calculate the mileage driven
+    $mileageDriven = $finalMilage - $initialMilage;
+
+    // Query the rentalcharge table to get ratePerKm and additional_charge for the provided engine capacity
+    $query = "SELECT ratePerKm, additional_charge FROM rentalcharge WHERE EngineCapacity = ?";
+    $stmt3 = $conn->prepare($query);
+    $stmt3->bind_param("s", $ecapacity);
+
+    if ($stmt3->execute()) {
+        $stmt3->bind_result($ratePerKm, $additional_charge);
+        if ($stmt3->fetch()) {
+            // Calculate the total rental charge using vehicleRentalAmount function
+            $totalCost = vehicleRentalAmount($mileageDriven, $ratePerKm, $additional_charge);
+            $stmt3->close();
+
+            // Update the bookings table with the calculated rental charge
+            $initialMilage = (string)$initialMilage;
+            $finalMilage =  (string)$finalMilage;
+            $totalCost = (string)$totalCost;
+
+            $updateQuery = "UPDATE bookings SET Rental_chage = ? WHERE VehicleID = ? AND initialMileage = ? AND finalMileage = ?";
+            $updateStmt = $conn->prepare($updateQuery);
+            $updateStmt->bind_param("ssss", $totalCost, $vehicleID, $initialMilage, $finalMilage);//convert to string
+
+            if ($updateStmt->execute()) {
+                echo "Booking record updated successfully with the total rental charge: $totalCost";
+            } else {
+                echo "Error updating the booking record.";
+            }
+
+            $updateStmt->close();
+        } else {
+            echo "No rental charge record found for engine capacity: $ecapacity.";
+        }
+    } else {
+        echo "Error executing rental charge query.";
+    }
+
+    
+}
 
 
 
-
-
-
-
-// Calculate Vehicle rental charge after a trip
-function vehicleRental($Finalmileage, $cost, $addtional)
+// Calculate rental charge function part 2
+function vehicleRentalAmount($MilageDriven, $RatePerkm, $addtional)
 {
-    $totalCost = $Finalmileage * $cost;
+    $totalCost = $MilageDriven * $RatePerkm;
     $totalCost += $addtional;
     return $totalCost;
 }

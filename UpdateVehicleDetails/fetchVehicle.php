@@ -19,12 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $vehicle = $result->fetch_assoc();
             // If "mileage" is selected, display mileage input as editable
             if ($selection === 'mileage') {
+                $_SESSION['Engine_capacity'] = $vehicle['Engine_capacity'];
                 $_SESSION['selection'] = $selection;
                 $_SESSION['Milage'] = $vehicle['Milage'];
 ?>
                 <form action="updateVehicle.php" method="POST">
-                    <h4>Vehicle ID: <?php echo $vehicle['VehicleID']; ?> (Read-Only)</h4>
-                    <h4>Registration Number: <?php echo $vehicle['Regi_No_p1'] . " - " . $vehicle['Regi_No_p2']; ?> (Read-Only)</h4>
+                    <h4>Vehicle ID: <?php echo $vehicle['VehicleID']; ?></h4>
+                    <h4>Registration Number: <?php echo $vehicle['Regi_No_p1'] . " - " . $vehicle['Regi_No_p2']; ?></h4>
                     <?php $_SESSION['VehicleID'] = $vehicle['VehicleID']; ?>
 
                     <div>
@@ -84,6 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         <label for="Fuel_type">Fuel Type:</label>
                         <input type="text" id="Fuel_type" name="Fuel_type" value="<?php echo $vehicle['Fuel_type']; ?>" readonly>
                     </div>
+
+                    <?php $_SESSION['Engine_capacity'] = $vehicle['Engine_capacity']; ?>
 
                     <button type="submit">Update Vehicle</button>
                 </form>

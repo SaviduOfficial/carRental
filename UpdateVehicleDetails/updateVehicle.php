@@ -1,11 +1,16 @@
 <?php
 include "../config.php"; // Database connection
+include "../functions/func.php";
 
 session_start();
 
 $_SESSION['selection'];
 $_SESSION['VehicleID'];
 $_SESSION['Milage'];
+$_SESSION['Engine_capacity'];
+$initialMilage = $_SESSION['Milage'];
+
+$proceed = false;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -28,12 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Second update: Update final mileage in the bookings table
             $query2 = "UPDATE bookings 
                 SET finalMileage = ? 
-                WHERE VehicleID = ? && initialMileage = ? ";
+                WHERE VehicleID = ? AND initialMileage = ? ";
             $stmt2 = $conn->prepare($query2);
             $stmt2->bind_param("sss", $Mileage, $vehicleID, $oldMilage);
 
             if ($stmt2->execute()) {
                 echo "Final mileage in bookings table updated successfully.";
+                $proceed = true;
             } else {
                 echo "Error updating final mileage in bookings table.";
             }
@@ -45,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt->close();
     }
-    $conn->close();
+    
 } else {
 
     $vehicleID = $_POST['VehicleID'];
@@ -78,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt2->execute()) {
             echo "Final mileage in bookings table updated successfully.";
+            $initialMilage = $oldMilage;
+            $proceed = true;
         } else {
             echo "Error updating final mileage in bookings table.";
         }
@@ -88,11 +96,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt->close();
-    $conn->close();
+    
+}
+ 
+$finalMilage = $Mileage;
+
+if($proceed == true){
+
+    $ecapacity = $_SESSION['Engine_capacity'];
+    totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity);
+
 }
 
-
-
+$conn->close();
 
 //updating booking database milage 
 
