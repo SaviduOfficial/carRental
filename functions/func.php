@@ -143,68 +143,113 @@ function passwordCheck($password, $link, $uname)
 
 
 //initial rental charge for a vehicle
-function rentalchargeforvehicle($eCapacityvalue){
-    if($eCapacityvalue == "less than 100cc"){
-        return "Rs.20.00 perKm + Rs.500.00";
+function rentalchargeforvehicle($eCapacityvalue)
+{
 
-    }elseif($eCapacityvalue == "100cc - 150 cc"){
-        return "Rs.30.00 perKm + Rs.500.00";
+    $result = getRentalChargeRate($eCapacityvalue);
 
-    }elseif($eCapacityvalue == "151cc - 250cc"){
-        return "Rs.30.00 perKm + Rs.1000.00";
+    if ($result) {
+        $ratePerKm = $result['ratePerKm'];
+        $additionalCharge = $result['additional_charge'];
+   
+        if ($eCapacityvalue == "less than 100cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "100cc - 150 cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "151cc - 250cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "251cc - 610cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "611cc - 800cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "801cc - 1000cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "1001cc - 1300cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "1301cc - 1500cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "1501cc - 2000cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "2001cc - 2500cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "2501cc - 3000cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "more than 3000cc") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        } elseif ($eCapacityvalue == "Electric") {
+            return "Rs.$ratePerKm perKm + Rs.$additionalCharge";
+        }
+    } else {
+        echo "Data not found or error occurred."; //check this works and make a function to change rates by admin
+    }
+}
 
-    }elseif($eCapacityvalue == "251cc - 610cc"){
-        return "Rs.40.00 perKm + Rs.1000.00";
+function getRentalChargeRate($eCapacityvalue)
+{
+    // Include the database configuration file
+    include "../config.php"; // Update with the correct path to your config file
 
-    }elseif($eCapacityvalue == "611cc - 800cc"){
-        return "Rs.40.00 perKm + Rs.1000.00";
+    // Prepare the query to fetch ratePerKm and additional_charge for the specified EngineCapacity
+    $query = "SELECT ratePerKm, additional_charge FROM rentalcharge WHERE EngineCapacity = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $eCapacityvalue); // "s" specifies that $eCapacityvalue is a string
 
-    }elseif($eCapacityvalue == "801cc - 1000cc"){
-        return "Rs.40.00 perKm + Rs.1500.00";
+    // Execute the query
+    if ($stmt->execute()) {
+        // Bind the result to PHP variables
+        $stmt->bind_result($ratePerKm, $additional_charge);
 
-    }elseif($eCapacityvalue == "1001cc - 1300cc"){
-        return "Rs.50.00 perKm + Rs.1500.00";
+        // Fetch the result
+        if ($stmt->fetch()) {
+            // Close the statement and connection
+            $stmt->close();
+            $conn->close();
 
-    }elseif($eCapacityvalue == "1301cc - 1500cc"){
-        return "Rs.50.00 perKm + Rs. 2000.00";
-
-    }elseif($eCapacityvalue == "1501cc - 2000cc"){
-        return "Rs.80.00 perKm + Rs.2500.00";
-
-    }elseif($eCapacityvalue == "2001cc - 2500cc"){
-        return "Rs.100.00 perKm + Rs.3000.00";
-
-    }elseif($eCapacityvalue == "2501cc - 3000cc"){
-        return "Rs.100.00 perKm + Rs.4000.00";
-
-    }elseif($eCapacityvalue == "more than 3000cc"){
-        return "Rs.150.00 perKm + Rs.5000.00";
-
-    }elseif($eCapacityvalue == "Electric"){
-        return "Rs.80.00 perKm + Rs.2500.00";
+            // Return the results as an associative array
+            return [
+                'ratePerKm' => $ratePerKm,
+                'additional_charge' => $additional_charge
+            ];
+        } else {
+            echo "No data found for EngineCapacity: $eCapacityvalue.";
+        }
+    } else {
+        echo "Error executing query.";
     }
 
+    // Close the statement and connection in case of failure
+    $stmt->close();
+    $conn->close();
 
+    return null; // Return null if no data found or on error
 }
 
 
+
+
+
+
+
+
+
 // Calculate Vehicle rental charge after a trip
-function vehicleRental($Finalmileage, $cost, $addtional){
-        $totalCost = $Finalmileage * $cost;
-        $totalCost += $addtional;
-        return $totalCost;
-    
-    }
+function vehicleRental($Finalmileage, $cost, $addtional)
+{
+    $totalCost = $Finalmileage * $cost;
+    $totalCost += $addtional;
+    return $totalCost;
+}
 
 
 
 
 // check uploads folder file names before saving
 
-function checkFileExists($fileName, $uploadDir) {
+function checkFileExists($fileName, $uploadDir)
+{
     // Check if the file already exists in the directory
     $targetFile = $uploadDir . basename($fileName);
-    
+
     if (file_exists($targetFile)) {
         // Return true if file exists, so you can show the message
         return true;
@@ -217,24 +262,60 @@ function checkFileExists($fileName, $uploadDir) {
 
 //Booking Confirmation
 
-function insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
-$Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, $Last_Name, $contact_Number, 
-$email, $image_1, $initialMileage) {
+function insertBooking(
+    $conn,
+    $Booking_Date,
+    $Return_Date,
+    $Pickup_address,
+    $VehicleID,
+    $Vehicle_type,
+    $Vehicle_make,
+    $Vehicle_model,
+    $Regi_no_p1,
+    $Regi_no_p2,
+    $Fuel_type,
+    $colour,
+    $CustomerID,
+    $First_Name,
+    $Last_Name,
+    $contact_Number,
+    $email,
+    $image_1,
+    $initialMileage
+) {
 
     $sql = "INSERT INTO bookings (Booking_Date, Return_Date, Pickup_address, VehicleID, Vehicle_type, Vehicle_make, 
     Vehicle_model, Regi_no_p1, Regi_no_p2, Fuel_type, colour, CustomerID, First_Name, Last_Name, contact_Number, 
     email, image_1, initialMileage)
 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
+
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type,
-     $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, 
-     $Last_Name, $contact_Number, $email, $image_1, $initialMileage);
-    
+    $stmt->bind_param(
+        "ssssssssssssssssss",
+        $Booking_Date,
+        $Return_Date,
+        $Pickup_address,
+        $VehicleID,
+        $Vehicle_type,
+        $Vehicle_make,
+        $Vehicle_model,
+        $Regi_no_p1,
+        $Regi_no_p2,
+        $Fuel_type,
+        $colour,
+        $CustomerID,
+        $First_Name,
+        $Last_Name,
+        $contact_Number,
+        $email,
+        $image_1,
+        $initialMileage
+    );
+
     if ($stmt->execute()) {
         echo "Booking inserted successfully.";
-         // Get the last inserted ID (BID)
+        // Get the last inserted ID (BID)
         $BID = $conn->insert_id;
 
         // Store BID in session to access it on the receipt page
@@ -252,7 +333,8 @@ $email, $image_1, $initialMileage) {
 
 // for the Booking Receipt
 
-function getBookingDetails($conn, $BID) {
+function getBookingDetails($conn, $BID)
+{
     // Prepare the SQL query to retrieve all data from the bookings table for a specific BID
     $sql = "SELECT * FROM bookings WHERE BID = ?";
     $stmt = $conn->prepare($sql);
@@ -290,14 +372,29 @@ function getBookingDetails($conn, $BID) {
 
         // Return an associative array of all the variables
         return compact(
-            'BID', 'Booking_Date', 'Return_Date', 'Pickup_address', 
-            'VehicleID', 'Vehicle_type', 'Vehicle_make', 'Vehicle_model', 
-            'Regi_no_p1', 'Regi_no_p2', 'Fuel_type', 'colour', 
-            'CustomerID', 'First_Name', 'Last_Name', 'contact_Number', 
-            'email', 'paid_unpaid', 'Rental_charge', 'image_1', 
-            'initialMileage', 'finalMileage'
+            'BID',
+            'Booking_Date',
+            'Return_Date',
+            'Pickup_address',
+            'VehicleID',
+            'Vehicle_type',
+            'Vehicle_make',
+            'Vehicle_model',
+            'Regi_no_p1',
+            'Regi_no_p2',
+            'Fuel_type',
+            'colour',
+            'CustomerID',
+            'First_Name',
+            'Last_Name',
+            'contact_Number',
+            'email',
+            'paid_unpaid',
+            'Rental_charge',
+            'image_1',
+            'initialMileage',
+            'finalMileage'
         );
-
     } else {
         return null; // Return null if no data found
     }

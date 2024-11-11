@@ -5,35 +5,48 @@ session_start();
 
 $_SESSION['selection'];
 $_SESSION['VehicleID'];
+$_SESSION['Milage'];
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the values from the form
-    if($_SESSION['selection'] === 'mileage'){
+    if ($_SESSION['selection'] === 'mileage') {
         $vehicleID = $_SESSION['VehicleID'];
         $Mileage = $_POST['Mileage'];
 
-            $query = "UPDATE registered_vehicles 
+        $query = "UPDATE registered_vehicles 
             SET  Milage = ? 
             WHERE VehicleID = ?";
-            
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("ss", $Mileage, $vehicleID);
+
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ss", $Mileage, $vehicleID);
 
 
         if ($stmt->execute()) {
-        echo "Vehicle details updated successfully.";
+            echo "Vehicle details updated successfully.";
+            $oldMilage = $_SESSION['Milage'];
+            // Second update: Update final mileage in the bookings table
+            $query2 = "UPDATE bookings 
+                SET finalMileage = ? 
+                WHERE VehicleID = ? && initialMileage = ? ";
+            $stmt2 = $conn->prepare($query2);
+            $stmt2->bind_param("sss", $Mileage, $vehicleID, $oldMilage);
+
+            if ($stmt2->execute()) {
+                echo "Final mileage in bookings table updated successfully.";
+            } else {
+                echo "Error updating final mileage in bookings table.";
+            }
+
+            $stmt2->close();
         } else {
-        echo "Error updating vehicle details.";
+            echo "Error updating vehicle details.";
         }
 
         $stmt->close();
-        }
+    }
     $conn->close();
-
-
-
-
-    }else{
+} else {
 
     $vehicleID = $_POST['VehicleID'];
     $fname = $_POST['fname'];
@@ -47,13 +60,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "UPDATE registered_vehicles 
               SET First_Name = ?, Last_Name = ?, email = ?, contact_Number = ?, Milage = ? 
               WHERE VehicleID = ?";
-              
+
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ssssss", $fname, $lname, $email, $contact, $Mileage, $vehicleID);
-    
-    
+
+
     if ($stmt->execute()) {
         echo "Vehicle details updated successfully.";
+
+        $oldMilage = $_SESSION['Milage'];
+        // Second update: Update final mileage in the bookings table
+        $query2 = "UPDATE bookings 
+             SET finalMileage = ? 
+             WHERE VehicleID = ? && initialMileage = ? ";
+        $stmt2 = $conn->prepare($query2);
+        $stmt2->bind_param("sss", $Mileage, $vehicleID, $oldMilage);
+
+        if ($stmt2->execute()) {
+            echo "Final mileage in bookings table updated successfully.";
+        } else {
+            echo "Error updating final mileage in bookings table.";
+        }
+
+        $stmt2->close();
     } else {
         echo "Error updating vehicle details.";
     }
@@ -69,6 +98,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 //check for last booking date, mialge, vehicle id and if all equal update the booking table. else dont.
 // date need to be formated as same everywhere
-
-
-?>
