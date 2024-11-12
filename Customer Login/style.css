@@ -102,3 +102,13 @@ a {
 .terms-container label {
     margin-left: 5px; /* Adds a little space between the checkbox and label */
 }
+
+#admin_btn {	
+	color: white;
+	background-color: #ff9800;
+	margin-top: 40px;
+	width: 100px;
+	height: 30px;
+	border-radius: 3px;
+	float: right;
+}

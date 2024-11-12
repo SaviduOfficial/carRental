@@ -1,77 +1,81 @@
 <?php
-	include '../config.php';
+include '../db.php';
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $adusername = $_POST['adusername'];
+    $adpassword = $_POST['adpassword'];
+
+    // Prepare and execute a query to fetch user data
+    $stmt = $conn->prepare("SELECT adid, adpassword FROM admins WHERE adusername = ?");
+    $stmt->bind_param("s", $adusername);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Verify password
+        if (password_verify($adpassword, $row['adpassword'])) {
+            $_SESSION['aduser_id'] = $row['adid']; // Set session variable
+            header("Location: ../Home/home.php"); // Redirect to home page
+            exit;
+        } else {
+            echo "Invalid password!";
+        }
+    } else {
+        echo "No user found with that username!";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Customer Login</title>
-	<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <div class="registration-form">
+            <h1>Admin Login Portal</h1>
+           
+			<br>
+			<p>Not an Admin? <a href="../Customer Login/customer_login.php">Log In As a Customer</a></p>
+            <form method="POST" action="">
+                
+                <label for="username">Username:</label>
+                <input type="text" id="adusername" name="adusername" class="form-control" placeholder="Username" required>
+                
+                <!-- <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
 
-	<div class="container">
-	
-		<div class="registration-form">
-			
-			<h1>Admin Login Portal</h1>
-			
-			<p>Not an Admin? <a href="../Customer Login/customer_login.php">Log In As a Customer</a></p>		
-			
-			<form method="post">	
-				
-				<label for="username" class="label_block">Username:</label>
-				<input type="text" placeholder="Username" id="username" class="input_styling" name="username" required>			
-				<label for="password" class="label_block">Password:</label>
-				<input type="password" placeholder="Enter a password" id="password" class="input_styling" name="password" required>
-				
-				<input type="submit" value="Login" id="login_btn">				
-		
-			</form>
-			
-			
-		
-		</div>
-		
-		<div class="info-section">
-		
-			<img src="../VRSLOGO.png" alt="Company Logo" id="logo">
-			
-			<!-- <h1>Looking for a Rental Vehicle?</h1>
-			<p>Your journey starts here! Simply sign up to create your account and you'll be 
-			able to access and manage your bookings in no time.</p> -->
-			
-		</div>
-		
-	</div>	
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required> -->
+				<br>
+                <label for="adpassword">Password</label>
+                <input type="password" id="adpassword" name="adpassword" placeholder="Your Password" required>
 
+				<br>
+				<br>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+			<button type="button" class="btn" id="admin_btn" onclick="window.location.href='../Admin Interface/admin_login.php'">Admin Login</button>
+
+        </div>
+        <!-- <div class="info-section">
+            <div class="logo">
+                <img src="../VRSLOGO.PNG" alt="Company Logo">
+            </div>
+            <h2>Looking for a Rental Vehicle?</h2>
+            <p>Your journey starts here! Simply sign up to create your account and you'll be able to access and manage your bookings in no time.</p>
+        </div> -->
+    </div>
 </body>
 </html>
-
-<?php
-
-	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		
-		$res = mysqli_query($conn, "SELECT * FROM customers WHERE username='$username' AND Customer_password='$password'");
-			
-			if(mysqli_num_rows($res) == 1){				
-				
-				?><script>alert("success");</script><?php
-				
-			}
-			else{
-				
-				?><script>alert("Incorrect Credentials!");</script><?php
-				
-			}	
-	
-	}
-
-?>

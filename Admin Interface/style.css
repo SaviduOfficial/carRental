@@ -1,83 +1,106 @@
 body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;  
-	align-items: center;
-	height: 100vh;
-	background: url('Desktop - 1 Login.png') no-repeat center center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('Desktop - 1 Login.png') no-repeat center center;
     background-size: cover;
 }
 
 .container {
-	display: flex;
-	width: 52%;
-	border-radius: 20px 20px 20px 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 90%;
+    background: white;
 }
 
 .registration-form, .info-section {
-	padding: 10px;
-	flex: 1;
+    padding: 20px;
+    flex: 1;
 }
 
 .registration-form {
-	background-color: #f9f9f9;
-	border-radius: 20px 0px 0px 20px;
+    background: #f9f9f9;
+    border-right: 2px solid #ddd;
+    
 }
 
 .info-section {
-	
-	background-color: #f0f4f7;
-	text-align: center;
-	border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    background: #f0f4f7;
 }
 
-/*Making labels block-level*/
-.label_block {
-	display: block;
+h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
-/*Styling form input fields*/
-.input_styling {
-	width: 300px;
-	height: 30px;
-	border-radius: 5px;
-	border-style: solid;
-	border-color: #ff9800;
-	margin-top: 3px;
+p {
+    margin: 8px 0;
 }
 
-/*Anchor tags styling*/
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+label {
+    margin-top: 12px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+    padding: 10px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
 a {
-	color: #ff9800;
+    color: #ff9800;
 }
 
-/*Form submit button*/
-#login_btn {
-	color: white;
-	background-color: #ff9800;
-	margin-top: 15px;
-	width: 308px;
-	height: 35px;
-	border-radius: 5px;
-	cursor: pointer;
+.info-section .logo {
+    font-size: 40px;
+    margin-bottom: 20px;
 }
-
-#login_btn:hover {
-	background-color: #e68900;
-}
-
-.label_block{
-	margin-top: 20px;/*Margin above input labels*/
-}
-
-#logo {
-	max-width: 85%; /* Ensures the image does not exceed the width of its container */
+.logo img {
+    max-width: 85%; /* Ensures the image does not exceed the width of its container */
     height: auto; /* Maintains the aspect ratio */
     display: block; /* Removes any unwanted bottom spacing */
     margin: 0 auto; /* Centers the image if the container has a defined width */
+}
+
+.terms-container {
+    display: flex;
+    
+}
+
+.terms-container label {
+    margin-left: 5px; /* Adds a little space between the checkbox and label */
 }
 
 #admin_btn {	
@@ -89,11 +112,3 @@ a {
 	border-radius: 3px;
 	float: right;
 }
-
-#admin_login_anchor {
-	color: white;
-	text-decoration: none;
-}
-
-
-

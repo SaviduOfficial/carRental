@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
+    exit;
+}
+
+$username = $_SESSION['username']; // Retrieve the username from the session
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +30,7 @@
             <a class="nav-link" href="#">Home</a>
             <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
             <a class="nav-link" href="#">Contact</a>
-            <span class="nav-link">User001 | <a href="#" class="text-danger">Log Out</a></span>
+            <span class="nav-link"><?php echo htmlspecialchars($username); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
     </nav>
 
