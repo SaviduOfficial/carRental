@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adpassword = $_POST['adpassword'];
 
     // Prepare and execute a query to fetch user data
-    $stmt = $conn->prepare("SELECT adid, adpassword FROM admins WHERE adusername = ?");
+    $stmt = $conn->prepare("SELECT adid, adusername, adpassword FROM admins WHERE adusername = ?");
     $stmt->bind_param("s", $adusername);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verify password
         if (password_verify($adpassword, $row['adpassword'])) {
             $_SESSION['aduser_id'] = $row['adid']; // Set session variable
-            header("Location: ../Home/home.php"); // Redirect to home page
+            $_SESSION['adusername'] = $row['adusername']; // Set session variable for username
+
+            header("Location: ../Admin Interface/admin_home.php"); // Redirect to home page
             exit;
         } else {
             echo "Invalid password!";
@@ -66,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<br>
                 <button type="submit" class="btn">Sign In</button>
             </form>
-			<button type="button" class="btn" id="admin_btn" onclick="window.location.href='../Admin Interface/admin_login.php'">Admin Login</button>
+			<!-- <button type="button" class="btn" id="admin_btn" onclick="window.location.href='../Admin Interface/admin_login.php'">Admin Login</button> -->
 
         </div>
         <!-- <div class="info-section">

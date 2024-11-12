@@ -2,12 +2,12 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['adusername'])) {
     header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
     exit;
 }
 
-$username = $_SESSION['username']; // Retrieve the username from the session
+$adusername = $_SESSION['adusername']; // Retrieve the username from the session
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,9 @@ $username = $_SESSION['username']; // Retrieve the username from the session
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
-            <a class="nav-link" href="#">Contact</a>
-            <span class="nav-link"><?php echo htmlspecialchars($username); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+            <a class="nav-link" href="../vehicleRegister/RegisterVehicles.php">Register</a>
+            <a class="nav-link" href="../Admin Interface/admin_registration.php">Create Admin</a>
+            <span class="nav-link"><?php echo htmlspecialchars($adusername); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
     </nav>
 
@@ -75,19 +75,19 @@ $username = $_SESSION['username']; // Retrieve the username from the session
             <div class="row">
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="car_img.png" class="card-img-top" alt="Car">
+                        <!-- <img src="car_img.png" class="card-img-top" alt="Car">
                         <div class="card-body text-center">
                             <h5 class="card-title">Car</h5>
                             <p>Starting from <strong>Rs. 4000.00</strong></p>
                             <a href="../VehicleBrowse/cars.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="van_img.png" class="card-img-top" alt="Van">
+                        <!-- <img src="van_img.png" class="card-img-top" alt="Van">
                         <div class="card-body text-center">
                             <h5 class="card-title">Van</h5>
                             <p>Starting from <strong>Rs. 9000.00</strong></p>
@@ -95,31 +95,31 @@ $username = $_SESSION['username']; // Retrieve the username from the session
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
                             
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="bike_img.png" class="card-img-top" alt="Bike">
+                        <!-- <img src="bike_img.png" class="card-img-top" alt="Bike">
                         <div class="card-body text-center">
                             <h5 class="card-title">Bike</h5>
                             <p>Starting from <strong>Rs. 2500.00</strong></p>
                             <a href="../VehicleBrowse/Bike.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="tuk_img.png" class="card-img-top" alt="Tuk-Tuk">
+                        <!-- <img src="tuk_img.png" class="card-img-top" alt="Tuk-Tuk">
                         <div class="card-body text-center">
                             <h5 class="card-title">Tuk-Tuk</h5>
                             <p>Starting from <strong>Rs. 3500.00</strong></p>
                             <a href="../VehicleBrowse/tuktuk.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
