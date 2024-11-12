@@ -11,12 +11,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="logo.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
             VRS
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">Booking</a>
+            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
             <a class="nav-link" href="#">Contact</a>
             <span class="nav-link">User001 | <a href="#" class="text-danger">Log Out</a></span>
         </div>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="car.png" class="card-img-top" alt="Car">
+                        <img src="car_img.png" class="card-img-top" alt="Car">
                         <div class="card-body text-center">
                             <h5 class="card-title">Car</h5>
                             <p>Starting from <strong>Rs. 4000.00</strong></p>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="van.png" class="card-img-top" alt="Van">
+                        <img src="van_img.png" class="card-img-top" alt="Van">
                         <div class="card-body text-center">
                             <h5 class="card-title">Van</h5>
                             <p>Starting from <strong>Rs. 9000.00</strong></p>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="bike.png" class="card-img-top" alt="Bike">
+                        <img src="bike_img.png" class="card-img-top" alt="Bike">
                         <div class="card-body text-center">
                             <h5 class="card-title">Bike</h5>
                             <p>Starting from <strong>Rs. 2500.00</strong></p>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <img src="tuktuk.png" class="card-img-top" alt="Tuk-Tuk">
+                        <img src="tuk_img.png" class="card-img-top" alt="Tuk-Tuk">
                         <div class="card-body text-center">
                             <h5 class="card-title">Tuk-Tuk</h5>
                             <p>Starting from <strong>Rs. 3500.00</strong></p>

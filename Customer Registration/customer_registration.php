@@ -20,7 +20,7 @@
 			
 			<h1 class="top_text">Welcome!</h1>
 			
-			<p class="top_text">Already have an account? <a href="#">Log In</a></p>
+			<p class="top_text">Already have an account? <a href="../Customer Login/customer_login.php">Log In</a></p>
 			
 			<form method="post">
 			
@@ -65,7 +65,7 @@
 		
 		<div class="info-section">
 		
-			<img src="VRSLOGO.png" alt="Company Logo" id="logo">
+			<img src="../VRSLOGO.png" alt="Company Logo" id="logo">
 			
 			<h1>Looking for a Rental Vehicle?</h1>
 			<p>Your journey starts here! Simply sign up to create your account and you'll be 

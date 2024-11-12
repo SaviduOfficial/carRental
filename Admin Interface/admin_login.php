@@ -18,9 +18,9 @@
 	
 		<div class="registration-form">
 			
-			<h1>Welcome!</h1>
+			<h1>Admin Login Portal</h1>
 			
-			<p>Don't have an account? <a href="../Customer Registration/customer_registration.php">Sign Up</a></p>		
+			<p>Not an Admin? <a href="../Customer Login/customer_login.php">Log In As a Customer</a></p>		
 			
 			<form method="post">	
 				
@@ -33,7 +33,7 @@
 		
 			</form>
 			
-			<button type="button" id="admin_btn"><a id="admin_login_anchor" href="../Admin Interface/admin_login.php">Admin Login</a></button>
+			
 		
 		</div>
 		
@@ -41,9 +41,9 @@
 		
 			<img src="../VRSLOGO.png" alt="Company Logo" id="logo">
 			
-			<h1>Looking for a Rental Vehicle?</h1>
+			<!-- <h1>Looking for a Rental Vehicle?</h1>
 			<p>Your journey starts here! Simply sign up to create your account and you'll be 
-			able to access and manage your bookings in no time.</p>
+			able to access and manage your bookings in no time.</p> -->
 			
 		</div>
 		
