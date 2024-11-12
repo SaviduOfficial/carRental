@@ -1,105 +1,88 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('Desktop - 1 Login.png') no-repeat center center;
-    background-size: cover;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;  
+	align-items: center;
+	height: 100vh;
+	background: url('Desktop - 1 Login.png') no-repeat center center;
+	background-size: cover;
 }
 
 .container {
-    display: flex;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 1000px;
-    width: 90%;
-    background: white;
+	border-radius: 10px;
+	display: flex;
+	width: 52%;
+	margin-top: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .registration-form, .info-section {
-    padding: 20px;
-    flex: 1;
+	padding: 10px;
+	flex: 1;
 }
 
 .registration-form {
-    background: #f9f9f9;
-    border-right: 2px solid #ddd;
-    
-    
+	background-color: #f9f9f9;
+	border-radius: 10px 0px 0px 10px;
 }
 
 .info-section {
-    text-align: center;
-    background: #f0f4f7;
+	background-color: #f0f4f7;
+	text-align: center;
+	border-radius: 0px 10px 10px 0px;
 }
 
-h1 {
-    margin: 0;
-    font-size: 24px;
+/*Making labels block-level*/
+.label_block {
+	display: block;
 }
 
-p {
-    margin: 8px 0;
+/*Checkbox styling*/
+#terms {
+	margin-top: 10px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    
+/*Styling form input fields*/
+.input_styling {
+	width: 300px;
+	height: 25px;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #ff9800;
 }
 
-label {
-    margin-top: 12px;
+/*Anchor tags styling*/
+a {
+	color: #ff9800;
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
-    padding: 10px;
-    margin-top: 4px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    
+/*Form submit button*/
+#submit_btn {
+	color: white;
+	background-color: #ff9800;
+	margin-top: 10px;
+	width: 300px;
+	height: 25px;
+	border-radius: 5px;
 }
 
-input[type="checkbox"] {
-    margin-top: 10px;
-}
-
-.btn {
-    margin-top: 12px;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
+#submit_btn:hover {
     background-color: #e68900;
 }
 
-a {
-    color: #ff9800;
+.label_block{
+	margin-top: 3px;/*Margin above input labels*/
 }
 
-.info-section .logo {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-.logo img {
-    max-width: 85%; /* Ensures the image does not exceed the width of its container */
+#logo {
+	max-width: 85%; /* Ensures the image does not exceed the width of its container */
     height: auto; /* Maintains the aspect ratio */
     display: block; /* Removes any unwanted bottom spacing */
     margin: 0 auto; /* Centers the image if the container has a defined width */
 }
 
-.terms-container {
-    display: flex;
-    
-}
-
-.terms-container label {
-    margin-left: 5px; /* Adds a little space between the checkbox and label */
+.top_text{
+	margin: 0px;
 }
