@@ -10,6 +10,29 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username']; // Retrieve the username from the session
 ?>
 
+<?php
+include '../config.php'; // Include database connection
+
+$vehicle_type = "";
+$location = "";
+$pickup_date = "";
+$end_date = "";
+
+// Process the form when it's submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $vehicle_type = $_POST['vehicle_type'];
+    $location = $_POST['location'];
+    $pickup_date = $_POST['pickup_date'];
+    $end_date = $_POST['end_date'];
+
+    $sql = "SELECT * FROM vehicles WHERE vehicle_type LIKE ? AND location LIKE ? AND pickup_date >= ? AND end_date <= ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $vehicle_type, $location, $pickup_date, $end_date);
+    $stmt->execute();
+    $result = $stmt->get_result();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +50,7 @@ $username = $_SESSION['username']; // Retrieve the username from the session
             VRS
         </a>
         <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="home.php">Home</a>
             <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
             <a class="nav-link" href="#">Contact</a>
             <span class="nav-link"><?php echo htmlspecialchars($username); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
@@ -41,31 +64,34 @@ $username = $_SESSION['username']; // Retrieve the username from the session
             <p>Simply do a quick search to reserve your vehicle in no time. 1000+ vehicles to choose from according to your need!</p>
             
             <!-- Search Form -->
-            <div class="row justify-content-center">
-                <div class="col-md-2">
-                    <select class="form-control">
-                        <option>Select Type</option>
-                        <option>Car</option>
-                        <option>Van</option>
-                        <option>Bike</option>
-                        <option>Tuk-Tuk</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-control">
-                        <option>Location</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <input type="date" class="form-control" placeholder="Pickup Date">
-                </div>
-                <div class="col-md-2">
-                    <input type="date" class="form-control" placeholder="End Date">
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-warning btn-block">Quick Search</button>
-                </div>
+            <div class="row justify-content-center mt-4">
+                <form method="POST" action="" class="form-inline">
+                    <div class="form-group mx-2">
+                        <select name="vehicle_type" class="form-control">
+                            <option value="">Select Type</option>
+                            <option value="Car">Car</option>
+                            <option value="Van">Van</option>
+                            <option value="Bike">Bike</option>
+                            <option value="Tuk-Tuk">Tuk-Tuk</option>
+                        </select>
             </div>
+        <div class="form-group mx-2">
+            <select name="location" class="form-control">
+                <option value="">Location</option>
+                <!-- Add more options if needed -->
+            </select>
+        </div>
+        <div class="form-group mx-2">
+            <input type="date" name="pickup_date" class="form-control" placeholder="Pickup Date">
+        </div>
+        <div class="form-group mx-2">
+            <input type="date" name="end_date" class="form-control" placeholder="End Date">
+        </div>
+        <div class="form-group mx-2">
+            <button type="submit" class="btn btn-warning btn-block">Quick Search</button>
+        </div>
+    </form>
+</div>
         </div>
     </section>
 
