@@ -4,20 +4,26 @@ include "../config.php";
 
 session_start();
 
+//check whether vehicle id is assigned
+
+if (!isset($_SESSION['VehicleID'])) {
+  echo "No vehicle ID found: ";
+}
+
 /*$customerID = $_SESSION['CustomerID'];*/
 $vehicleID = $_SESSION['VehicleID'];
+$CID = $_SESSION['CID'];
 
-echo $vehicleID;
+
 
 $_SESSION['VehicleID'] = $vehicleID;
 
-echo $_SESSION['VehicleID'];
 
 
 // Query to get customer details
 $query = "SELECT CID, First_Name, Last_Name, email, Contact_number FROM customers WHERE CID = ?";
 $stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "s", $customerID);
+mysqli_stmt_bind_param($stmt, "s", $CID);
 mysqli_stmt_execute($stmt);
 
 // Fetch the result
@@ -26,7 +32,7 @@ $result = mysqli_stmt_get_result($stmt);
 // Check if any row is returned
 if ($row = mysqli_fetch_assoc($result)) {
     // Assign array elements to variables
-    $cid = $row['CID'];
+    $CID = $row['CID'];
     $fname = $row['First_Name'];
     $lname = $row['Last_Name'];
     $email = $row['email'];
@@ -43,7 +49,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 }
 
 // Close the database connection
-mysqli_close($conn);
+// mysqli_close($conn);
 
 
 ?>
@@ -125,7 +131,7 @@ mysqli_close($conn);
 
        
         <div class="btn-block">
-          <button type="submit" name="confirm" href="/">CONFIRM</button>
+          <button type="submit" name="confirm" >CONFIRM</button>
         </div>
       </form>
     </div>

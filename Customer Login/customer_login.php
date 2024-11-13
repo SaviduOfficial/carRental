@@ -1,14 +1,16 @@
+
 <?php
 include '../db.php';
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $cusername = $_POST['cusername'];
+    $password = $_POST['Customer_password'];
 
     // Prepare and execute a query to fetch user data
-    $stmt = $conn->prepare("SELECT id, username,  password FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
+    $stmt = $conn->prepare("SELECT CID, cusername, Customer_password FROM customers WHERE cusername = ?");
+    $stmt->bind_param("s", $cusername);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -16,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $result->fetch_assoc();
 
         // Verify password
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id']; // Set session variable
-            $_SESSION['username'] = $row['username']; // Set session variable for username
+        if (password_verify($password, $row['Customer_password'])) {
+            $_SESSION['CID'] = $row['CID']; // Set session variable
+            $_SESSION['cusername'] = $row['cusername']; // Set session variable for username
             header("Location: ../Home/home.php"); // Redirect to home page
             exit;
         } else {
@@ -32,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->close();
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="POST" action="">
                 
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                <input type="text" id="cusername" name="cusername" class="form-control" placeholder="Username" required>
                 
                 <!-- <label for="mobile">Mobile Number</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="email" id="email" name="email" placeholder="Your Email Address" required> -->
 				<br>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Your Password" required>
+                <input type="password" id="Customer_password" name="Customer_password" placeholder="Your Password" required>
 
 				<br>
 				<br>

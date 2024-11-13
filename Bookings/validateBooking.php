@@ -10,11 +10,12 @@ $_SESSION['VehicleID'];
 
 $vehicleID = $_SESSION['VehicleID'];
 
-$customerID = $_SERVER['CustomerID'];
 
-echo $_SESSION['VehicleID'];
+$CID = $_SESSION['CID'];
 
-echo $vehicleID;
+// echo $_SESSION['VehicleID'];
+
+// echo $vehicleID;
 
 
 // Query to get vehicle details
@@ -31,6 +32,11 @@ $result = mysqli_stmt_get_result($stmt);
 // Check if any row is returned
 if ($row = mysqli_fetch_assoc($result)) {
     // Assign array elements to variables
+
+
+
+    
+
     $vehicleID = $row['VehicleID'];
     $vehicleType = $row['Vehicle_type'];
     $vehicleMake = $row['Vehicle_make'];
@@ -44,22 +50,21 @@ if ($row = mysqli_fetch_assoc($result)) {
     $image1 = $row['image_1'];
     
     // Display or use the variables as needed
-    echo "Vehicle Type: " . $vehicleType . "<br>";
-    echo "Make: " . $vehicleMake . "<br>";
-    echo "Model: " . $vehicleModel . "<br>";
-    echo "Mileage: " . $mileage . "<br>";
-    echo "Registration Part 1: " . $regNoPart1 . "<br>";
-    echo "Registration Part 2: " . $regNoPart2 . "<br>";
-    echo "Fuel Type: " . $fuelType . "<br>";
-    echo "Color: " . $color . "<br>";
-    echo "Rental Charge: " . $rentalCharge . "<br>";
-    echo "Image Path: " . $image1 . "<br>";
+    // echo "Vehicle Type: " . $vehicleType . "<br>";
+    // echo "Make: " . $vehicleMake . "<br>";
+    // echo "Model: " . $vehicleModel . "<br>";
+    // echo "Mileage: " . $mileage . "<br>";
+    // echo "Registration Part 1: " . $regNoPart1 . "<br>";
+    // echo "Registration Part 2: " . $regNoPart2 . "<br>";
+    // echo "Fuel Type: " . $fuelType . "<br>";
+    // echo "Color: " . $color . "<br>";
+    // echo "Rental Charge: " . $rentalCharge . "<br>";
+    // echo "Image Path: " . $image1 . "<br>";
 } else {
     echo "No vehicle found with ID: " . $VehicleID;
 }
 
-// Close the database connection
-mysqli_close($conn);
+
 
 
 
@@ -99,9 +104,58 @@ if($proceed == true){
     $image_1 = $image1;
 
 
-    insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
-    $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, $Last_Name, $contact_Number, 
-    $email, $image_1, $initialMileage);
+    // insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
+    // $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, $Last_Name, $contact_Number, 
+    // $email, $image_1, $initialMileage);
+
+    // Insert the booking into the database
+    $insertQuery = "INSERT INTO bookings (Booking_Date, Return_Date, Pickup_address, VehicleID, Vehicle_type, Vehicle_make, 
+                    Vehicle_model, Regi_no_p1, Regi_no_p2, Fuel_type, colour, CustomerID, First_Name, Last_Name, contact_Number, 
+                    email, image_1, initialMileage) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // Prepare the statement
+    $stmt = mysqli_prepare($conn, $insertQuery);
+
+    // Bind the parameters
+    mysqli_stmt_bind_param($stmt, "ssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $vehicleID, $Vehicle_type, 
+        $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CID, $First_Name, $Last_Name, 
+        $contact_Number, $email, $image_1, $initialMileage);
+
+    // Execute the statement
+    mysqli_stmt_execute($stmt);
+
+    // Get the auto-incremented Booking ID (BID)
+    $BID = mysqli_insert_id($conn);
+
+    // Store the Booking ID in the session or display it
+    $_SESSION['BID'] = $BID;
+    $_SESSION['Vehicle_type'] = $Vehicle_type;
+    $_SESSION['Vehicle_make'] = $Vehicle_make;
+    $_SESSION['Vehicle_model'] = $Vehicle_model;
+    $_SESSION['initialMileage'] = $initialMileage;
+    $_SESSION['Regi_no_p1'] = $Regi_no_p1;
+    $_SESSION['Regi_no_p2'] = $Regi_no_p2;
+    $_SESSION['Fuel_type'] = $Fuel_type;
+
+    
+    
+
+  
+
+    // echo "Your Booking ID is: " . $BID;
+
+    // Close the statement
+    mysqli_stmt_close($stmt);
+
+    header("location: ./BookingRecipt.php");
+
+    // echo '<script language="javascript">';
+    // echo 'alert("Your Booking ID is: " . $BID)';
+    // echo '</script>';
+    // Close the database connection
+    mysqli_close($conn);
+
 }
 
 

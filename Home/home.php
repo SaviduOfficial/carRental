@@ -2,13 +2,15 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['cusername'])) {
     header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
     exit;
 }
 
-$username = $_SESSION['username']; // Retrieve the username from the session
+$cusername = $_SESSION['cusername']; // Retrieve the username from the session
+
 ?>
+
 
 <?php
 include '../config.php'; // Include database connection
@@ -53,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="nav-link" href="home.php">Home</a>
             <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
             <a class="nav-link" href="#">Contact</a>
-            <span class="nav-link"><?php echo htmlspecialchars($username); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+            <span class="nav-link"><?php echo htmlspecialchars($cusername); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
     </nav>
 
