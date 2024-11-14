@@ -1,5 +1,5 @@
 <?php
-include "../config.php"; // Database connection
+include "../../config.php"; // Database connection
 
 session_start();
 

@@ -1,7 +1,7 @@
 <?php
 
-include "../config.php";
-include "../functions/func.php";
+include "../../config.php";
+include "../../functions/func.php";
 
 // Directory to store uploaded images
 $uploadDir = 'uploads/';
