@@ -152,7 +152,7 @@ form {
 width: 70%;
 padding: 20px;
 border-radius: 6px;
-background: #fff;
+background: linear-gradient(to bottom right, #79d7d4, #c0e28c);
 box-shadow: 0 0 20px 0 #333; 
 }
 .banner {
@@ -211,6 +211,7 @@ display: none;
 position: absolute;
 font-size: 20px;
 color: #a9a9a9;
+margin-right: 10px;
 }
 .item i {
 right: 1%;
@@ -222,6 +223,8 @@ right: 0;
 z-index: 2;
 opacity: 0;
 cursor: pointer;
+
+
 }
 input[type="time"]::-webkit-inner-spin-button {
 margin: 2px 22px 0 0;
@@ -272,9 +275,12 @@ input[type=radio]:checked + label:after {
 opacity: 1;
 }
 .btn-block {
+
 margin-top: 10px;
 text-align: center;
-background-color: #ff8800;
+/* background-color: #ff8800; */
+align-items: center;
+
 
 }
 button {

@@ -51,11 +51,11 @@ $result = $conn->query($query);
 
 
         
-        <section class="items">
-                    
-            <div class="gallery">
-            <?php
-                // Loop through each vehicle in the result set and create a tile for each one
+    <section class="items">
+        <div class="container">
+            <div class="row">
+                <?php
+                // Loop through each vehicle in the result set and create a card for each one
                 while ($row = $result->fetch_assoc()) {
                     $vehicleID = $row['VehicleID'];
                     $vehicleImage = $row['image_1'];  
@@ -63,29 +63,24 @@ $result = $conn->query($query);
                     $vehicleModel = $row['Vehicle_model'];  
                     $vehicleRentPrice = $row['Renatal_charge'];  
                 ?>
-
-
-                 <div class="content">
-                 <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
-                    <img src="../Admin Interface/vehicleRegister/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
-                        <div class="textstyle">
-                            <h3><?php echo $vehicleMake; ?></h3>
-                            <p><?php echo $vehicleModel; ?></p>
-                            <h4> <?php echo $vehicleRentPrice; ?></h4>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
+                            <img src="../Admin Interface/vehicleRegister/<?php echo $vehicleImage; ?>" class="card-img-top" alt="Vehicle Image">
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><?php echo $vehicleMake; ?></h5>
+                            <p class="card-text">Model: <?php echo $vehicleModel; ?></p>
+                            <h6 class="text-muted">Rate: <?php echo $vehicleRentPrice; ?></h6>
                         </div>
+                    </div>
                 </div>
-
-
                 <?php
                 }
                 ?>
-            
-
             </div>
-
         </div>
-
-        </section>
+    </section>
             
 
     </div>
