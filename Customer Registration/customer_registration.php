@@ -1,6 +1,7 @@
 <?php
 include '../db.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -18,6 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Passwords do not match!";
         exit;
     }
+
+    // Validation of email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid Email";  
+        exit;          
+    }    
 
     // Hash the password
     

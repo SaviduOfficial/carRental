@@ -1,0 +1,54 @@
+body {
+    background-image: url('../background1.png');
+    
+}
+
+.booking-header {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px auto;
+    width: 90%;
+    border: 1px solid #313030;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.booking-history-table th, .booking-history-table td {
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    border: 1px solid #140e0e;
+    
+}
+
+.booking-history-table th {
+    background-color: #4c90af;
+    color: white;
+}
+
+.booking-history-table td {
+    background-color: #fff;
+}
+
+.booking-history-table tr:nth-child(even) td {
+    background-color: #f0f8ff; /* Light blue color for even rows */
+}
+
+.booking-history-table tr:nth-child(odd) td {
+    background-color: #dee9ecdc; /* White color for odd rows */
+}

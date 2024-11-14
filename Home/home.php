@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$_SESSION['CID']; //need for booking history
+
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
@@ -8,6 +10,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 $username = $_SESSION['username']; // Retrieve the username from the session
+
+
 
 ?>
 
@@ -64,6 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container text-center text-white">
             <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1>
             <p>Simply do a quick search to reserve your vehicle in no time. 1000+ vehicles to choose from according to your need!</p>
+            <div>
+            <a href="../Customer Login/currentbookings/currentBookings.php">
+                    <button class="btn btn-warning">Current Bookings</button>
+                </a>
+
+                <a href="../Customer Login/customerhHstory/CusttomerHistory.php">
+                    <button class="btn btn-warning">Booking History</button>
+                </a>
+            </div>
+            <br>
+
+            
             
             <!-- Search Form -->
             <div class="row justify-content-center mt-4">
@@ -105,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card vehicle-card">
                         <img src="car_img.png" class="card-img-top" alt="Car">
                         <div class="card-body text-center">
+                            <br>
                             <h5 class="card-title">Car</h5>
                             <p>Starting from <strong>Rs. 1500.00</strong></p>
                             <!--<p>Starting from <strong>Rs. 4000.00</strong></p> -->
