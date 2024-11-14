@@ -228,7 +228,7 @@
     height: 100px; /* Set desired height */
     object-fit: cover; /* Scale and crop the image to fill the box */
     margin-left: 20px; /* Adjust as needed for positioning */
-    border-radius: 5px; /* Optional: round the corners */
+    border-radius: 10px; /* Optional: round the corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for better appearance */
     overflow: hidden;
     margin-bottom: 30px;
