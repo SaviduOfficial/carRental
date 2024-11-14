@@ -6,37 +6,42 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('Desktop - 1 Login.png') no-repeat center center;
+    /* background: url('Desktop - 1 Login.png') no-repeat center center; */
+    background: linear-gradient(to bottom left, #79d7d4, #d7b02f) no-repeat center center;
     background-size: cover;
 }
 
 .container {
-    margin-top: 100px; /* newly added*/
     display: flex;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 1000px;
     width: 90%;
-    background: white;
-    
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for definition */
 }
 
 .registration-form, .info-section {
     padding: 20px;
     flex: 1;
-    
 }
 
 .registration-form {
-    background: #f9f9f9;
-    border-right: 2px solid #ddd;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-right: 2px;
     
 }
 
 .info-section {
     text-align: center;
-    background: #f0f4f7;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 h1 {

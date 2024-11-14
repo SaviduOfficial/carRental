@@ -1,9 +1,9 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     font-family: cursive;
 
-}
+} */
   
 .banner{
     width: 100%;
@@ -11,7 +11,7 @@
     background-position: center;
 }
 
-.navbar{
+/* .navbar{
     top: 0;
     left: 0;
     height: 170px;
@@ -75,7 +75,7 @@
   z-index: 1500;
   margin-top: 30px;
 
-}
+} */
 
 .hamburger:before,
 .hamburger:after,
@@ -120,7 +120,7 @@
 
 
 .gallery{
-    margin-top: 165px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     width: auto;
@@ -141,7 +141,9 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
     0 10px 10px rgba(0,0,0,0.22);
     transition: 0.4s;
-    background-color: rgba(221, 227, 233, 0.952);
+    /* background-color: rgba(221, 227, 233, 0.952); */
+    background: linear-gradient(to bottom right, #79d7d4, #c0e28c);
+
     overflow: hidden;
     height:auto;
     padding-bottom: 50px;
@@ -175,12 +177,12 @@
 
 .btn {
     margin-top: 20px;
-    background-color: #24272b;
-    color: #c0c7d6;
+    background-color: #ff8800;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     border-radius: 8px;
-    width: 100px;
+    width: 150px;
     height: 45px;
     transition: 0.3s;
     margin-left: -250px;
@@ -188,7 +190,7 @@
   }
   
   .btn:hover {
-    background-color: #000000;
+    background-color: #ff9100;
     box-shadow: 0 0 0 5px #051c3d5f;
     color: #fff;
   }
@@ -217,6 +219,7 @@
     margin-left: 40px;
     height: auto;
     margin-bottom: 30px;
+    border-radius: 8%;
 }
 
 .gallery .textstyle .smallimages{
@@ -225,7 +228,7 @@
     height: 100px; /* Set desired height */
     object-fit: cover; /* Scale and crop the image to fill the box */
     margin-left: 20px; /* Adjust as needed for positioning */
-    border-radius: 5px; /* Optional: round the corners */
+    border-radius: 10px; /* Optional: round the corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for better appearance */
     overflow: hidden;
     margin-bottom: 30px;
@@ -286,7 +289,7 @@
 
     }
 
-    .navbar_list ul{
+    /* .navbar_list ul{
         height: 0px;
         position: absolute;
         top: 0;
@@ -313,7 +316,7 @@
     .navbar_list ul.active{
        height: 530px;
        transition: height 0.4s ease-in-out;
-   }
+   } */
 
    .logo{
         width: 140px;

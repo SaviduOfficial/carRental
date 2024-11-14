@@ -18,44 +18,47 @@ $result = $conn->query($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRS - Browse vehicles</title>
-    <link rel="stylesheet" href="Designs_styles.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Designs_styles copy.css">
     <script  src="Designs_script.js"></script>
+    
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-
-             <a href="../Homepage/index.php"> <img src= 'vrslogo.png' class="logo" alt="VRS logo"></a> <!-- need to go to homepage when click the logo-->
-            
-            <div class="hamburger">
-                <div>
-                </div>
-
-            </div>
-
-            <div class="navbar_list">
-                <ul>
-                    <li><br></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Vehicles</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-           
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+            VRS
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="../Home/home.php">Home</a>
+            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+            <a class="nav-link" href="#">Contact</a>
+            <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
+    </nav>
+
+
+
+    <section class="hero">
+        <div class="container text-center text-white">
+            <!-- <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1> -->
+            <h1> Vans Available at the Moment</h1>
+            
+            
+        </div>
+    </section>
 
 
 
 
         
-        <section class="items">
-                    <h2 id= "header"> Vans Available at the Moment</h2>
-                    
-            <div class="gallery">
-            <?php
-                // Loop through each vehicle in the result set and create a tile for each one
+    <section class="items">
+        <div class="container">
+            <div class="row">
+                <?php
+                // Loop through each vehicle in the result set and create a card for each one
                 while ($row = $result->fetch_assoc()) {
                     $vehicleID = $row['VehicleID'];
                     $vehicleImage = $row['image_1'];  
@@ -63,30 +66,25 @@ $result = $conn->query($query);
                     $vehicleModel = $row['Vehicle_model'];  
                     $vehicleRentPrice = $row['Renatal_charge'];  
                 ?>
-
-
-                 <div class="content">
-                 <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
-                 <h3><?php echo $vehicleMake; ?></h3>
-                    <img src="../Admin Interface/vehicleRegister/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
-                        <div class="textstyle">
-                            
-                            <p>Model: <?php echo $vehicleModel; ?></p>
-                            <h4>Rate:  <?php echo $vehicleRentPrice; ?></h4>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
+                            <img src="../Admin Interface/vehicleRegister/<?php echo $vehicleImage; ?>" class="card-img-top" alt="Vehicle Image">
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><?php echo $vehicleMake; ?></h5>
+                            <p class="card-text">Model: <?php echo $vehicleModel; ?></p>
+                            <h6 class="text-muted">Rate: <?php echo $vehicleRentPrice; ?></h6>
                         </div>
+                    </div>
                 </div>
-
-
                 <?php
                 }
                 ?>
-            
-
             </div>
-
         </div>
+    </section>
 
-        </section>
             
 
     </div>

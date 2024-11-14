@@ -6,9 +6,9 @@ session_start();
 
 //check whether customer id is assigned
 
-if (!isset($_SESSION['CustomerID'])) {
-    echo "No customer ID found: ";
-  }
+// if (!isset($_SESSION['CustomerID'])) {
+//     echo "No customer ID found: ";
+//   }
 
 
 /*$customerID = $_SESSION['CustomerID'];
@@ -17,7 +17,7 @@ $vehicleID = $_SESSION['VehicleID'];*/
 // Check if vehicleID is set in the URL
 if (isset($_GET['vehicleID'])) {
     $vehicleID = $_GET['vehicleID'];
-    $customerID = $_SESSION['CustomerID'];
+    $customerID = $_SESSION['CID'];
 
     // Prepare the query to fetch the specific vehicle's details
     $query = "SELECT * FROM registered_vehicles WHERE VehicleID = ?";
@@ -53,33 +53,25 @@ if (isset($_GET['vehicleID'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRS select vehicle</title>
-    <link rel="stylesheet" href="CarSelectstyles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CarSelectstyles1.css">
     <script  src="CarSelectScript.js"></script>
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-
-             <a href="../Homepage/index.php"> <img src= 'vrslogo.png' class="logo" alt="VRS logo"></a> <!-- need to go to homepage when click the logo-->
-            
-            <div class="hamburger">
-                <div>
-                </div>
-
-            </div>
-
-            <div class="navbar_list">
-                <ul>
-                    <li><br></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Vehicles</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-           
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+            VRS
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="../Home/home.php">Home</a>
+            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+            <a class="nav-link" href="#">Contact</a>
+            <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
+    </nav>
+
 
 
 

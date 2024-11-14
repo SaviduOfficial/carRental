@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleclog.css">
 </head>
 <body>
     <div class="container">
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="info-section">
             <div class="logo">
-                <img src="../VRSLOGO.PNG" alt="Company Logo">
+                <img src="vrslogonb.png" alt="Company Logo">
             </div>
             <h2>Looking for a Rental Vehicle?</h2>
             <p>Your journey starts here! Simply sign up to create your account and you'll be able to access and manage your bookings in no time.</p>

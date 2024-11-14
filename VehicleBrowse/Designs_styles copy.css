@@ -1,0 +1,319 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+  
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+
+}
+
+/* Navbar */
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+}
+
+
+.items h2{
+    text-align: center;
+}
+
+.logo{
+    width: 150px;
+    height: 120px;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px ;
+    border-radius: 50%;
+
+}
+
+.navbar_list ul li{
+    list-style:none;
+    display:inline-block;
+    margin: 0 20px;
+    position: relative;
+    margin-top: 40px;
+
+}
+
+/* .navbar_list ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.navbar_list ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: palevioletred;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar_list ul li:hover::after{
+    width: 100%;
+} */
+
+.hamburger {
+  top: 4rem;
+  right: 1rem;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50px;
+  z-index: 1500;
+  margin-top: 30px;
+
+}
+
+.hamburger:before,
+.hamburger:after,
+.hamburger div {
+  background: #fff;
+  content: "";
+  display: none;
+  height: 6px;
+  border-radius: 3px;
+  margin: 7px 0;
+  transition: 0.5s;
+}
+
+
+
+
+.hamburger:hover:before {
+  transform: translateY(12px) rotate(135deg);
+
+}
+.hamburger:hover:after {
+  transform: translateY(-12px) rotate(-135deg);
+
+}
+.hamburger:hover div {
+  transform: scale(0);
+
+}
+
+.gallery #ts1 {
+    text-align: center;
+
+}
+
+.gallery h3{
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+
+
+.gallery{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    font-family: cursive;
+
+}
+
+.gallery :hover{  
+    transform: translate(0px, 8px);
+}
+
+.gallery .content{
+    width: 20%;
+    height:auto;
+    /* margin: 10px; */
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(42, 30, 30, 0.22);
+    transition: 0.4s;
+    background-color: white;
+    overflow: hidden;
+
+}
+
+.gallery .content :hover{  
+    transform:none;
+}
+
+
+.gallery .content img{
+    width: 95%;
+    height:200px;
+    
+
+}
+
+
+
+.gallery #BC {
+    width: 95%;
+    height: 200px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+
+#header {
+    margin-top: 173px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 40px;
+    color: white;
+    background: 100%;
+    background-color: black;
+    opacity: 0.8;
+
+}
+
+
+.gallery .textstyle {
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    margin: 1px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    
+
+}
+
+@media (max-width:750px){
+    .gallery h3{
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+    padding-top: 10px;
+    }
+
+    .gallery p{
+    text-align: center;
+    font-size: 8px;
+    margin: 0;
+    padding-top: 0px;
+    display: none;
+    }
+
+    .gallery h4{
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+    padding-top: 5px;
+    
+    }
+
+}
+
+
+@media (max-width: 740px){
+
+    .hamburger:before,
+    .hamburger:after,
+    .hamburger div{
+        background: #fff;
+        content: "";
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        margin: 7px 0;
+        transition: 0.5s;
+        cursor: pointer;
+
+    }
+/* 
+    .navbar_list ul{
+        height: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: black;
+        opacity: 0.85;
+        transition: 0.5s;
+        z-index: 1000;
+        text-align: center;
+        overflow: hidden;
+
+    }
+
+    .navbar_list ul li{
+        display: block;
+        width: fit-content;
+        margin: 60px auto 0 auto;
+        text-align: center;
+        transition: 0.4s;
+    }
+
+    .navbar_list ul.active{
+       height: 530px;
+       transition: height 0.4s ease-in-out;
+   } */
+
+   .logo{
+        width: 90px;
+        cursor: pointer;
+        margin-left: 35px;
+        margin-top: 40px ;
+        border-radius: 50%;
+
+    }
+
+    .navbar {
+        position: fixed; /* Fixed position to keep it at the top */
+        width: 100%;    /* Make the navigation bar full width */
+        z-index: 100;    /* Ensure the navigation bar is on top of other content */
+    }
+
+
+  
+    
+  
+}
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom right, #79d7d4, #c0e28c);
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn-warning {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+.items{
+    margin-top: 50px;
+}
+
+

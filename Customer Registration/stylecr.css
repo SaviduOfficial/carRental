@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed from height to min-height */
+    background: linear-gradient(to bottom left, #79d7d4, #d7b02f) no-repeat center center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for definition */
+}
+
+.registration-form, .info-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.registration-form {
+    
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-right: 2px;
+}
+
+.info-section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+p {
+    margin: 8px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 12px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+    padding: 10px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 200px;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
+a {
+    color: #ff9800;
+}
+
+.info-section .logo {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 85%; /* Ensures the image does not exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes any unwanted bottom spacing */
+    margin: 0 auto; /* Centers the image if the container has a defined width */
+}
+
+.terms-container {
+    display: flex;
+}
+
+.terms-container label {
+    margin-left: 5px; /* Adds a little space between the checkbox and label */
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        width: 95%; /* Use more of the screen width */
+        max-width: 500px; /* Limit the max-width for smaller screens */
+    }
+
+    .info-section, .registration-form {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+        font-size: 14px; /* Adjust input font size for readability */
+    }
+}
+
+
+
+
+/* Arrange inputs in two columns */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 15px; /* Space between columns and rows */
+}
+
+.two-column > div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* Center the submit button below the form */
+.btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto 0;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .two-column {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}

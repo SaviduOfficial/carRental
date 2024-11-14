@@ -60,35 +60,27 @@ if ($row = mysqli_fetch_assoc($result)) {
 <html>
   <head>
     <title>Car Booking Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="bookingStyle.css">
   </head>
   <body>
 
-  <div class="banner_1">
-        <div class="navbar_1">
-
-             <a href="../Homepage/index.php"> <img src= 'vrslogo.png' class="logo_1" alt="VRS logo"></a> <!-- need to go to homepage when click the logo-->
-            
-            <div class="hamburger">
-                <div>
-                </div>
-
-            </div>
-
-            <div class="navbar_list_1">
-                <ul>
-                    <li><br></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Vehicles</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-           
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+            VRS
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="../Home/home.php">Home</a>
+            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+            <a class="nav-link" href="#">Contact</a>
+            <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
+    </nav>
+
 
 
     <div class="testbox">
@@ -131,7 +123,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 
        
         <div class="btn-block">
-          <button type="submit" name="confirm" >CONFIRM</button>
+          <button class="btn btn-warning" type="submit" name="confirm" >CONFIRM</button>
         </div>
       </form>
     </div>
