@@ -43,67 +43,58 @@ $Fuel_type = $_SESSION['Fuel_type'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RECEIPT</title>
 </head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="ReciptStyle.css">
 
+<link rel="stylesheet" href="ReciptStyle.css">
 <body>
 
 
 
-<div id="invoice-POS" class="container">
+<div id="invoice-POS">
     
-    <div id="top" class="container">
-		<div class="logo" class="container">
-			<img src="vrslogo.PNG" alt="VRS Logo" />
-			<div class="info"> 
-				<h1>Vehicle Renting System </h1>
-				<br>
-				<!-- <div class="btnrightUpper">
+    <center id="top">
+      <div class="logo"></div>
+      <div class="info"> 
+        <h2>VRS </h2>
+        <div class="btnrightUpper">
 
-				
-					<div>
-						<button class="styled-button">Download</button>
-					</div>
-					<div>
-						<form action="backaction.php" method="post">
-							<button class="styled-button" type="submit">Back</button>
-						</form>
-					</div>
+        
+            <div><button class="styled-button">Download</button></div>
+            <div><form action="backaction.php" method="post">
+            <button class="styled-button" type="submit">Back</button>
+        </form></div>
 
-					
+            
 
 
-				</div> -->
-			</div>
-			
-				
-		</div><!--End Info-->
-    </div><!--End InvoiceTop-->
+        </div>
+        
+      </div><!--End Info-->
+    </center><!--End InvoiceTop-->
     
-    <div id="mid" class="container">
-      <div class="info_2 " class="container">
-			<h3>Booking Info</h3>
+    <div id="mid">
+      <div class="info_2 ">
+        <h2>Booking Info</h2>
 
-			<div class="paradiv" class="container">   
+        <div class="paradiv">   
 
-				<p> 
-					BOOKING ID :<?php echo " " . $_SESSION['BID'] ?> </br><br>
-					Please Make Sure to Note-down the Booking ID before continue</br>
-					contact   : VRS@gmail.com</br>
-				</p>
+        <p> 
+            BOOKING ID :<?php echo " " . $_SESSION['BID'] ?> </br>
+            Please Make Sure to Note-down the Booking ID before continue</br>
+            contact   : VRS@gmail.com</br>
+        </p>
 
 
-			</div>
+        </div>
         
       </div>
     </div><!--End Invoice Mid-->
     
-    <div id="bot" class="container">
+    <div id="bot">
 
-					<div class="table">
+					<div id="table">
 						<table>
 							<tr class="tabletitle">
-								<td class="item"><h3>Booking Information</h3></td>
+								<td class="item"><h2>Booking Information</h2></td>
 								<td class="Hours"><h2></h2></td>
 								<td class="Rate"><h2></h2></td>
 							</tr>
@@ -219,32 +210,38 @@ $Fuel_type = $_SESSION['Fuel_type'];
 
 							<tr class="tabletitle">
 								<td></td>
-								<td class="Rate"><h5>Current Rates</h5></td>
+								<td class="Rate"><h2>Current Rates</h2></td>
 								<td class="payment"><h2></h2></td>
 							</tr>
 
 							<tr class="tabletitle">
 								<td></td>
-								<td class="Rate"><h5>Rental Amount</h5></td>
+								<td class="Rate"><h2>Renatal Amount</h2></td>
 								<td class="payment"><h2></h2></td>
 							</tr>
 
 						</table>
 					</div><!--End Table-->
 
-					<div id="legalcopy" class="container">
-						<p class="legal"><strong>Thank you for Choosing VRS for your journey!</strong>  <br><br>
-						 If you intend to cancel any bookings, please make sure to do so</br> at least 2 days before the scheduled pickup date.
+					<div id="legalcopy">
+						<p class="legal"><strong>Thank you for Choosing VRS for your journey!</strong>  ; If you intend to cancel any bookings, please make sure to do so at least 2 days before the scheduled pickup date.
 						</p>
 					</div>
 
-	</div><!--End InvoiceBot-->
-  
-</div>
+				</div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
 
-    <br>
-	<br>
-	<br>
+    
 </body>
 </html>
 
+<?php
+
+
+
+// Redirect to the homepage
+// header("Location: index.php"); // Replace 'index.php' with your homepage URL
+exit();
+
+
+?>
