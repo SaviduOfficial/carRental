@@ -469,3 +469,149 @@ $stmt->close();
     
 
 }
+
+
+
+
+
+
+function showCustomerBookingHistory($conn, $customerID) {
+    // Query to get booking history for a specific customer
+    $query = "SELECT * FROM bookings WHERE CustomerID = ? AND paid_unpaid = ?";
+    
+    $paid_unpaid = "paid";
+
+    // Prepare and execute the query
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $customerID, $paid_unpaid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if there are any bookings
+    if ($result->num_rows > 0) {
+        echo "<h2 class='booking-header'>Your Booking History</h2>";
+        
+        // Start scrollable container
+        echo "<div class='table-container'>";
+        
+        // Start the table structure
+        echo "<table class='booking-history-table'>";
+        echo "<thead>";
+        echo "<tr>
+                <th>Booking ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Pickup Address</th>
+                <th>Vehicle ID</th>
+                <th>Vehicle Type</th>
+                <th>Vehicle Make</th>
+                <th>Vehicle Model</th>
+                <th>License Plate</th>
+                <th>Fuel Type</th>
+                <th>Colour</th>
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Payment Status</th>
+                <th>Amount</th>
+                <th>Starting Mileage</th>
+                <th>Ending Mileage</th>
+              </tr>";
+        echo "</thead><tbody>";
+
+        // Loop through each booking and create a table row
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row['BID'] . "</td>";
+            echo "<td>" . $row['Booking_Date'] . "</td>";
+            echo "<td>" . $row['Return_Date'] . "</td>";
+            echo "<td>" . $row['Pickup_address'] . "</td>";
+            echo "<td>" . $row['VehicleID'] . "</td>";
+            echo "<td>" . $row['Vehicle_type'] . "</td>";
+            echo "<td>" . $row['Vehicle_make'] . "</td>";
+            echo "<td>" . $row['Vehicle_model'] . "</td>";
+            echo "<td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td>";
+            echo "<td>" . $row['Fuel_type'] . "</td>";
+            echo "<td>" . $row['colour'] . "</td>";
+            echo "<td>" . $row['CustomerID'] . "</td>";
+            echo "<td>" . $row['First_Name'] . "</td>";
+            echo "<td>" . $row['Last_Name'] . "</td>";
+            echo "<td>" . $row['contact_Number'] . "</td>";
+            echo "<td>" . $row['email'] . "</td>";
+            echo "<td>" . $row['paid_unpaid'] . "</td>";
+            echo "<td>" . $row['Rental_chage'] . "</td>";
+            echo "<td>" . $row['initialMileage'] . "</td>";
+            echo "<td>" . $row['finalMileage'] . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</tbody></table>"; // Close table structure
+        echo "</div>"; // Close scrollable container
+    } else {
+        echo "<p>No booking history found.</p>";
+    }
+
+    // Close the statement
+    $stmt->close();
+}
+
+
+//customer history
+function showCustomerCurrentBooking($conn, $customerID) {
+    // Query to get booking history for a specific customer
+    $query = "SELECT * FROM bookings WHERE CustomerID = ? AND paid_unpaid = ?";
+    
+    $paid_unpaid = "unpaid";
+    // Prepare and execute the query
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $customerID ,  $paid_unpaid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if there are any bookings
+    if ($result->num_rows > 0) {
+        echo "<h2 class='booking-header'>Your Current Bookings </h2>";
+        
+        // Loop through each booking and create a vertical table for each one
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='booking-card'>";
+            echo "<table class='booking-history-table'>";
+            echo "<tr><th>Booking ID</th><td>" . $row['BID'] . "</td></tr>";
+            echo "<tr><th>Start Date</th><td>" . $row['Booking_Date'] . "</td></tr>";
+            echo "<tr><th>End Date</th><td>" . $row['Return_Date'] . "</td></tr>";
+            echo "<tr><th>Pick Up Address</th><td>" . $row['Pickup_address'] . "</td></tr>";
+            echo "<tr><th>Vehicle ID</th><td>" . $row['VehicleID'] . "</td></tr>";
+            echo "<tr><th>Vehicle Type</th><td>" . $row['Vehicle_type'] . "</td></tr>";
+            echo "<tr><th>Vehicle Make</th><td>" . $row['Vehicle_make'] . "</td></tr>";
+            echo "<tr><th>Vehicle Model</th><td>" . $row['Vehicle_model'] . "</td></tr>";
+            echo "<tr><th>License Plate</th><td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td></tr>";
+            echo "<tr><th>Fuel Type</th><td>" . $row['Fuel_type'] . "</td></tr>";
+            echo "<tr><th>Colour</th><td>" . $row['colour'] . "</td></tr>";
+            echo "<tr><th>Customer ID</th><td>" . $row['CustomerID'] . "</td></tr>";
+            echo "<tr><th>First Name</th><td>" . $row['First_Name'] . "</td></tr>";
+            echo "<tr><th>Last Name</th><td>" . $row['Last_Name'] . "</td></tr>";
+            echo "<tr><th>Contact Number</th><td>" . $row['contact_Number'] . "</td></tr>";
+            echo "<tr><th>Email</th><td>" . $row['email'] . "</td></tr>";
+            echo "<tr><th>Payment Status</th><td>" . $row['paid_unpaid'] . "</td></tr>";
+            echo "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
+            echo "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
+            echo "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
+            echo "</table>";
+            echo "</div>";
+        }
+    } else {
+        echo "<p>No bookings found.</p>";
+    }
+
+    // Close the statement
+    $stmt->close();
+}
+
+
+
+
+
+
+

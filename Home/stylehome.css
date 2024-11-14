@@ -40,6 +40,7 @@ body {
     border-radius: 8px;
 }
 
+
 .vehicles .card.vehicle-card:hover {
     transform: scale(1.05);
 }
@@ -69,3 +70,5 @@ body {
 .vehicles .card p {
     color: #007bff;
 }
+
+
