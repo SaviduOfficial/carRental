@@ -17,6 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Validation of email
+    if (!filter_var($ademail, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid Email";  
+        exit;          
+    }
+
     // Hash the password
     $adhashedPassword = password_hash($adpassword, PASSWORD_BCRYPT);
 
