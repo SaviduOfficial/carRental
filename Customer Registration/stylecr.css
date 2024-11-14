@@ -18,8 +18,8 @@ body {
     max-width: 1000px;
     width: 90%;
     background: rgba(255, 255, 255, 0.1); /* Transparent white background */
-    backdrop-filter: blur(10px); /* Blur effect to create glass look */
     -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px); /* Blur effect to create glass look */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for definition */
 }
 
