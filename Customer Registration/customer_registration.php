@@ -1,6 +1,7 @@
 <?php
 include '../db.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -18,6 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Passwords do not match!";
         exit;
     }
+
+    // Validation of email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid Email";  
+        exit;          
+    }    
 
     // Hash the password
     
@@ -65,16 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" class="form-control" placeholder="Address" required>
 
-
-
                 <label for="address">Driving license Number:</label>
                 <input type="text" id="licenseNo" name="licenseNo" class="form-control" placeholder="Address" required>
 
                 <label for="username">Username:</label>
                 <input type="text" id="cusername" name="cusername" class="form-control" placeholder="Username" required>
-                
+                                
                 <label for="mobile">Mobile Number</label>
-                <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required>
+                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="E.g.0771234567" required>
 
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" placeholder="Your Email Address" required>
