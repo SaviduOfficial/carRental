@@ -4,7 +4,7 @@ include '../db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adfirstName = $_POST['adfirstName'];
     $adlastName = $_POST['adlastName'];
-    // $address = $_POST['address'];
+    $address = $_POST['address'];
     $adusername = $_POST['adusername'];
     $admobile = $_POST['admobile'];
     $ademail = $_POST['ademail'];
@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert user data into the database
     $stmt = $conn->prepare("INSERT INTO admins (adfirst_name, adlast_name, adaddress, adusername, admobile, ademail, adpassword) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $adfirstName, $adlastName, $adaddress, $adusername, $admobile, $ademail, $adhashedPassword);
+    $stmt->bind_param("sssssss", $adfirstName, $adlastName, $address, $adusername, $admobile, $ademail, $adhashedPassword);
 
     if ($stmt->execute()) {
         echo "Registration successful!";
-        header("Location: ../Home/home.php"); // Redirect to login page
+        header("Location: admin_login.php"); // Redirect to login page
         exit;
     } else {
         echo "Error: " . $stmt->error;
@@ -70,6 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <label for="email">Email Address</label>
                 <input type="email" id="ademail" name="ademail" placeholder="Your Email Address" required>
+
+                
+
+                <label for="address">Home Address</label>
+                <input type="text" id="address" name="address" placeholder="Your Home Address" required>
+
 
                 <label for="password">Password</label>
                 <input type="password" id="adpassword" name="adpassword" placeholder="Your Password" required>

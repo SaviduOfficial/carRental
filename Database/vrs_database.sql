@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 11:17 AM
+-- Generation Time: Nov 14, 2024 at 08:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,16 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrator`
+-- Table structure for table `admins`
 --
 
-CREATE TABLE `administrator` (
-  `AID` int(11) NOT NULL,
-  `First_Name` varchar(25) DEFAULT NULL,
-  `Last_Name` varchar(25) DEFAULT NULL,
-  `Username` varchar(25) DEFAULT NULL,
-  `User_password` varchar(25) DEFAULT NULL
+CREATE TABLE `admins` (
+  `admin_id` int(11) NOT NULL,
+  `adfirst_name` varchar(50) NOT NULL,
+  `adlast_name` varchar(50) NOT NULL,
+  `adaddress` varchar(255) DEFAULT NULL,
+  `adusername` varchar(50) NOT NULL,
+  `admobile` varchar(15) DEFAULT NULL,
+  `ademail` varchar(255) NOT NULL,
+  `adpassword` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `adfirst_name`, `adlast_name`, `adaddress`, `adusername`, `admobile`, `ademail`, `adpassword`) VALUES
+(3, 'adminfname', 'adminlname', 'colombo', 'testcase1', '0714545897', 'admin1@gmail.com', '$2y$10$KoIrgpm0TGPI.R8QWFqw2uQ/67EM0U7xqvYSy5eF3ByjIzx8tTkY.'),
+(6, 'adminfname', 'adminlname', 'colombo', 'testcase2', '0714545898', 'admin2@gmail.com', '$2y$10$pauv.4PfDV5t5aI9jDnOb.GN2V9PFPmxQLiUM006n3x1v48yb0LJ.');
 
 -- --------------------------------------------------------
 
@@ -87,7 +98,7 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, `VehicleID`, `Vehicle_type`, `Vehicle_make`, `Vehicle_model`, `Regi_no_p1`, `Regi_no_p2`, `Fuel_type`, `colour`, `CustomerID`, `First_Name`, `Last_Name`, `contact_Number`, `email`, `paid_unpaid`, `Rental_chage`, `image_1`, `initialMileage`, `finalMileage`) VALUES
-(1, '2024-11-11', '2024-11-13', 'myAddress', '3014568', 'Car', 'Mercedes-Benz', 'E320', '301', '4568', 'Petrol 95 Octane', 'Black', 'TestCust1', 'Test', 'Cust1', '0112742559', 'cust1@gmail.com', 'unpaid', '14000', 'uploads/benzblack1.jpg', '67100', '67200');
+(2, '2024-11-14', '2024-11-15', 'kurunegala', 'CKC4589', 'Car', 'Tesla', 'Other', 'CKC', '4589', 'Electric', NULL, 'B1005894', 'Test', 'case1', NULL, 'testcase@gmail.com', 'unpaid', NULL, 'uploads/cyber1.jpg', '35000', '');
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CID`, `First_Name`, `Last_Name`, `Address`, `email`, `Customer_password`, `Contact_number`, `Driving_license_No`, `username`) VALUES
-('TestCust1', 'Test', 'Cust1', 'myAddress', 'cust1@gmail.com', 'helloworld123', '0112742559', NULL, 'TestCust1');
+('B1005894', 'Test', 'case1', 'myAddress', 'testcase@gmail.com', '$2y$10$WW84cPtyUh3r3katZGPxB.xygXoqbtKiODJFSOPMoOUmSE6UWfK7K', '0772428568', 'B1005894', 'testcase1');
 
 -- --------------------------------------------------------
 
@@ -152,8 +163,9 @@ CREATE TABLE `registered_vehicles` (
 --
 
 INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`) VALUES
-('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
+('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'Yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
 ('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
+('CKC4589', 'Car', 'cyber', 'truck', 'resla@gmail.com', '0745898448', 'Tesla', 'Other', '2019', 'Electric', '35000', 'CKC', '4589', 'Electric', 'Automatic', 'Black', 'yes', 'Rs.80.00 perKm + Rs.2500.00', 'uploads/cyber1.jpg', 'uploads/cyber6.jpg', 'uploads/cyber7.jpg', 'uploads/cyber4.jpg', 'uploads/cyber3.jpg', 'uploads/cyber5.jpg'),
 ('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg'),
 ('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg'),
 ('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg'),
@@ -199,10 +211,12 @@ INSERT INTO `rentalcharge` (`ID`, `EngineCapacity`, `ratePerKm`, `additional_cha
 --
 
 --
--- Indexes for table `administrator`
+-- Indexes for table `admins`
 --
-ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`AID`);
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `adusername` (`adusername`),
+  ADD UNIQUE KEY `ademail` (`ademail`);
 
 --
 -- Indexes for table `availability`
@@ -247,10 +261,22 @@ ALTER TABLE `rentalcharge`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `availability`
+--
+ALTER TABLE `availability`
+  MODIFY `ava_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rentalcharge`

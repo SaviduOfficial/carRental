@@ -11,6 +11,7 @@ body {
 }
 
 .container {
+    margin-top: 100px; /* newly added*/
     display: flex;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -18,11 +19,13 @@ body {
     max-width: 1000px;
     width: 90%;
     background: white;
+    
 }
 
 .registration-form, .info-section {
     padding: 20px;
     flex: 1;
+    
 }
 
 .registration-form {

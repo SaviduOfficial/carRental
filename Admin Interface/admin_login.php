@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adpassword = $_POST['adpassword'];
 
     // Prepare and execute a query to fetch user data
-    $stmt = $conn->prepare("SELECT adid, adusername, adpassword FROM admins WHERE adusername = ?");
+    $stmt = $conn->prepare("SELECT admin_id, adusername, adpassword FROM admins WHERE adusername = ?");
     $stmt->bind_param("s", $adusername);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Verify password
         if (password_verify($adpassword, $row['adpassword'])) {
-            $_SESSION['aduser_id'] = $row['adid']; // Set session variable
+            $_SESSION['aduser_id'] = $row['admin_id']; // Set session variable
             $_SESSION['adusername'] = $row['adusername']; // Set session variable for username
 
             header("Location: ../Admin Interface/admin_home.php"); // Redirect to home page
