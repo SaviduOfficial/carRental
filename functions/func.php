@@ -610,6 +610,42 @@ function showCustomerCurrentBooking($conn, $customerID) {
 }
 
 
+//  update rental charges
+function updateRentalCharge($conn, $id, $additional, $ratePerKm, $EngineCapacity) {
+    $query = "UPDATE rentalcharge 
+              SET ratePerKm = ?, additional_charge = ? 
+              WHERE ID = ? AND EngineCapacity = ?";
+
+              $id = (int)$id;
+              $additional = (float)$additional;
+              $ratePerKm = (float)$ratePerKm;
+              $EngineCapacity = (string)$EngineCapacity;
+    
+    $stmt1 = $conn->prepare($query);
+
+    // Check if the statement was prepared successfully
+    if ($stmt1 === false) {
+        die("Error preparing the query: " . $conn->error);
+        
+    }
+
+    // Bind the parameters to the prepared statement
+    $stmt1->bind_param("ddis", $ratePerKm, $additional , $id, $EngineCapacity);
+
+    // Execute the statement and check for success
+    if ($stmt1->execute()) {
+        echo "Rental charge updated successfully.";
+        return true;
+        
+        
+    } else {
+        echo "Error updating rental charge: " . $stmt1->error;
+        
+    }
+
+    // Close the statement
+    $stmt1->close();
+}
 
 
 
