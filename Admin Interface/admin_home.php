@@ -40,34 +40,9 @@ $adusername = $_SESSION['adusername']; // Retrieve the username from the session
     <section class="hero">
         <div class="container text-center text-white">
             <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1>
-            <p>Simply do a quick search to reserve your vehicle in no time. 1000+ vehicles to choose from according to your need!</p>
+            <p>You Are Now Logged in as an Admin! </p>
             
-            <!-- Search Form -->
-            <div class="row justify-content-center">
-                <div class="col-md-2">
-                    <select class="form-control">
-                        <option>Select Type</option>
-                        <option>Car</option>
-                        <option>Van</option>
-                        <option>Bike</option>
-                        <option>Tuk-Tuk</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-control">
-                        <option>Location</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <input type="date" class="form-control" placeholder="Pickup Date">
-                </div>
-                <div class="col-md-2">
-                    <input type="date" class="form-control" placeholder="End Date">
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-warning btn-block">Quick Search</button>
-                </div>
-            </div>
+           
         </div>
     </section>
 
@@ -77,54 +52,81 @@ $adusername = $_SESSION['adusername']; // Retrieve the username from the session
             <div class="row">
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <!-- <img src="car_img.png" class="card-img-top" alt="Car">
+                         <img src="../Admin Interface/images_1/register.JPG" class="card-img-top" alt="register">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Car</h5>
-                            <p>Starting from <strong>Rs. 4000.00</strong></p>
-                            <a href="../VehicleBrowse/cars.php">
-                                <button class="btn btn-warning">Rent Now</button>
+                            <h5 class="card-title">Register Vehicles</h5>
+                            <a href="../Admin Interface/vehicleRegister/RegisterVehicles.php">
+                                <button class="btn btn-warning">REGISTER</button>
                             </a>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <!-- <img src="van_img.png" class="card-img-top" alt="Van">
+                        <img src="../Admin Interface/images_1/updatevehicle.jpg" class="card-img-top" alt="update">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Van</h5>
-                            <p>Starting from <strong>Rs. 9000.00</strong></p>
-                            <a href="../VehicleBrowse/Van.php">
-                                <button class="btn btn-warning">Rent Now</button>
+                             <h5 class="card-title">Update Vehicle Details</h5>
+                            <a href="../Admin Interface/UpdateVehicleDetails/searchInterface.php">
+                                <button class="btn btn-warning">UPDATE</button>
                             </a>
                             
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <!-- <img src="bike_img.png" class="card-img-top" alt="Bike">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Bike</h5>
-                            <p>Starting from <strong>Rs. 2500.00</strong></p>
-                            <a href="../VehicleBrowse/Bike.php">
-                                <button class="btn btn-warning">Rent Now</button>
+                        <img src="../Admin Interface/images_1/repair.jpg" class="card-img-top" alt="availability">
+                         <div class="card-body text-center">
+                            <h5 class="card-title">Change Availability</h5> 
+                            <a href="../Admin Interface/ChangeAvailability/searchforvehicle.php">
+                                <button class="btn btn-warning">AVAILABILITY</button>
                             </a>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card vehicle-card">
-                        <!-- <img src="tuk_img.png" class="card-img-top" alt="Tuk-Tuk">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Tuk-Tuk</h5>
-                            <p>Starting from <strong>Rs. 3500.00</strong></p>
-                            <a href="../VehicleBrowse/tuktuk.php">
-                                <button class="btn btn-warning">Rent Now</button>
+                       <img src="../Admin Interface/images_1/delete.jpg" class="card-img-top" alt="delete">
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Delete Vehicles</h5>                        
+                            <a href="need to create a interface">
+                                <button class="btn btn-warning">DELETE</button>
                             </a>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
-            </div>
+                
+        </div>
+    </section>
+
+    <section class="vehicles py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card vehicle-card">
+                    <img src="../Admin Interface/images_1/payments.jpg" class="card-img-top" alt="payments">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">User payments</h5>                        
+                            <a href="need to create a interface">
+                                <button class="btn btn-warning">PAYAMENTS</button>
+                            </a>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card vehicle-card">
+                        <img src="../Admin Interface/images_1/rentalcharge.jpg" class="card-img-top" alt="rental">
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Change Renatal </h5>                        
+                            <a href="need to create a interface">
+                                <button class="btn btn-warning">Renatal Charges</button>
+                            </a>
+                            
+                        </div> 
+                    </div>
+                </div>
+                
+                    
         </div>
     </section>
 
