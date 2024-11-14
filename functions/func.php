@@ -445,3 +445,28 @@ function getBookingDetails($conn, $BID)
 
 
 //SUPER USER FUNCTIONS
+
+// change avilability of vehicles
+
+function changeAvailability($vehicleID, $availability){
+
+    include "../config.php";
+    $proceed = false;
+
+      $stmt = $conn->prepare("UPDATE registered_vehicles SET availability = ? WHERE VehicleID = ?");
+        $stmt->bind_param("ss", $availability, $vehicleID); 
+
+        // Execute the prepared statement
+        if ($stmt->execute()) {
+            echo "Availability updated successfully";
+            $proceed = true;
+            return $proceed;
+        } else {
+            echo "Error updating availability: " . $stmt->error;
+        }
+
+// Close the statement
+$stmt->close();
+    
+
+}
