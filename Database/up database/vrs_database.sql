@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 11:17 AM
+-- Generation Time: Nov 14, 2024 at 07:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,30 +34,6 @@ CREATE TABLE `administrator` (
   `Username` varchar(25) DEFAULT NULL,
   `User_password` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admins`
---
-
-CREATE TABLE `admins` (
-  `adid` int(11) NOT NULL,
-  `adfirst_name` varchar(255) NOT NULL,
-  `adlast_name` varchar(255) NOT NULL,
-  `adaddress` varchar(255) DEFAULT NULL,
-  `adusername` varchar(255) NOT NULL,
-  `admobile` varchar(20) DEFAULT NULL,
-  `ademail` varchar(255) NOT NULL,
-  `adpassword` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`adid`, `adfirst_name`, `adlast_name`, `adaddress`, `adusername`, `admobile`, `ademail`, `adpassword`) VALUES
-(1, 'Jhon', 'Cena', NULL, 'jhon', '0124552364', 'jhon@cena.com', '$2y$10$GrX3v6i0yqhWHiOcrvMv9OBQgStkNinevWul3ZXNI45W3UQS.unDO');
 
 -- --------------------------------------------------------
 
@@ -106,13 +82,6 @@ CREATE TABLE `bookings` (
   `finalMileage` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, `VehicleID`, `Vehicle_type`, `Vehicle_make`, `Vehicle_model`, `Regi_no_p1`, `Regi_no_p2`, `Fuel_type`, `colour`, `CustomerID`, `First_Name`, `Last_Name`, `contact_Number`, `email`, `paid_unpaid`, `Rental_chage`, `image_1`, `initialMileage`, `finalMileage`) VALUES
-(1, '2024-11-11', '2024-11-13', 'myAddress', '3014568', 'Car', 'Mercedes-Benz', 'E320', '301', '4568', 'Petrol 95 Octane', 'Black', 'TestCust1', 'Test', 'Cust1', '0112742559', 'cust1@gmail.com', 'unpaid', '14000', 'uploads/benzblack1.jpg', '67100', '67200');
-
 -- --------------------------------------------------------
 
 --
@@ -136,7 +105,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CID`, `First_Name`, `Last_Name`, `Address`, `email`, `Customer_password`, `Contact_number`, `Driving_license_No`, `username`) VALUES
-('TestCust1', 'Test', 'Cust1', 'myAddress', 'cust1@gmail.com', 'helloworld123', '0112742559', NULL, 'TestCust1');
+('B1005894', 'Test', 'case1', 'myAddress', 'testcase@gmail.com', '$2y$10$WW84cPtyUh3r3katZGPxB.xygXoqbtKiODJFSOPMoOUmSE6UWfK7K', '0772428568', 'B1005894', 'testcase1');
 
 -- --------------------------------------------------------
 
@@ -176,8 +145,9 @@ CREATE TABLE `registered_vehicles` (
 --
 
 INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`) VALUES
-('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
+('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'Yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
 ('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
+('CKC4589', 'Car', 'cyber', 'truck', 'resla@gmail.com', '0745898448', 'Tesla', 'Other', '2019', 'Electric', '35000', 'CKC', '4589', 'Electric', 'Automatic', 'Black', 'yes', 'Rs.80.00 perKm + Rs.2500.00', 'uploads/cyber1.jpg', 'uploads/cyber6.jpg', 'uploads/cyber7.jpg', 'uploads/cyber4.jpg', 'uploads/cyber3.jpg', 'uploads/cyber5.jpg'),
 ('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg'),
 ('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg'),
 ('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg'),
@@ -218,33 +188,6 @@ INSERT INTO `rentalcharge` (`ID`, `EngineCapacity`, `ratePerKm`, `additional_cha
 (12, 'more than 3000cc', 150.00, 5000.00),
 (13, 'Electric', 80.00, 2500.00);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(100) DEFAULT NULL,
-  `last_name` varchar(100) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `mobile` varchar(15) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `address`, `username`, `mobile`, `email`, `password`) VALUES
-(1, 'Harendra', 'Kumarasiri', 'dwdwdwd', 'admin', '0712345678', 'hdadada@fsf.com', '$2y$10$b0sT/pFMrIm6EXKvy9IdhO8uOeZcf6Jh/vUiQZAmJ1iIswghoYz/W'),
-(3, 'Harendra', 'Kumarasiri', 'dwdwdwd', 'admin1', '0712345678', 'hdadada@fsf.com', '$2y$10$cRQdpscSlv4AlT1zitikw.IrkilVEZSjyn2zVfL11p5cKWuyuwTmu'),
-(4, 'adoado', 'adooo', 'dadadada', 'adoado', '0124552364', 'hdadada@fgs.com', '$2y$10$VwCr8QJT.KX9R0G/vfCiZ.lEWKe8q9xL6lR4GxgGkoa07K..o7e4K'),
-(5, 'Jhon', 'Cena', 'jhon@cena.com', 'jhon', '0124552364', 'hdadada@fgs.com', '$2y$10$mGRwK3thuDqQ6zTEcRg2VOSfC7Iw0cla7d4Jz7KWyBOW3etOxJzSC');
-
 --
 -- Indexes for dumped tables
 --
@@ -254,15 +197,6 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `address`, `username`, `mo
 --
 ALTER TABLE `administrator`
   ADD PRIMARY KEY (`AID`);
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`adid`),
-  ADD UNIQUE KEY `adusername` (`adusername`),
-  ADD UNIQUE KEY `ademail` (`ademail`);
-
 
 --
 -- Indexes for table `availability`
@@ -303,15 +237,14 @@ ALTER TABLE `rentalcharge`
   ADD PRIMARY KEY (`ID`,`EngineCapacity`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `availability`
+--
+ALTER TABLE `availability`
+  MODIFY `ava_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `bookings`
@@ -324,18 +257,6 @@ ALTER TABLE `bookings`
 --
 ALTER TABLE `rentalcharge`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `adid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

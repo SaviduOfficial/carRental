@@ -5,12 +5,13 @@ include '../db.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cusername = $_POST['cusername'];
+    $username = $_POST['cusername']; /*cusename to username not the input field only the variable*/ 
     $password = $_POST['Customer_password'];
+     
 
     // Prepare and execute a query to fetch user data
-    $stmt = $conn->prepare("SELECT CID, cusername, Customer_password FROM customers WHERE cusername = ?");
-    $stmt->bind_param("s", $cusername);
+    $stmt = $conn->prepare("SELECT CID, username, Customer_password FROM customers WHERE username = ?"); /* cusername to username*/ 
+    $stmt->bind_param("s", $username); /* cusername to username*/ 
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -20,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verify password
         if (password_verify($password, $row['Customer_password'])) {
             $_SESSION['CID'] = $row['CID']; // Set session variable
-            $_SESSION['cusername'] = $row['cusername']; // Set session variable for username
+            $_SESSION['username'] = $row['username']; // Set session variable for username  /* cusername to username*/ 
             header("Location: ../Home/home.php"); // Redirect to home page
-            exit;
+            /*exit;*/
         } else {
             echo "Invalid password!";
         }

@@ -2,12 +2,12 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['cusername'])) {
+if (!isset($_SESSION['username'])) {
     header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
     exit;
 }
 
-$cusername = $_SESSION['cusername']; // Retrieve the username from the session
+$username = $_SESSION['username']; // Retrieve the username from the session
 
 ?>
 
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="nav-link" href="home.php">Home</a>
             <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
             <a class="nav-link" href="#">Contact</a>
-            <span class="nav-link"><?php echo htmlspecialchars($cusername); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+            <span class="nav-link"><?php echo htmlspecialchars($username); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
     </nav>
 
@@ -106,7 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img src="car_img.png" class="card-img-top" alt="Car">
                         <div class="card-body text-center">
                             <h5 class="card-title">Car</h5>
-                            <p>Starting from <strong>Rs. 4000.00</strong></p>
+                            <p>Starting from <strong>Rs. 1500.00</strong></p>
+                            <!--<p>Starting from <strong>Rs. 4000.00</strong></p> -->
                             <a href="../VehicleBrowse/cars.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
@@ -118,7 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img src="van_img.png" class="card-img-top" alt="Van">
                         <div class="card-body text-center">
                             <h5 class="card-title">Van</h5>
-                            <p>Starting from <strong>Rs. 9000.00</strong></p>
+                            <p>Starting from <strong>Rs. 2000.00</strong></p>
+                             <!--<p>Starting from <strong>Rs. 9000.00</strong></p>-->
                             <a href="../VehicleBrowse/Van.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
@@ -131,7 +133,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img src="bike_img.png" class="card-img-top" alt="Bike">
                         <div class="card-body text-center">
                             <h5 class="card-title">Bike</h5>
-                            <p>Starting from <strong>Rs. 2500.00</strong></p>
+                            <p>Starting from <strong>Rs. 500.00</strong></p>
+                             <!--<p>Starting from <strong>Rs. 2500.00</strong></p>-->
                             <a href="../VehicleBrowse/Bike.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>
@@ -143,7 +146,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img src="tuk_img.png" class="card-img-top" alt="Tuk-Tuk">
                         <div class="card-body text-center">
                             <h5 class="card-title">Tuk-Tuk</h5>
-                            <p>Starting from <strong>Rs. 3500.00</strong></p>
+                            <p>Starting from <strong>Rs. 1000.00</strong></p>
+                             <!--<p>Starting from <strong>Rs. 3500.00</strong></p>-->
                             <a href="../VehicleBrowse/tuktuk.php">
                                 <button class="btn btn-warning">Rent Now</button>
                             </a>

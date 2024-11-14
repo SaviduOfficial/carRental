@@ -1,6 +1,5 @@
 <?php
 
-
 //validation of email
 function emailvalidate($email)
 {

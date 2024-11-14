@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = $_POST['lastName'];
     $address = $_POST['address'];
     $licenseNo = $_POST['licenseNo'];
-    $cusername = $_POST['cusername'];
+    $username = $_POST['cusername'];    /* $cusername = $_POST['cusername']; */ 
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Insert user data into the database
-    $stmt = $conn->prepare("INSERT INTO customers (First_Name, Last_Name, Address, Driving_license_No, cusername, Contact_number, email, Customer_password, CID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssss", $firstName, $lastName, $address, $licenseNo, $cusername, $mobile, $email, $hashedPassword, $CID);
+    $stmt = $conn->prepare("INSERT INTO customers (First_Name, Last_Name, Address, Driving_license_No, username, Contact_number, email, Customer_password, CID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $firstName, $lastName, $address, $licenseNo, $username, $mobile, $email, $hashedPassword, $CID);
 
     if ($stmt->execute()) {
         echo "Registration successful!";
