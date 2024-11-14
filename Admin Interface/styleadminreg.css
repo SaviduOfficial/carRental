@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom left, #79d7d4, #d7b02f) no-repeat center center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.registration-form {
+    padding: 20px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Arrange inputs in two columns */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 15px; /* Space between columns and rows */
+}
+
+.two-column > div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 12px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+    padding: 10px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 80%;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto 0;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="password"], .btn {
+        font-size: 14px;
+    }
+}
