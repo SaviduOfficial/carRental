@@ -3,6 +3,8 @@ session_start();
 
 $_SESSION['CID']; //need for booking history
 
+
+
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: ../Customer Login/customer_login.php"); // Redirect to login page if not logged in
@@ -106,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="date" name="end_date" class="form-control" placeholder="End Date">
         </div>
         <div class="form-group mx-2">
-            <button type="submit" class="btn btn-warning btn-block">Quick Search</button>
+            <button type="submit" class="btn btn-warning btn">Quick Search</button>
         </div>
     </form>
 </div>

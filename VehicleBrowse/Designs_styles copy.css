@@ -1,30 +1,25 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: cursive;
-
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
 }
   
 .banner{
     width: 100%;
     height: 100vh;
     background-position: center;
+
 }
 
-.navbar{
-    top: 0;
-    left: 0;
-    height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    position: absolute;
-    width: 100%;
-    z-index: 100;
+/* Navbar */
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
 }
 
 
+.items h2{
+    text-align: center;
+}
 
 .logo{
     width: 150px;
@@ -45,7 +40,7 @@
 
 }
 
-.navbar_list ul li a{
+/* .navbar_list ul li a{
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -64,7 +59,7 @@
 
 .navbar_list ul li:hover::after{
     width: 100%;
-}
+} */
 
 .hamburger {
   top: 4rem;
@@ -104,7 +99,7 @@
   transform: scale(0);
 
 }
- 
+
 .gallery #ts1 {
     text-align: center;
 
@@ -112,7 +107,7 @@
 
 .gallery h3{
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     margin: 0;
     padding-top: 10px;
 }
@@ -120,31 +115,45 @@
 
 
 .gallery{
-    margin-top: 165px;
+    margin-top: 15px;
     display: flex;
     flex-wrap: wrap;
-    width: auto;
-    justify-content: left;
+    width: 100%;
+    justify-content: center;
+    font-family: cursive;
 
 }
 
+.gallery :hover{  
+    transform: translate(0px, 8px);
+}
 
 .gallery .content{
-    width: 100%;
-    margin: 15px;
+    width: 20%;
+    height:auto;
+    /* margin: 10px; */
     box-sizing: border-box;
     float: left;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
     padding-top: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0,0,0,0.22);
+    0 10px 10px rgba(42, 30, 30, 0.22);
     transition: 0.4s;
-    background-color: rgba(221, 227, 233, 0.952);
+    background-color: white;
     overflow: hidden;
-    height:auto;
-    padding-bottom: 50px;
+
+}
+
+.gallery .content :hover{  
+    transform:none;
+}
+
+
+.gallery .content img{
+    width: 95%;
+    height:200px;
     
 
 }
@@ -153,12 +162,13 @@
 
 .gallery #BC {
     width: 95%;
-    height: 60%;
-    text-align: left;
+    height: 200px;
+    text-align: center;
     margin: auto;
     display: block;
     border-radius: 10px;
 }
+
 
 #header {
     margin-top: 173px;
@@ -173,79 +183,19 @@
 }
 
 
-.btn {
-    margin-top: 20px;
-    background-color: #24272b;
-    color: #c0c7d6;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    width: 100px;
-    height: 45px;
-    transition: 0.3s;
-    margin-left: -250px;
-    
-  }
-  
-  .btn:hover {
-    background-color: #000000;
-    box-shadow: 0 0 0 5px #051c3d5f;
-    color: #fff;
-  }
-  
-
-.gallery .textstyle p{
+.gallery .textstyle {
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     color: black;
-    margin: 2px;
+    margin: 1px;
     overflow: hidden;
-    margin-left: 40px;
+    margin-bottom: 20px;
+    
 
 }
 
-/* Container for the whole image gallery */
-.image-gallery {
-    display: flex; /* Arrange items in a row */
-    align-items: flex-start; /* Align items to the top */
-    gap: 10px; /* Space between the large and small images */
-}
-
-/* Style for the large image on the left */
-.large-image {
-    width: 700px; /* Adjust as needed */
-    margin-left: 40px;
-    height: auto;
-    margin-bottom: 30px;
-}
-
-.gallery .textstyle .smallimages{
-
-    width: 130px; /* Set desired width */
-    height: 100px; /* Set desired height */
-    object-fit: cover; /* Scale and crop the image to fill the box */
-    margin-left: 20px; /* Adjust as needed for positioning */
-    border-radius: 5px; /* Optional: round the corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for better appearance */
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-
-.gallery .textstyle h1{
-    font-size: 35px;
-    text-align: left;
-    color: black;
-    margin-top: 20px;
-    margin-left: 40px;
-    overflow: hidden;
-    margin-bottom: 30px;
-
-}
-
-
-@media (max-width:800px){
-   .gallery h3{
+@media (max-width:750px){
+    .gallery h3{
     text-align: center;
     font-size: 12px;
     margin: 0;
@@ -265,12 +215,13 @@
     font-size: 10px;
     margin: 0;
     padding-top: 5px;
+    
     }
 
 }
 
 
-@media (max-width: 800px){
+@media (max-width: 740px){
 
     .hamburger:before,
     .hamburger:after,
@@ -285,7 +236,7 @@
         cursor: pointer;
 
     }
-
+/* 
     .navbar_list ul{
         height: 0px;
         position: absolute;
@@ -313,14 +264,13 @@
     .navbar_list ul.active{
        height: 530px;
        transition: height 0.4s ease-in-out;
-   }
+   } */
 
    .logo{
-        width: 140px;
-        height: 100px;
+        width: 90px;
         cursor: pointer;
         margin-left: 35px;
-        margin-top: 20px;
+        margin-top: 40px ;
         border-radius: 50%;
 
     }
@@ -338,7 +288,27 @@
 }
 
 
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom right, #79d7d4, #c0e28c);
+    padding: 60px 0;
+}
 
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn-warning {
+    color: #fff;
+    font-weight: bold;
+}
 
 
 

@@ -17,40 +17,41 @@ $result = $conn->query($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRS - Browse vehicles</title>
-    <link rel="stylesheet" href="Designs_styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Designs_styles copy.css">
     <script  src="Designs_script.js"></script>
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-
-             <a href="../Homepage/index.php"> <img src= 'vrslogo.png' class="logo" alt="VRS logo"></a> <!-- need to go to homepage when click the logo-->
-            
-            <div class="hamburger">
-                <div>
-                </div>
-
-            </div>
-
-            <div class="navbar_list">
-                <ul>
-                    <li><br></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Vehicles</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-           
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+            VRS
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="../Home/home.php">Home</a>
+            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+            <a class="nav-link" href="#">Contact</a>
+            <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
+    </nav>
+
+
+    
+    <section class="hero">
+        <div class="container text-center text-white">
+            <!-- <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1> -->
+            <h1> Bikes Available at the Moment</h1>
+            
+            
+        </div>
+    </section>
 
 
 
 
         
         <section class="items">
-                    <h2 id= "header"> Bikes Available at the Moment</h2>
                     
             <div class="gallery">
             <?php
