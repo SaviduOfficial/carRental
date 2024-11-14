@@ -8,7 +8,9 @@ if (!isset($_SESSION['adusername'])) {
 }
 
 $adusername = $_SESSION['adusername']; // Retrieve the username from the session
+echo $adusername;
 ?>
+<?php echo $adusername; ?>
 
 <!DOCTYPE html>
 <html lang="en">

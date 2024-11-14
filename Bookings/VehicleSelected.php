@@ -4,12 +4,20 @@ include "../config.php";
 
 session_start();
 
+//check whether customer id is assigned
+
+if (!isset($_SESSION['CustomerID'])) {
+    echo "No customer ID found: ";
+  }
+
+
 /*$customerID = $_SESSION['CustomerID'];
 $vehicleID = $_SESSION['VehicleID'];*/
 
 // Check if vehicleID is set in the URL
 if (isset($_GET['vehicleID'])) {
     $vehicleID = $_GET['vehicleID'];
+    $customerID = $_SESSION['CustomerID'];
 
     // Prepare the query to fetch the specific vehicle's details
     $query = "SELECT * FROM registered_vehicles WHERE VehicleID = ?";

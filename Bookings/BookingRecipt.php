@@ -4,10 +4,10 @@
 session_start();
 
 // Clear all session data
-session_unset();
+// session_unset();
 
 // Destroy the session
-session_destroy();
+// session_destroy();
 
 include "../config.php";
 include "../functions/func.php";
@@ -16,11 +16,22 @@ $BID = $Booking_Date = $Return_Date = $Pickup_address = $VehicleID = $Vehicle_ty
 $Regi_no_p2 = $Fuel_type = $colour = $CustomerID = $First_Name = $Last_Name = $contact_Number = $email =$paid_unpaid = 
 $Rental_charge = $image_1 = $initialMileage = $finalMileage ="";
 
-session_start();
+
 $BID = $_SESSION['BID'];
+$CID= $_SESSION['CID'];
+$VehicleID= $_SESSION['VehicleID'];
+$Vehicle_type= $_SESSION['Vehicle_type'];
+$Vehicle_make = $_SESSION['Vehicle_make'];
+$Vehicle_model = $_SESSION['Vehicle_model'];
+$initialMileage = $_SESSION['initialMileage'];
+$Regi_no_p1 = $_SESSION['Regi_no_p1'];
+$Regi_no_p2 = $_SESSION['Regi_no_p2'];
+$Fuel_type = $_SESSION['Fuel_type'];
 
 
-getBookingDetails($conn, $BID);
+
+
+// getBookingDetails($conn, $BID);
 
 
 
@@ -90,7 +101,7 @@ getBookingDetails($conn, $BID);
 
 							<tr class="service">
 								<td class="tableitem"><p class="itemtext">CustomerID</p></td>
-								<td class="tableitem"><p class="itemtext"><?php echo $CustomerID ?></p></td>
+								<td class="tableitem"><p class="itemtext"><?php echo $CID ?></p></td>
 								<td class="tableitem"><p class="itemtext"></p></td>
 							</tr>
 
@@ -229,7 +240,7 @@ getBookingDetails($conn, $BID);
 
 
 // Redirect to the homepage
-header("Location: index.php"); // Replace 'index.php' with your homepage URL
+// header("Location: index.php"); // Replace 'index.php' with your homepage URL
 exit();
 
 
