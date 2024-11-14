@@ -95,16 +95,16 @@ if (isset($_GET['vehicleID'])) {
                                 
                                     <div class="image-gallery">
                                         <!-- Main large image on the left -->
-                                        <img id="largeImage" class="large-image" src="../vehicleRegister/<?php echo $vehicle['image_1']; ?>" alt="Vehicle Image">
+                                        <img id="largeImage" class="large-image" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_1']; ?>" alt="Vehicle Image">
                                         
                                         <!-- Container for smaller images on the right -->
                                         <div class="small-images-container">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_1']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_2']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_3']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_4']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_5']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
-                                            <img class="smallimages" src="../vehicleRegister/<?php echo $vehicle['image_6']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_1']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_2']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_3']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_4']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_5']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
+                                            <img class="smallimages" src="../Admin Interface/vehicleRegister/<?php echo $vehicle['image_6']; ?>" alt="Vehicle Image" onclick="changeLargeImage(this)">
                                             
                                         </div>
                                         

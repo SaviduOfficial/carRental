@@ -68,7 +68,7 @@ $result = $conn->query($query);
                  <div class="content">
                  <a href="../Bookings/VehicleSelected.php?vehicleID=<?php echo $vehicleID; ?>" class="tile-link">
                  <h3><?php echo $vehicleMake; ?></h3>
-                    <img src="../vehicleRegister/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
+                    <img src="../Admin Interface/vehicleRegister/<?php echo $vehicleImage; ?>" alt="Vehicle Image" >  <!-- need the vehicle image link-->
                         <div class="textstyle">
                             
                             <p>Model: <?php echo $vehicleModel; ?></p>
