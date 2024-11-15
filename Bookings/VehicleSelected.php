@@ -14,12 +14,12 @@ session_start();
 /*$customerID = $_SESSION['CustomerID'];
 $vehicleID = $_SESSION['VehicleID'];*/
 
-// Check if vehicleID is set in the URL
+// Check if vehicleID is set 
 if (isset($_GET['vehicleID'])) {
     $vehicleID = $_GET['vehicleID'];
     $customerID = $_SESSION['CID'];
 
-    // Prepare the query to fetch the specific vehicle's details
+    // query to fetch the vehicle details
     $query = "SELECT * FROM registered_vehicles WHERE VehicleID = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $vehicleID); 
@@ -29,7 +29,7 @@ if (isset($_GET['vehicleID'])) {
     // Fetch the vehicle details
     if ($result->num_rows > 0) {
         $vehicle = $result->fetch_assoc();
-        // Now you have all details of the selected vehicle in $vehicle
+        
     } else {
         echo "Vehicle not found.";
     }
