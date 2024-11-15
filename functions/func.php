@@ -648,6 +648,37 @@ function updateRentalCharge($conn, $id, $additional, $ratePerKm, $EngineCapacity
 }
 
 
+//  update Payment status of customers
+function updatePaymentstatus($conn, $bid, $cid, $paid_unpaid) {
+    $query = "UPDATE bookings 
+              SET paid_unpaid = ? 
+              WHERE BID = ? AND CustomerID = ?";           
+    
+    $stmt1 = $conn->prepare($query);
+
+    // Check if the statement was prepared successfully
+    if ($stmt1 === false) {
+        die("Error preparing the query: " . $conn->error);
+        
+    }
+
+    // Bind the parameters to the prepared statement
+    $stmt1->bind_param("sss", $paid_unpaid, $bid , $cid);
+
+    // Execute the statement and check for success
+    if ($stmt1->execute()) {
+        echo "Rental charge updated successfully.";
+        return true;
+        
+        
+    } else {
+        echo "Error updating rental charge: " . $stmt1->error;
+        
+    }
+
+    // Close the statement
+    $stmt1->close();
+}
 
 
 

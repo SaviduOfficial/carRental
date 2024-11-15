@@ -89,7 +89,7 @@ $adusername = $_SESSION['adusername']; // Retrieve the username from the session
                        <img src="../Admin Interface/images_1/delete.jpg" class="card-img-top" alt="delete">
                           <div class="card-body text-center">
                             <h5 class="card-title">Delete Vehicles</h5>                        
-                            <a href="need to create a interface">
+                            <a href="../Admin Interface/DeleteVehicles/searchInterface.php">
                                 <button class="btn btn-warning">DELETE</button>
                             </a>
                         </div> 
@@ -107,7 +107,7 @@ $adusername = $_SESSION['adusername']; // Retrieve the username from the session
                     <img src="../Admin Interface/images_1/payments.jpg" class="card-img-top" alt="payments">
                         <div class="card-body text-center">
                             <h5 class="card-title">User payments</h5>                        
-                            <a href="need to create a interface">
+                            <a href="../Admin Interface/Payments/payemntdata.php">
                                 <button class="btn btn-warning">PAYAMENTS</button>
                             </a>
                         </div> 
@@ -118,7 +118,7 @@ $adusername = $_SESSION['adusername']; // Retrieve the username from the session
                         <img src="../Admin Interface/images_1/rentalcharge.jpg" class="card-img-top" alt="rental">
                           <div class="card-body text-center">
                             <h5 class="card-title">Change Renatal </h5>                        
-                            <a href="need to create a interface">
+                            <a href="../Admin Interface/changeRentalCharges/changerent.php">
                                 <button class="btn btn-warning">Renatal Charges</button>
                             </a>
                             

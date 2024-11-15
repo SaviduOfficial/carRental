@@ -39,7 +39,7 @@ $result = $stmt->get_result();
 
 
   <div class="table-title">
-    <h3>Your Usage Amount</h3>
+    <h3>CURRENT RATES</h3>
   </div>
   <table class="table-fill">
     <thead>

@@ -4,10 +4,10 @@
 session_start();
 
 // Clear all session data
-// session_unset();
+ /*session_unset();*/
 
 // Destroy the session
-// session_destroy();
+ /*session_destroy();*/
 
 include "../config.php";
 include "../functions/func.php";
@@ -30,8 +30,25 @@ $Fuel_type = $_SESSION['Fuel_type'];
 
 
 
+ $comapact = getBookingDetails($conn, $BID);
 
-// getBookingDetails($conn, $BID);
+
+ $Booking_Date = $comapact['Booking_Date'];
+ $Return_Date = $comapact['Return_Date'];
+ $Pickup_address = $comapact['Pickup_address'];
+ $colour = $comapact['colour'];
+ $First_Name = $comapact['First_Name'];
+ $Last_Name = $comapact['Last_Name'];
+ $contact_Number = $comapact['contact_Number'];
+ $email = $comapact['email'];
+ $paid_unpaid = $comapact['paid_unpaid'];
+ $Rental_charge = $comapact['Rental_chage'];
+ $image_1 = $comapact['image_1'];
+ $initialMileage = $comapact['initialMileage'];
+ $finalMileage = $comapact['finalMileage'];
+
+
+
 
 
 
@@ -59,9 +76,9 @@ $Fuel_type = $_SESSION['Fuel_type'];
 
         
             <div><button class="styled-button">Download</button></div>
-            <div><form action="backaction.php" method="post">
-            <button class="styled-button" type="submit">Back</button>
-        </form></div>
+            <div>
+            <a href="../Home/home.php"><button name="backbtn" class="styled-button" type="submit">Back</button></a>
+        </div>
 
             
 
@@ -235,13 +252,3 @@ $Fuel_type = $_SESSION['Fuel_type'];
 </body>
 </html>
 
-<?php
-
-
-
-// Redirect to the homepage
-// header("Location: index.php"); // Replace 'index.php' with your homepage URL
-exit();
-
-
-?>
