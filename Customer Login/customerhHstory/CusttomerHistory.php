@@ -5,7 +5,7 @@ include '../../functions/func.php';
 
 session_start();
 $_SESSION['CID'];   
-
+    
 ?>
 
 <html lang="en">

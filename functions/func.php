@@ -488,6 +488,7 @@ function showCustomerBookingHistory($conn, $customerID) {
     $stmt->bind_param("ss", $customerID, $paid_unpaid);
     $stmt->execute();
     $result = $stmt->get_result();
+    
 
     // Check if there are any bookings
     if ($result->num_rows > 0) {
