@@ -187,7 +187,7 @@ function rentalchargeforvehicle($eCapacityvalue)
 function getRentalChargeRate($eCapacityvalue)
 {
     // Include the database configuration file
-    include "../config.php"; // Update with the correct path to your config file
+    include "../../config.php"; // Update with the correct path to your config file
 
     // Prepare the query to fetch ratePerKm and additional_charge for the specified EngineCapacity
     $query = "SELECT ratePerKm, additional_charge FROM rentalcharge WHERE EngineCapacity = ?";

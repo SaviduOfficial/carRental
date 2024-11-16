@@ -166,7 +166,7 @@ if ($proceed == true){
 
         $conn->close();
 
-        //go back to admin homePage
+        header("location: ../admin_home.php");
 
     }else{
         echo "vehicle registration number, engine capaciy or rental charge is wrong";
