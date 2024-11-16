@@ -2,6 +2,7 @@ html {
   line-height: 1.15;
   /* 1 */
   -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
@@ -761,6 +762,7 @@ legend {
   border-radius: 0;
   max-width: 100%;
   padding: 4px 0 4px 2px;
+  
 }
 
 .choices__input:focus {
@@ -790,7 +792,9 @@ legend {
   -ms-flex-align: center;
       align-items: center;
   font-family: 'Poppins', sans-serif;
-  background-color: #3c3d3d;
+  background: -webkit-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Safari/Chrome */
+  background: -moz-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Firefox */
+  background: linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Standard */
   background-size: cover;
   background-position: center center;
   padding: 15px;

@@ -32,17 +32,31 @@ $result = $stmt->get_result();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="paymentstyle.css">
-
 
 </head>
 
 <body>
-
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+        VRS
+    </a>
+    <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="../vehicleRegister/RegisterVehicles.php">Register</a>
+        <a class="nav-link" href="../Admin Interface/admin_registration.php">Create Admin</a>
+        <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+    </div>
+</nav>
 
   <div class="table-title">
-    <h3>UNPAID CUSTOMERS</h3>
+    <h3 class="text-white">UNPAID CUSTOMERS</h3>
   </div>
+  <br>
   <table class="table-fill">
     <thead>
       <tr>
@@ -87,7 +101,8 @@ $result = $stmt->get_result();
   $stmt->close();
   ?>
 
-<div class="changes"><h3> Change payment status </h3></div>
+<div class="changes"><h3 class="text-white"> CHANGE PAYMENT STATUS </h3></div>
+<br>
   
 <form action="validatepayments.php" method="POST">
     <div class="table-container">

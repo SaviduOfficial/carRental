@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,23 @@
     <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="searchstyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+        VRS
+    </a>
+    <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+        <a class="nav-link" href="#">Contact</a>
+        <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+    </div>
+</nav>  
 <div class="s003">
     <div class="formheader">
         <h3>DELETE VEHICLES</h3>
@@ -24,10 +39,10 @@
     <form id="searchForm" method="GET">
         <div class="inner-form">
             <div class="input-field first-wrap">
-                <div class="input-select">
-                    <label style="text-align: center;"> <br></label>
-                    <label style="font-family: monospace; font-size:16px; padding-left:10px;" > Search vehicle by ID  </label>
-                </div>
+                
+                    
+                    <label style="font-family: monospace; font-size:16px; padding-left:10px; padding-top:15px;"> Search vehicle by ID  </label>
+                
             </div>
             <div class="input-field second-wrap">
                 <input id="vehicleID" name="vehicleiD" type="text" />

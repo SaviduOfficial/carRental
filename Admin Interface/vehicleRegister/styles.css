@@ -1,3 +1,14 @@
+
+body {
+  background: -webkit-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Safari/Chrome */
+  background: -moz-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Firefox */
+  background: linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Standard */
+  
+}
+
+
+
+
 .indent-small {
   margin-left: 5px;
 }
@@ -22,10 +33,14 @@
   background: -o-radial-gradient(center, ellipse cover,  #e5e5e5 0%,#ffffff 100%); /* Opera 12+ */
   background: -ms-radial-gradient(center, ellipse cover,  #e5e5e5 0%,#ffffff 100%); /* IE10+ */
   background: radial-gradient(ellipse at center,  #e5e5e5 0%,#ffffff 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   font: 600 15px "Open Sans",Arial,sans-serif;
+  
+
 }
+
+
 
 label.control-label {
   font-weight: 600;
@@ -70,3 +85,34 @@ label.control-label {
   .container .form-group  .grid .form-element div span {
     font-size:40px;
   }
+
+#hero {
+  background: -webkit-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Safari/Chrome */
+  background: -moz-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Firefox */
+  background: linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Standard */
+}
+
+  /* Hero Section */
+.hero {
+  background: -webkit-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Safari/Chrome */
+  background: -moz-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Firefox */
+  background: linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Standard */
+  padding: 60px 0;
+  
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn-warning {
+  color: #fff;
+  font-weight: bold;
+}

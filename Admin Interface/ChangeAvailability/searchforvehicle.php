@@ -1,5 +1,8 @@
 <?php
 
+include "../../config.php";
+
+session_start();
 
 ?>
 
@@ -10,10 +13,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="colorlib.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="stylesearch.css" rel="stylesheet" />
 </head>
 <body>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+          <img src="../../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+          VRS
+      </a>
+      <div class="navbar-nav ml-auto">
+          <a class="nav-link" href="../Home/home.php">Home</a>
+          <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+          <a class="nav-link" href="#">Contact</a>
+          <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="../logout.php" class="text-danger">Log Out</a></span>
+      </div>
+  </nav>
+
 
 <div class="s003">
     <div class="formheader">

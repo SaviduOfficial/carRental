@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 ?>
 
@@ -12,8 +12,31 @@
     <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="searchstyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+        VRS
+    </a>
+    <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+        <a class="nav-link" href="#">Contact</a>
+        <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+    </div>
+</nav>   
+
+<!-- Hero Section
+<section class="hero">
+    <div class="container text-center text-white">
+        <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1>
+        <p>Simply do a quick search to reserve your vehicle in no time. 1000+ vehicles to choose from according to your need!</p>
+    </div>
+</section> -->
+
 
 <div class="s003">
     <div class="formheader">

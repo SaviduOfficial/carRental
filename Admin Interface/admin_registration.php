@@ -1,5 +1,7 @@
 <?php
 include '../db.php';
+session_start();
+$adusername = $_SESSION['adusername'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adfirstName = $_POST['adfirstName'];
@@ -51,8 +53,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
     <link rel="stylesheet" href="styleadminreg.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
+        VRS
+    </a>
+    <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="../vehicleRegister/RegisterVehicles.php">Register</a>
+        <a class="nav-link" href="../Admin Interface/admin_registration.php">Create Admin</a>
+        <span class="nav-link"><?php echo htmlspecialchars($adusername); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
+    </div>
+</nav>
+<br>
+<br>
+
     <div class="container">
         <div class="registration-form">
             <h1>Admin Registration Portal</h1>
@@ -91,9 +110,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="password" id="adconfirm-password" name="adconfirm-password" placeholder="Confirm Password" required>
                     </div>
                 </div>
-                <button type="submit" class="btn">Register</button>
+                <br>
+                <button type="submit" class="btns" style="color">Register</button>
             </form>
         </div>
     </div>
+    <br>
+    <br>
 </body>
 </html>

@@ -14,7 +14,9 @@ h6 {
 
 
 body {
-  background-color: #DCDCF5;
+  background: -webkit-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Safari/Chrome */
+  background: -moz-linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Firefox */
+  background: linear-gradient(to bottom right, #79d7d4, #c0e28c); /* Standard */
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -45,7 +47,7 @@ div.table-title {
 
 .table-fill {
   background: white;
-  border-radius: 3px;
+  border-radius: 10px;
   border-collapse: collapse;
   height: 300px;
   margin: auto;
@@ -55,6 +57,7 @@ div.table-title {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
   margin-bottom: 100px;
+  
 }
 
 th {
@@ -246,7 +249,7 @@ select:focus, input[type="number"]:focus {
 .submit-btn button{
   background: none;
   border: #4b6b88;
-  color: #000000;
+  color: #ff9800;
   font-size: 18px;
   width: 100%;
   cursor: pointer;

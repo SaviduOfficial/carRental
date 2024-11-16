@@ -1,11 +1,3 @@
-<?php
-
-include "../../config.php";
-
-session_start();
-
-?>
-
 
 <!DOCTYPE html>
 <!---Ref--->
@@ -14,9 +6,7 @@ session_start();
 
 <html lang="en">
   <head>
-  
-  <link href="styles.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href='styles.css' rel='stylesheet' type='text/css'>
   <link href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <link href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css' rel='stylesheet' type='text/css'>
   <link href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/css/bootstrap-switch.css' rel='stylesheet' type='text/css'>
@@ -30,41 +20,11 @@ session_start();
  
   </head>
   <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-          <img src="../../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
-          VRS
-      </a>
-      <div class="navbar-nav ml-auto">
-          <a class="nav-link" href="../Home/home.php">Home</a>
-          <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
-          <a class="nav-link" href="#">Contact</a>
-          <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="../logout.php" class="text-danger">Log Out</a></span>
+  <div class='container'>
+    <div class='panel panel-primary dialog-panel'>
+      <div class='panel-heading'>
+        <h5>Vehicle Rental System [VRS] - Registration of new Vehicles</h5>
       </div>
-  </nav>
-
-  <!-- Hero Section -->
-<!-- <section class="hero">
-    <div class="container text-center text-white">
-        <h1>Registration of New Vehicles</h1>
-    </div>
-</section> -->
-
-<div class="container text-center text-white">
-    <h1>Registration of New Vehicles</h1>
-    
-    
-</div>
-<br>
-
-
-  <div class='container'style="border-radius: 10px; ">
-    <div class='panel panel-primary dialog-panel' >
-      <!-- <div class='panel-heading' style="background-color: #ff9924;">
-        <h5 style="font-weight:bold;">Vehicle Rental System [VRS] - Registration of new Vehicles</h5>
-      </div> -->
       <div class='panel-body'>
 
         <!---Form Start--->

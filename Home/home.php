@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="nav-link" href="#">Contact</a>
             <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
-    </nav>
+    </nav>   
 
     <!-- Hero Section -->
     <section class="hero">
