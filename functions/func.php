@@ -187,12 +187,12 @@ function rentalchargeforvehicle($eCapacityvalue)
 function getRentalChargeRate($eCapacityvalue)
 {
     // Include the database configuration file
-    include "../../config.php"; // Update with the correct path to your config file
+    include "../../config.php"; 
 
     // Prepare the query to fetch ratePerKm and additional_charge for the specified EngineCapacity
     $query = "SELECT ratePerKm, additional_charge FROM rentalcharge WHERE EngineCapacity = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $eCapacityvalue); // "s" specifies that $eCapacityvalue is a string
+    $stmt->bind_param("s", $eCapacityvalue); 
 
     // Execute the query
     if ($stmt->execute()) {
@@ -227,13 +227,13 @@ function getRentalChargeRate($eCapacityvalue)
 
 //rental charge calculation function part 1
 function totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity) {
-    include "../config.php";
-    global $conn; // Use the database connection established in config.php
+    include "../../config.php";
+    global $conn; 
 
     // Calculate the mileage driven
     $mileageDriven = $finalMilage - $initialMilage;
 
-    // Query the rentalcharge table to get ratePerKm and additional_charge for the provided engine capacity
+    // Query the rentalcharge table to get ratePerKm and additional_charge for the engine capacity
     $query = "SELECT ratePerKm, additional_charge FROM rentalcharge WHERE EngineCapacity = ?";
     $stmt3 = $conn->prepare($query);
     $stmt3->bind_param("s", $ecapacity);
@@ -250,12 +250,14 @@ function totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity) {
             $finalMilage =  (string)$finalMilage;
             $totalCost = (string)$totalCost;
 
-            $updateQuery = "UPDATE bookings SET Rental_chage = ? WHERE VehicleID = ? AND initialMileage = ? AND finalMileage = ?";
+            $updateQuery = "UPDATE bookings SET Rental_chage = ? WHERE VehicleID = ? AND initialMileage = ? 
+            AND finalMileage = ?";
             $updateStmt = $conn->prepare($updateQuery);
-            $updateStmt->bind_param("ssss", $totalCost, $vehicleID, $initialMilage, $finalMilage);//convert to string
+            $updateStmt->bind_param("ssss", $totalCost, $vehicleID, $initialMilage, $finalMilage);
 
             if ($updateStmt->execute()) {
                 echo "Booking record updated successfully with the total rental charge: $totalCost";
+                header("location: ../admin_home.php");
             } else {
                 echo "Error updating the booking record.";
             }
