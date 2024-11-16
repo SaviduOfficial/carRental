@@ -84,7 +84,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 
 
     <div class="testbox">
-      <form action="validateBooking.php" method="POST">
+      <form action="validateBooking_copy.php" method="POST">
         <div class="banner">
           
         </div>
@@ -129,3 +129,10 @@ if ($row = mysqli_fetch_assoc($result)) {
     </div>
   </body>
 </html>
+
+<?php
+if (isset($_SESSION['error'])) {
+    echo "<p style='color: red;'>" . $_SESSION['error'] . "</p>";
+    unset($_SESSION['error']);
+}
+?>

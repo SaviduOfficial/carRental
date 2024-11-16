@@ -11,7 +11,7 @@ $proceed = false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-    if(isset($_POST['register']) == true && !empty($_POST['vehicletype']) && !empty($_POST['firstName']) &&
+    if(isset($_POST['register']) == true && !empty($_POST['locationDis']) && !empty($_POST['vehicletype']) && !empty($_POST['firstName']) &&
     !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['phoneNumber']) && !empty($_POST['vehicleMake'])
     && !empty($_POST['vehicleModel']) && !empty($_POST['year']) && !empty($_POST['eCapacity']) && !empty($_POST['milage'])
     && !empty($_POST['regNoPrt1']) && !empty($_POST['regNoPrt2']) && !empty($_POST['fuelType'])&& !empty($_POST['transmission']) &&!empty($_POST['colour'])
@@ -124,7 +124,8 @@ if ($proceed == true){
 
 
 
-
+        
+    $locationd = $_POST['locationDis'];
     $vehicleType = $_POST['vehicletype'];
     $ownerfname = $_POST['firstName'];
     $ownerlname = $_POST['lastName'];
@@ -154,11 +155,11 @@ if ($proceed == true){
     if(!empty($eCapacity)  && !empty($RentalCharge) && !empty($vehicleID)){
     $query = $conn->prepare('INSERT INTO registered_vehicles(VehicleID, Vehicle_type, First_Name, Last_Name, Owners_email, 
     Owners_contact_number, Vehicle_make, Vehicle_model, Model_year, Engine_capacity, Milage, Regi_No_p1, Regi_No_p2,
-    Fuel_type,transmission, colour, availability, Renatal_charge, image_1,image_2, image_3, image_4, image_5, image_6) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);');
+    Fuel_type,transmission, colour, availability, Renatal_charge, image_1,image_2, image_3, image_4, image_5, image_6,location) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);');
 
-        $query->bind_param('ssssssssssssssssssssssss', ($vehicleID), $vehicleType, $ownerfname, $ownerlname, $email, $phoneNumber, $vehicleMake, $vehicleModel, $year, 
+        $query->bind_param('sssssssssssssssssssssssss', ($vehicleID),  $vehicleType, $ownerfname, $ownerlname, $email, $phoneNumber, $vehicleMake, $vehicleModel, $year, 
          $eCapacity, $milage, $regNop1 , $regNop2, $fueltype,$transmission, $colour,$availability,$RentalCharge,  $imgPaths[0], $imgPaths[1], $imgPaths[2], 
-         $imgPaths[3], $imgPaths[4], $imgPaths[5]);
+         $imgPaths[3], $imgPaths[4], $imgPaths[5],$locationd);
         
          $query->execute();
 

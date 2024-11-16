@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         echo "Payment successful! Booking marked as paid.";
+        
     } else {
         echo "Payment failed: " . $stmt->error;
     }
