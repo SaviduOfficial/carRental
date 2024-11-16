@@ -42,10 +42,11 @@ $Fuel_type = $_SESSION['Fuel_type'];
  $contact_Number = $comapact['contact_Number'];
  $email = $comapact['email'];
  $paid_unpaid = $comapact['paid_unpaid'];
- $Rental_charge = $comapact['Rental_chage'];
+ $Rental_charge = $comapact['Rental_charge'];
  $image_1 = $comapact['image_1'];
  $initialMileage = $comapact['initialMileage'];
  $finalMileage = $comapact['finalMileage'];
+ echo $Rental_charge;
 
 
 
