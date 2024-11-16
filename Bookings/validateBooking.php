@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['confirm']) && !empty($_POST['fname'])  && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['contactNumber'])
     && !empty($_POST['pickupdate']) && !empty($_POST['returndate']) && !empty($_POST['pickupAddress'])){
-        echo "confirm evrithing works fine works";
+        // echo "confirm evrithing works fine works";
         $proceed = true;
     }else{
         header("location: ./Booking.php");
@@ -137,6 +137,7 @@ if($proceed == true){
     $_SESSION['Regi_no_p1'] = $Regi_no_p1;
     $_SESSION['Regi_no_p2'] = $Regi_no_p2;
     $_SESSION['Fuel_type'] = $Fuel_type;
+    
 
     
     
