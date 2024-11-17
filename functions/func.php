@@ -613,8 +613,39 @@ function showCustomerCurrentBooking($conn, $customerID) {
             $bookingCard .= "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
             $bookingCard .= "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
             $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
+            // $bookingCard .= "</table>";
+            // $bookingCard .= "</div>";
+
+
+            // Check if the payment status is "unpaid" and add a Pay Now button
+            if ($row['paid_unpaid'] === 'unpaid') {
+                $_SESSION['BID']=$row['BID'];
+
+                
+                $_SESSION['VehicleID']=$row['VehicleID'];
+                $_SESSION['Vehicle_type']=$row['Vehicle_type'];
+                $_SESSION['Vehicle_make']=$row['Vehicle_make'];
+                $_SESSION['Vehicle_model']=$row['Vehicle_model'];
+                $_SESSION['initialMileage']=$row['initialMileage'];
+                $_SESSION['Regi_no_p1']=$row['Regi_no_p1'];
+                $_SESSION['Regi_no_p2']=$row['Regi_no_p2'];
+                $_SESSION['Fuel_type']=$row['Fuel_type'];
+
+
+
+
+
+
+
+
+                $bookingCard .= "<tr><td colspan='2' class='text-center'><a href='../../Payment Confirm/payment.php"."' class='btn btn-primary'>Pay Now</a></td></tr>";
+            }
+            
             $bookingCard .= "</table>";
             $bookingCard .= "</div>";
+
+
+
             $bookings[] = $bookingCard; // Add each card to the array
         }
     
