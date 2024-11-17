@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2024 at 11:12 AM
+-- Generation Time: Nov 17, 2024 at 05:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -114,11 +114,16 @@ INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, 
 (38, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
 (39, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
 (40, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
-(41, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
-(42, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
-(43, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(41, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(42, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(43, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
 (44, '2012-11-17', '2012-11-26', 'vdvd', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
-(45, '2004-11-17', '2004-11-18', 'sds', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL);
+(45, '2004-11-17', '2004-11-18', 'sds', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(46, '2022-11-17', '2022-11-26', 'ggrg', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(47, '2021-11-17', '2021-11-29', ' sccscscs', 'TK1155', 'Bike', 'Bajaj', 'CT 100', 'TK', '1155', 'Petrol 92 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/ct1001.jpg', '5000', '', NULL),
+(48, '2020-11-17', '2020-11-27', 'dggd', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(49, '2011-11-17', '2011-11-28', 'cxcx', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(50, '2019-11-17', '2024-11-21', 'sfsscs', 'CBA3132', 'Van', 'Nissan', 'Van', 'CBA', '3132', 'Petrol 92 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/urv1.jpg', '20000', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -188,7 +193,9 @@ CREATE TABLE `registered_vehicles` (
 INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `location`) VALUES
 ('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'Yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg', 'Galle'),
 ('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg', 'Matara'),
+('BAA9999', 'Bike', 'Dharam', 'Rathana', 'dharme@gmail.com', '0719856496', 'Bajaj', 'Pulsar', '2022', '151cc - 250cc', '10000', 'BAA', '9999', 'Petrol 92 Octane', 'Automatic', 'Red', 'yes', 'Rs.30.00 perKm + Rs.1000.00', 'uploads/pul1.jpg', 'uploads/pul2.jpg', 'uploads/pul3.jpg', 'uploads/pul4.jpg', 'uploads/pul5.jpg', 'uploads/pul6.jpg', 'Galle'),
 ('CAA1515', 'Car', 'Gamage', 'Saman', 'gamagesaman@gmail.com', '0715667859', 'Toyota', 'Prius', '2016', '801cc - 1000cc', '49999', 'CAA', '1515', 'Petrol 92 Octane', 'Automatic', 'Black', 'yes', 'Rs.40.00 perKm + Rs.1500.00', 'uploads/priyusa.jpg', 'uploads/priyusb.jpg', 'uploads/priyusc.jpg', 'uploads/priyusd.jpg', 'uploads/priyuse.jpg', 'uploads/priyusf.jpg', 'Kandy'),
+('CBA3132', 'Van', 'Upali', 'Wijaya', 'upali@wijaya.com', '0714568953', 'Nissan', 'Van', '2015', '2001cc - 2500cc', '20000', 'CBA', '3132', 'Petrol 92 Octane', 'Automatic', 'Black', 'yes', 'Rs.100.00 perKm + Rs.3000.00', 'uploads/urv1.jpg', 'uploads/urv2.jpg', 'uploads/urv3.jpg', 'uploads/urv4.jpg', 'uploads/urv5.jpg', 'uploads/urv6.jpg', 'Batticaloa'),
 ('CKC4589', 'Car', 'cyber', 'truck', 'resla@gmail.com', '0745898448', 'Tesla', 'Other', '2019', 'Electric', '35000', 'CKC', '4589', 'Electric', 'Automatic', 'Black', 'yes', 'Rs.80.00 perKm + Rs.2500.00', 'uploads/cyber1.jpg', 'uploads/cyber6.jpg', 'uploads/cyber7.jpg', 'uploads/cyber4.jpg', 'uploads/cyber3.jpg', 'uploads/cyber5.jpg', 'Colombo'),
 ('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg', 'Jaffna'),
 ('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg', 'Polonnaruwa'),
@@ -300,7 +307,7 @@ ALTER TABLE `availability`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `rentalcharge`
