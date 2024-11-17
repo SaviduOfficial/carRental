@@ -97,7 +97,7 @@ if ($proceed == true){
 
     // Define variables for image paths
 
-     print_r($_FILES);
+    //  print_r($_FILES);
         $imgPaths = [];
 
         // Loop through uploaded image files and move them to the server directory
