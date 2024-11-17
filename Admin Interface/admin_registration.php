@@ -33,9 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssssss", $adfirstName, $adlastName, $address, $adusername, $admobile, $ademail, $adhashedPassword);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
-        header("Location: admin_login.php"); // Redirect to login page
-        exit;
+        // echo "Registration successful!";
+        // header("Location: admin_login.php"); // Redirect to login page
+        // exit;
+
+        echo "<script>
+            alert('Registration successful!');
+            window.location.href = 'admin_home.php';
+            </script>";
     } else {
         echo "Error: " . $stmt->error;
     }

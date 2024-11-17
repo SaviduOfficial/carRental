@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 session_unset();
@@ -5,6 +6,12 @@ session_unset();
 session_destroy();
 
 // Redirect to the login page
-header("Location: ../Admin Interface/admin_login.php");
+// header("Location: ../Customer Login/customer_login.php");
+echo "<script>
+            alert('Logged out Succesfully');
+            window.location.href = '../Admin Interface/admin_login.php';
+            </script>";
+
+
 exit;
 ?>

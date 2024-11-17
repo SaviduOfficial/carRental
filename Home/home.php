@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-link" href="home.php">Home</a>
-            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
+            <a class="nav-link" href="../Customer Login/currentbookings/currentBookings.php">Current Bookings</a>
             <a class="nav-link" href="#">Contact</a>
             <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container text-center text-white">
             <h1>“ Drive Your Way, Anytime, Anywhere with VRS ! ”</h1>
             <p>Simply do a quick search to reserve your vehicle in no time. 1000+ vehicles to choose from according to your need!</p>
-            <div>
+            <!-- <div>
             <a href="../Customer Login/currentbookings/currentBookings.php">
                     <button class="btn btn-warning">Current Bookings</button>
                 </a>
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="../Customer Login/customerhHstory/CusttomerHistory.php">
                     <button class="btn btn-warning">Booking History</button>
                 </a>
-            </div>
+            </div> -->
             <br>
 
             

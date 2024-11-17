@@ -19,14 +19,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($adpassword, $row['adpassword'])) {
             $_SESSION['aduser_id'] = $row['admin_id']; // Set session variable
             $_SESSION['adusername'] = $row['adusername']; // Set session variable for username
+            echo "<script>
+            alert('Logged in Succesfully');
+            window.location.href = '../Admin Interface/admin_home.php';
+            </script>";
 
-            header("Location: ../Admin Interface/admin_home.php"); // Redirect to home page
-            exit;
+            // header("Location: ../Admin Interface/admin_home.php"); // Redirect to home page
+            // exit;
         } else {
+            
             echo "Invalid password!";
         }
     } else {
         echo "No user found with that username!";
+        
     }
 
     $stmt->close();

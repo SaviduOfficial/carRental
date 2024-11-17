@@ -22,7 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $row['Customer_password'])) {
             $_SESSION['CID'] = $row['CID']; // Set session variable
             $_SESSION['username'] = $row['username']; // Set session variable for username  /* cusername to username*/ 
-            header("Location: ../Home/home.php"); // Redirect to home page
+            // header("Location: ../Home/home.php"); // Redirect to home page
+            echo "<script>
+            alert('Logged in Succesfully');
+            window.location.href = '../Home/home.php';
+            </script>";
             /*exit;*/
         } else {
             echo "Invalid password!";
