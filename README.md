@@ -1,6 +1,6 @@
 # Vehicle Rental System Web Application
 
-A group project for a vehicle rental service web application built using PHP, CSS, and JavaScript. The application allows users to browse available cars, register as customers, make bookings, and process payments. Admins can manage customers and vehicles.
+A group project for a vehicle rental service web application built using PHP, CSS, and JavaScript. The application allows users to browse available vehicles, register as customers, make bookings, and process payments. Admins can manage customers and vehicles.
 
 ## Features
 
