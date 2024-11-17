@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     && !empty($_FILES['image1']['name']) && !empty($_FILES['image2']['name']) &&
     !empty($_FILES['image3']['name']) && !empty($_FILES['image4']['name']) && 
     !empty($_FILES['image5']['name']) && !empty($_FILES['image6']['name'])) {
-    
+     
     
 
 
@@ -66,7 +66,11 @@ if($proceed == true){
     }
 
 }else{
-    echo "Something wrong check all the fields including images";
+    // echo "Something wrong check all the fields including images";
+    echo "<script>
+            alert('Something wrong check all the fields including images');
+            
+            </script>";
 }
 
 
@@ -167,10 +171,19 @@ if ($proceed == true){
 
         $conn->close();
 
-        header("location: ../admin_home.php");
+        echo "<script>
+            alert('Logged in Succesfully');
+            window.location.href = '../admin_home.php';
+            </script>";
+
+        // header("location: ../admin_home.php");
 
     }else{
-        echo "vehicle registration number, engine capaciy or rental charge is wrong";
+        // echo "vehicle registration number, engine capaciy or rental charge is wrong";
+        echo "<script>
+            alert('vehicle registration number, engine capaciy or rental charge is wrong');
+            
+            </script>";
     }
 
 }
