@@ -320,3 +320,20 @@ body {
 .red-icon {
     color: red;
 }
+
+
+.card-img-top {
+    height: 250px; 
+    object-fit: cover; /* Ensures the image scales and crops properly */
+    width: 100%; /* Makes sure the image takes the full width of the card */
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Ensure uniformity in card text alignment */
+}
+.tile-link {
+    text-decoration: none; /* Ensure no underline for the link */
+}
+
