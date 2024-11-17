@@ -34,7 +34,7 @@ session_start();
  
 
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="../admin_home.php">
             <img src="../VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
             VRS

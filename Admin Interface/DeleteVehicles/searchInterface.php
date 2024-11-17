@@ -30,6 +30,7 @@ session_start();
             <span class="nav-link"><?php echo htmlspecialchars($_SESSION['adusername']); ?> | <a href="../logout.php" class="text-danger">Log Out</a></span>
         </div>
     </nav>
+    
 <div class="s003">
     <div class="formheader">
         <h3>DELETE VEHICLES</h3>
