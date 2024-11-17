@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <!-- Search Form -->
             <div class="row justify-content-center mt-4">
-                <form method="POST" action="" class="form-inline">
+                <form method="POST" action="../VehicleBrowse/searchResults.php" class="form-inline">
                     <div class="form-group mx-2">
                         <select name="vehicle_type" class="form-control">
                             <option value="">Select Type</option>
@@ -94,24 +94,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="Bike">Bike</option>
                             <option value="Tuk-Tuk">Tuk-Tuk</option>
                         </select>
+                    </div>
+
+                    <div class="form-group mx-2">
+                        <select name="location" class="form-control">
+                            <option value="">Select Location</option>
+                            <!-- Add Sri Lanka's districts -->
+                            <?php
+                            $districts = [
+                                "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo",
+                                "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara",
+                                "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar",
+                                "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya",
+                                "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya"
+                            ];
+                            foreach ($districts as $district) {
+                                echo "<option value=\"$district\">$district</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group mx-2">
+                        <input type="date" name="pickup_date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mx-2">
+                        <input type="date" name="return_date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mx-2">
+                        <button type="submit" class="btn btn-warning btn">Quick Search</button>
+                    </div>
+                </form>
             </div>
-        <div class="form-group mx-2">
-            <select name="location" class="form-control">
-                <option value="">Location</option>
-                <!-- Add more options if needed -->
-            </select>
-        </div>
-        <div class="form-group mx-2">
-            <input type="date" name="pickup_date" class="form-control" placeholder="Pickup Date">
-        </div>
-        <div class="form-group mx-2">
-            <input type="date" name="end_date" class="form-control" placeholder="End Date">
-        </div>
-        <div class="form-group mx-2">
-            <button type="submit" class="btn btn-warning btn">Quick Search</button>
-        </div>
-    </form>
-</div>
+
+
+
         </div>
     </section>
 

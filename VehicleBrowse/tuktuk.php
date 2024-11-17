@@ -19,7 +19,7 @@ $result = $conn->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRS - Browse vehicles</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="Designs_styles copy.css">
     <script  src="Designs_script.js"></script>
 </head>
@@ -63,7 +63,8 @@ $result = $conn->query($query);
                     $vehicleImage = $row['image_1'];  
                     $vehicleMake = $row['Vehicle_make'];   
                     $vehicleModel = $row['Vehicle_model'];  
-                    $vehicleRentPrice = $row['Renatal_charge'];  
+                    $vehicleRentPrice = $row['Renatal_charge']; 
+                    $locationLabel = $row['location'];  
                 ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
@@ -74,6 +75,10 @@ $result = $conn->query($query);
                             <h5 class="card-title"><?php echo $vehicleMake; ?></h5>
                             <p class="card-text">Model: <?php echo $vehicleModel; ?></p>
                             <h6 class="text-muted">Rate: <?php echo $vehicleRentPrice; ?></h6>
+                            <br>
+                            <h6 class="text-muted">
+                                <i class="bi bi-geo-alt-fill red-icon"></i> <?php echo $locationLabel; ?>
+                            </h6>
                         </div>
                     </div>
                 </div>

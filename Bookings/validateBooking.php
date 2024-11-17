@@ -19,7 +19,7 @@ $CID = $_SESSION['CID'];
 
 
 // Query to get vehicle details
-$query = "SELECT VehicleID, Vehicle_type, Vehicle_make, Vehicle_model, Milage, Regi_no_p1, Regi_no_p2, Fuel_type, colour, Renatal_charge, image_1 
+$query = "SELECT VehicleID, Vehicle_type, Vehicle_make, Vehicle_model, Milage, Regi_no_p1, Regi_no_p2, Fuel_type, colour, Renatal_charge, image_1, location
           FROM registered_vehicles 
           WHERE VehicleID = ?";
 $stmt = mysqli_prepare($conn, $query);
@@ -45,9 +45,10 @@ if ($row = mysqli_fetch_assoc($result)) {
     $regNoPart1 = $row['Regi_no_p1'];
     $regNoPart2 = $row['Regi_no_p2'];
     $fuelType = $row['Fuel_type'];
-    $color = $row['colour'];
+    $colorVE = $row['colour'];
     $rentalCharge = $row['Renatal_charge'];
     $image1 = $row['image_1'];
+    $location1=$row['location'];
     
     // Display or use the variables as needed
     // echo "Vehicle Type: " . $vehicleType . "<br>";
@@ -103,7 +104,7 @@ if($proceed == true){
     $Booking_Date = $_POST['pickupdate'];
     $Return_Date = $_POST['returndate'];
     $Pickup_address = $_POST['pickupAddress'];
-
+    
    
     $Vehicle_type = $vehicleType;
     $Vehicle_make = $vehicleMake;
@@ -112,9 +113,10 @@ if($proceed == true){
     $Regi_no_p1 = $regNoPart1;
     $Regi_no_p2 = $regNoPart2;
     $Fuel_type = $fuelType;
-    
-   
+    $Colourv=$colourVe;
+    $Rentalv=$rentalCharge;
     $image_1 = $image1;
+    $locationbook=$location1;
 
 
     // insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
@@ -124,16 +126,16 @@ if($proceed == true){
     // Insert the booking into the database
     $insertQuery = "INSERT INTO bookings (Booking_Date, Return_Date, Pickup_address, VehicleID, Vehicle_type, Vehicle_make, 
                     Vehicle_model, Regi_no_p1, Regi_no_p2, Fuel_type, colour, CustomerID, First_Name, Last_Name, contact_Number, 
-                    email, image_1, initialMileage) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    email, Rental_chage, image_1, initialMileage, locationb) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare the statement
     $stmt = mysqli_prepare($conn, $insertQuery);
 
     // Bind the parameters
-    mysqli_stmt_bind_param($stmt, "ssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $vehicleID, $Vehicle_type, 
-        $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CID, $First_Name, $Last_Name, 
-        $contact_Number, $email, $image_1, $initialMileage);
+    mysqli_stmt_bind_param($stmt, "sssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $vehicleID, $Vehicle_type, 
+        $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $ColourV, $CID, $First_Name, $Last_Name, 
+        $contact_Number, $email, $Rentalv, $image_1, $initialMileage,);
 
     // Execute the statement
     mysqli_stmt_execute($stmt);
@@ -150,6 +152,8 @@ if($proceed == true){
     $_SESSION['Regi_no_p1'] = $Regi_no_p1;
     $_SESSION['Regi_no_p2'] = $Regi_no_p2;
     $_SESSION['Fuel_type'] = $Fuel_type;
+    $_SESSION['Rental_chage'] =$Rentalv;
+    $_SESSION['locationb'] =$locationbook;
     
 
     

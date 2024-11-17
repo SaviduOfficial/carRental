@@ -75,36 +75,32 @@ session_start();
             <label class='control-label col-md-2 col-md-offset-2' >Vehicle Location</label>
             <div class='col-md-2'>
               <select class='form-control'  name="locationDis" required>
+                <option>Ampara</option>
+                <option>Anuradhapura</option>
+                <option>Badulla</option>
+                <option>Batticaloa</option>
                 <option>Colombo</option>
-                <option>Gampaha</option>
-                <option>Kalutara</option>
-                <option>Kandy</option>
-                <option>Matale</option>
-                <option>Nuwara Eliya</option>
                 <option>Galle</option>
-                <option>Matara</option>
+                <option>Gampaha</option>
                 <option>Hambantota</option>
                 <option>Jaffna</option>
-                <option>Kilinochchi</option>
-                <option>Mannar</option>
-                <option>Vavuniya</option>
-                <option>Mulaitivu</option>
-                <option>Badulla</option>
-                <option>Moneragala</option>
-                <option>Rathnapura</option>
-                <option>Kegalle</option>
-                <option>Anuradhapura</option>
-                <option>Polonnaruwa</option>
-                <option>Trincomalee</option>
-                <option>Batticaloa</option>
-                <option>Ampara</option>
-                <option>Kurunegala</option>
-                <option>Puttalam</option>
-                <option>Kurunegala</option>
-                <option>Matara</option>
                 <option>Kalutara</option>
-                <option>Colombo</option>
-                <option>Gampaha</option>
+                <option>Kandy</option>
+                <option>Kegalle</option>
+                <option>Kilinochchi</option>
+                <option>Kurunegala</option>
+                <option>Mannar</option>
+                <option>Matale</option>
+                <option>Matara</option>
+                <option>Moneragala</option>
+                <option>Mulaitivu</option>
+                <option>Nuwara Eliya</option>
+                <option>Polonnaruwa</option>
+                <option>Puttalam</option>
+                <option>Ratnapura</option>
+                <option>Trincomalee</option>
+                <option>Vavuniya</option>
+
               </select>
             </div>
           </div>
