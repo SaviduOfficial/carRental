@@ -575,35 +575,73 @@ function showCustomerCurrentBooking($conn, $customerID) {
 
     // Check if there are any bookings
     if ($result->num_rows > 0) {
-        echo "<h2 class='booking-header'>Your Current Bookings </h2>";
+        echo "<div class='booking-container'>";
+        echo "<button id='prevBtn' onclick='showCard(-1)'>Previous</button>";
         
-        // Loop through each booking and create a vertical table for each one
+
+
+        echo "<h2 class='booking-header text-white'>Your Current Bookings </h2>";
+
+        
+        echo "<button id='nextBtn' onclick='showCard(1)'>Next</button>";
+        echo "</div>";
+        echo "<h6 class='text-center '>Use the buttons navigate through your boookings</h6>";
+
+
+
+        $bookings = []; // Initialize an array to store all the booking cards
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='booking-card'>";
-            echo "<table class='booking-history-table'>";
-            echo "<tr><th>Booking ID</th><td>" . $row['BID'] . "</td></tr>";
-            echo "<tr><th>Start Date</th><td>" . $row['Booking_Date'] . "</td></tr>";
-            echo "<tr><th>End Date</th><td>" . $row['Return_Date'] . "</td></tr>";
-            echo "<tr><th>Pick Up Address</th><td>" . $row['Pickup_address'] . "</td></tr>";
-            echo "<tr><th>Vehicle ID</th><td>" . $row['VehicleID'] . "</td></tr>";
-            echo "<tr><th>Vehicle Type</th><td>" . $row['Vehicle_type'] . "</td></tr>";
-            echo "<tr><th>Vehicle Make</th><td>" . $row['Vehicle_make'] . "</td></tr>";
-            echo "<tr><th>Vehicle Model</th><td>" . $row['Vehicle_model'] . "</td></tr>";
-            echo "<tr><th>License Plate</th><td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td></tr>";
-            echo "<tr><th>Fuel Type</th><td>" . $row['Fuel_type'] . "</td></tr>";
-            echo "<tr><th>Colour</th><td>" . $row['colour'] . "</td></tr>";
-            echo "<tr><th>Customer ID</th><td>" . $row['CustomerID'] . "</td></tr>";
-            echo "<tr><th>First Name</th><td>" . $row['First_Name'] . "</td></tr>";
-            echo "<tr><th>Last Name</th><td>" . $row['Last_Name'] . "</td></tr>";
-            echo "<tr><th>Contact Number</th><td>" . $row['contact_Number'] . "</td></tr>";
-            echo "<tr><th>Email</th><td>" . $row['email'] . "</td></tr>";
-            echo "<tr><th>Payment Status</th><td>" . $row['paid_unpaid'] . "</td></tr>";
-            echo "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
-            echo "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
-            echo "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
-            echo "</table>";
-            echo "</div>";
+            $bookingCard = "<div class='booking-card'>";
+            $bookingCard .= "<table class='booking-history-table'>";
+            $bookingCard .= "<tr><th>Booking ID</th><td>" . $row['BID'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Start Date</th><td>" . $row['Booking_Date'] . "</td></tr>";
+            $bookingCard .= "<tr><th>End Date</th><td>" . $row['Return_Date'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Pick Up Address</th><td>" . $row['Pickup_address'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Vehicle ID</th><td>" . $row['VehicleID'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Vehicle Type</th><td>" . $row['Vehicle_type'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Vehicle Make</th><td>" . $row['Vehicle_make'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Vehicle Model</th><td>" . $row['Vehicle_model'] . "</td></tr>";
+            $bookingCard .= "<tr><th>License Plate</th><td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Fuel Type</th><td>" . $row['Fuel_type'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Colour</th><td>" . $row['colour'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Customer ID</th><td>" . $row['CustomerID'] . "</td></tr>";
+            $bookingCard .= "<tr><th>First Name</th><td>" . $row['First_Name'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Last Name</th><td>" . $row['Last_Name'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Contact Number</th><td>" . $row['contact_Number'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Email</th><td>" . $row['email'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Payment Status</th><td>" . $row['paid_unpaid'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
+            $bookingCard .= "</table>";
+            $bookingCard .= "</div>";
+            $bookings[] = $bookingCard; // Add each card to the array
         }
+    
+        // Echo the navigation buttons and the first booking card
+        // echo "<div class='booking-container'>";
+        // echo "<button id='prevBtn' onclick='showCard(-1)'>Previous</button>";
+        echo "<div id='bookingCardContainer'>";
+        echo $bookings[0]; // Display the first booking card by default
+        echo "</div>";
+        // echo "<button id='nextBtn' onclick='showCard(1)'>Next</button>";
+        // echo "</div>";
+    
+        // Add JavaScript to handle the card switching
+        echo "<script>
+            var bookings = " . json_encode($bookings) . "; // Array of all booking cards
+            var currentCard = 0; // Track the currently displayed card
+    
+            function showCard(direction) {
+                currentCard += direction;
+                // Ensure the current card is within bounds
+                if (currentCard < 0) currentCard = 0;
+                if (currentCard >= bookings.length) currentCard = bookings.length - 1;
+                // Update the displayed card
+                document.getElementById('bookingCardContainer').innerHTML = bookings[currentCard];
+            }
+
+        </script>";
     } else {
         echo "<p>No bookings found.</p>";
     }

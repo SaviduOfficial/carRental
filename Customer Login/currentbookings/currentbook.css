@@ -1,8 +1,9 @@
-
 body {
-    background-image: url('../background1.png');
-    
+    background: -webkit-linear-gradient( #79d7d4, #c0e28c); /* Safari/Chrome */
+    background: -moz-linear-gradient( #79d7d4, #c0e28c); /* Firefox */
+     background: linear-gradient(#79d7d4, #c0e28c); /* Standard */
     background-repeat: repeat;
+    
 }
 
 .booking-header {
@@ -22,6 +23,7 @@ body {
     width: 90%;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 .booking-history-table {
@@ -29,6 +31,7 @@ body {
     border-collapse: collapse;
     margin-top: 10px;
     font-family: Arial, sans-serif;
+    
 }
 
 .booking-history-table th, .booking-history-table td {
@@ -38,7 +41,7 @@ body {
 }
 
 .booking-history-table th {
-    background-color: #4CAF50;
+    background-color: #ff951c;
     color: white;
     width: 40%;
     border: 1px solid #ddd;
@@ -48,3 +51,69 @@ body {
     background-color: #fff;
     border: 1px solid #ddd;
 }
+
+#nextBtn {
+    float: right;
+    margin-right: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and scale */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    color: white; /* White text */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Slightly transparent border */
+    border-radius: 10px;
+    padding: 10px 20px; /* Add padding for better size */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer; /* Cursor to indicate it's clickable */
+    backdrop-filter: blur(10px); /* Apply blur effect for the glass look */
+    -webkit-backdrop-filter: blur(10px); /* Apply blur effect for the glass look */
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+#prevBtn {
+    float: left;
+    margin-left: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and scale */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    color: white; /* White text */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Slightly transparent border */
+    border-radius: 10px;
+    padding: 10px 20px; /* Add padding for better size */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer; /* Cursor to indicate it's clickable */
+    backdrop-filter: blur(10px); /* Apply blur effect for the glass look */
+    -webkit-backdrop-filter: blur(10px); /* Apply blur effect for the glass look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+
+/* Hover effect for next button */
+#nextBtn:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Make background a bit more opaque on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more pronounced effect */
+}
+
+/* Hover effect for prev button */
+#prevBtn:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Make background a bit more opaque on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more pronounced effect */
+}
+
+
+
+.booking-container {
+    display: flex;
+    align-items: center; /* Vertically center the elements */
+    justify-content: space-between; /* Add space between the elements */
+}
+
+
+
+button {
+    padding: 10px 20px; /* Optional: Add padding for better button appearance */
+    
+}
+
