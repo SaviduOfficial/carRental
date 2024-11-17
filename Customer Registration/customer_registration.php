@@ -35,9 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssssssss", $firstName, $lastName, $address, $licenseNo, $username, $mobile, $email, $hashedPassword, $CID);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
-        header("Location: ../Customer Login/customer_login.php"); // Redirect to login page
-        exit;
+        
+
+        echo "<script>
+            alert('Registration successful!');
+            window.location.href = '../Customer Login/customer_login.php';
+            </script>";
+            // echo "Registration successful!";
+            // header("Location: ../Customer Login/customer_login.php"); // Redirect to login page
+            //  exit;
+
     } else {
         echo "Error: " . $stmt->error;
     }
