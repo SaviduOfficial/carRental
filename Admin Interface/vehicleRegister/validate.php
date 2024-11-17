@@ -55,14 +55,14 @@ if($proceed == true){
         echo "Please check the Registration number again! <br>  eg: abs/300/52 <br>";
         $proceed = false;
     }else{
-        echo "Verification 1 complete <br>";
+        // echo "Verification 1 complete <br>";
     }
 
     if(vehicleRegisterNumberP2($_POST['regNoPrt2']) == false){
         echo "Please check the Registration number again! <br> eg: 4562/8668/9321 <br>";
         $proceed = false;
     }else{
-        echo "Verification 2 complete ";
+        // echo "Verification 2 complete ";
     }
 
 }else{
@@ -119,12 +119,12 @@ if ($proceed == true){
             }
         }
 
-        echo $imgPaths[0];
-        echo $imgPaths[1];
-        echo $imgPaths[2];
-        echo $imgPaths[3];
-        echo $imgPaths[4];
-        echo $imgPaths[5];
+        // echo $imgPaths[0];
+        // echo $imgPaths[1];
+        // echo $imgPaths[2];
+        // echo $imgPaths[3];
+        // echo $imgPaths[4];
+        // echo $imgPaths[5];
 
 
 
@@ -172,7 +172,7 @@ if ($proceed == true){
         $conn->close();
 
         echo "<script>
-            alert('Logged in Succesfully');
+            alert('Vehicle Added to the System Succesfully');
             window.location.href = '../admin_home.php';
             </script>";
 
