@@ -38,10 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("i", $bookingID);
 
     if ($stmt->execute()) {
-        echo "Payment successful! Booking marked as paid.";
-        
+        // Popup message and redirect
+        echo "<script>
+            alert('Payment successful! Booking marked as paid.');
+            window.location.href = '../Bookings/BookingRecipt.php';
+        </script>";
     } else {
-        echo "Payment failed: " . $stmt->error;
+        echo "<script>
+            alert('Payment failed: " . $stmt->error . "');
+            window.history.back();
+        </script>";
     }
 
     $stmt->close();

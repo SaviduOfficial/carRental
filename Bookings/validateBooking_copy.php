@@ -61,7 +61,16 @@ if ($row = mysqli_fetch_assoc($result)) {
     // echo "Rental Charge: " . $rentalCharge . "<br>";
     // echo "Image Path: " . $image1 . "<br>";
 } else {
-    echo "No vehicle found with ID: " . $VehicleID;
+    // echo "No vehicle found with ID: " . $VehicleID;
+    // echo "
+    // <div class='alert alert-warning text-center' role='alert'>
+    //     No vehicle found with ID: " . htmlspecialchars($VehicleID) . "
+    // </div>
+    // ";
+     echo "<script>
+            alert('No vehicle found with ID:  . $VehicleID;');
+            
+            </script>";
 }
 
 
@@ -79,14 +88,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $returndate = new DateTime($_POST['returndate']);
         
         if ($returndate <= $pickupdate) {
-            $_SESSION['error'] = "Return date must be after the pickup date.";
-            header("location: ./Booking.php");
+            // $_SESSION['error'] = "Return date must be after the pickup date.";
+            echo "<script>
+            alert('Return date must be after the pickup date.');
+            window.location.href = './Booking.php';
+            </script>";
+            // header(header: "location: ./Booking.php");
+            
             exit;
         }
 
         $proceed = true;
     } else {
-        header("location: ./Booking.php");
+        // header("location: ./Booking.php");
+        echo "<script>
+            alert('Please fill in all Inputs.');
+            window.location.href = './Booking.php';
+            </script>";
         exit;
     }
 }
@@ -98,11 +116,11 @@ if ($proceed == true) {
     $returndate = new DateTime($_POST['returndate']);
     
     // Query to check for conflicts
-    $conflictQuery = "SELECT 1 FROM bookings 
+    $conflictQuery = "SELECT Booking_Date, Return_Date FROM bookings 
                       WHERE VehicleID = ? 
                       AND NOT (
-                          (? > Return_Date AND ? > Return_Date) OR 
-                          (? < Booking_Date AND ? < Booking_Date)
+                          (? >= Return_Date AND ? >= Return_Date) OR 
+                          (? <= Booking_Date AND ? <= Booking_Date)
                       )";
     
     $stmt = mysqli_prepare($conn, $conflictQuery);
@@ -117,10 +135,26 @@ if ($proceed == true) {
     $conflictResult = mysqli_stmt_get_result($stmt);
 
     if (mysqli_num_rows($conflictResult) > 0) {
-        $_SESSION['error'] = $conflictResult;
-        $_SESSION['error'] = "The selected vehicle is not available for the specified dates.";
-        header("location: ./Booking.php");
-        exit;
+        // $_SESSION['error'] = $conflictResult;
+        // $_SESSION['error'] = "The selected vehicle is not available for the specified dates.";
+        // header("location: ./Booking.php");
+        
+        $conflicts = [];
+        while ($row = mysqli_fetch_assoc($conflictResult)) {
+            
+            $conflictKey = $row['Booking_Date'] . ' to ' . $row['Return_Date'];
+            $conflicts[$conflictKey] = $conflictKey; // Use keys to avoid duplicates
+        }
+        
+        if (!empty($conflicts)) {
+            $conflictDates = implode("\\n", array_values($conflicts));
+            
+            echo "<script>
+                alert('The selected vehicle is not available for the specified dates. Conflicting bookings:\\n{$conflictDates}');
+                window.location.href = './Booking.php';
+                </script>";
+            exit;
+        }
     }
     
     mysqli_stmt_close($stmt);
@@ -129,7 +163,7 @@ if ($proceed == true) {
 
 
 
-        $_SESSION['error'] = "Continue with booking insertion";
+        // $_SESSION['error'] = "Continue with booking insertion";
     // Continue with booking insertion
         $First_Name = $_POST['fname'];
         $Last_Name = $_POST['lname'];
@@ -196,7 +230,7 @@ if ($proceed == true) {
         // Close the statement
         mysqli_stmt_close($stmt);
     
-        header("location: ./BookingRecipt.php");
+        header("location: ../Payment Confirm/payment.php");
     
         // echo '<script language="javascript">';
         // echo 'alert("Your Booking ID is: " . $BID)';

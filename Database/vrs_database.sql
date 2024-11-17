@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 08:36 AM
+-- Generation Time: Nov 17, 2024 at 11:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,8 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`admin_id`, `adfirst_name`, `adlast_name`, `adaddress`, `adusername`, `admobile`, `ademail`, `adpassword`) VALUES
 (3, 'adminfname', 'adminlname', 'colombo', 'testcase1', '0714545897', 'admin1@gmail.com', '$2y$10$KoIrgpm0TGPI.R8QWFqw2uQ/67EM0U7xqvYSy5eF3ByjIzx8tTkY.'),
-(6, 'adminfname', 'adminlname', 'colombo', 'testcase2', '0714545898', 'admin2@gmail.com', '$2y$10$pauv.4PfDV5t5aI9jDnOb.GN2V9PFPmxQLiUM006n3x1v48yb0LJ.');
+(6, 'adminfname', 'adminlname', 'colombo', 'testcase2', '0714545898', 'admin2@gmail.com', '$2y$10$pauv.4PfDV5t5aI9jDnOb.GN2V9PFPmxQLiUM006n3x1v48yb0LJ.'),
+(7, 'Test', 'Case3', '8675757dadaaadwdw', 'testcase3', '2727272778', 'hdadada@fisf.comdwd', '$2y$10$MHAnrGOTsLyqfY2.Bb6RlOy3zOcO6xhl9o9fG4.kbF8o8vbgndi8S');
 
 -- --------------------------------------------------------
 
@@ -90,15 +91,34 @@ CREATE TABLE `bookings` (
   `Rental_chage` varchar(25) DEFAULT NULL,
   `image_1` varchar(255) DEFAULT NULL,
   `initialMileage` varchar(8) NOT NULL,
-  `finalMileage` varchar(8) NOT NULL
+  `finalMileage` varchar(8) NOT NULL,
+  `locationb` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, `VehicleID`, `Vehicle_type`, `Vehicle_make`, `Vehicle_model`, `Regi_no_p1`, `Regi_no_p2`, `Fuel_type`, `colour`, `CustomerID`, `First_Name`, `Last_Name`, `contact_Number`, `email`, `paid_unpaid`, `Rental_chage`, `image_1`, `initialMileage`, `finalMileage`) VALUES
-(2, '2024-11-14', '2024-11-15', 'kurunegala', 'CKC4589', 'Car', 'Tesla', 'Other', 'CKC', '4589', 'Electric', NULL, 'B1005894', 'Test', 'case1', NULL, 'testcase@gmail.com', 'unpaid', NULL, 'uploads/cyber1.jpg', '35000', '');
+INSERT INTO `bookings` (`BID`, `Booking_Date`, `Return_Date`, `Pickup_address`, `VehicleID`, `Vehicle_type`, `Vehicle_make`, `Vehicle_model`, `Regi_no_p1`, `Regi_no_p2`, `Fuel_type`, `colour`, `CustomerID`, `First_Name`, `Last_Name`, `contact_Number`, `email`, `paid_unpaid`, `Rental_chage`, `image_1`, `initialMileage`, `finalMileage`, `locationb`) VALUES
+(27, '2009-11-30', '2010-12-07', 'jgjhjh', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(28, '2024-11-16', '2024-11-17', 'dsds', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(29, '2024-11-18', '2024-11-19', 'dsds', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(30, '2024-11-16', '2024-11-27', 'dwsd', 'TK1155', 'Bike', 'Bajaj', 'CT 100', 'TK', '1155', 'Petrol 92 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/ct1001.jpg', '5000', '', NULL),
+(31, '2024-11-16', '2024-11-29', 'gddg', 'CAA1515', 'Car', 'Toyota', 'Prius', 'CAA', '1515', 'Petrol 92 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/priyusa.jpg', '49999', '', NULL),
+(32, '1998-11-17', '1998-11-25', 'gf', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(33, '2006-11-17', '2006-11-21', 'gegeg', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(34, '2007-11-17', '2007-11-30', 'dvdvv', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(35, '2001-11-17', '2001-11-27', 'dadadada', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(36, '2002-11-17', '2002-11-28', 'hghghg', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(37, '2008-11-17', '2008-11-10', 'fdfd', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(38, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(39, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(40, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(41, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(42, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(43, '2024-11-17', '2024-11-28', 'csc', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'unpaid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(44, '2012-11-17', '2012-11-26', 'vdvd', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL),
+(45, '2004-11-17', '2004-11-18', 'sds', 'GHH8855', 'Van', 'Toyota', 'Van', 'GHH', '8855', 'Petrol 95 Octane', NULL, '6464644dsdsd', 'Test', 'Case3', NULL, 'hdadada@fisf.com', 'paid', NULL, 'uploads/toyotavan1.jpg', '85000', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -123,6 +143,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CID`, `First_Name`, `Last_Name`, `Address`, `email`, `Customer_password`, `Contact_number`, `Driving_license_No`, `username`) VALUES
+('6464644dsdsd', 'Test', 'Case3', '8675757dadaaa', 'hdadada@fisf.com', '$2y$10$5NlvzBsMMwKX/swoLtyqIuexmJaqw5lZyQA4ZpPKVO1t2SBAwCK5C', '2727272722', '6464644dsdsd', 'testcase3'),
+('6464644dsdsd646', 'Test', 'Case4', '8675757dadaaa', 'hdadaAada@fisf.com', '$2y$10$mIDVXlFMZnTHvOdaioWfmOwiViH4pBqg8IRmbkTapPam9a0JRSdge', '2727272722', '6464644dsdsd646', 'testcase4'),
 ('B1005894', 'Test', 'case1', 'myAddress', 'testcase@gmail.com', '$2y$10$WW84cPtyUh3r3katZGPxB.xygXoqbtKiODJFSOPMoOUmSE6UWfK7K', '0772428568', 'B1005894', 'testcase1');
 
 -- --------------------------------------------------------
@@ -155,24 +177,26 @@ CREATE TABLE `registered_vehicles` (
   `image_3` varchar(255) DEFAULT NULL,
   `image_4` varchar(255) DEFAULT NULL,
   `image_5` varchar(255) DEFAULT NULL,
-  `image_6` varchar(255) DEFAULT NULL
+  `image_6` varchar(255) DEFAULT NULL,
+  `location` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registered_vehicles`
 --
 
-INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`) VALUES
-('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'Yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg'),
-('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg'),
-('CKC4589', 'Car', 'cyber', 'truck', 'resla@gmail.com', '0745898448', 'Tesla', 'Other', '2019', 'Electric', '35000', 'CKC', '4589', 'Electric', 'Automatic', 'Black', 'yes', 'Rs.80.00 perKm + Rs.2500.00', 'uploads/cyber1.jpg', 'uploads/cyber6.jpg', 'uploads/cyber7.jpg', 'uploads/cyber4.jpg', 'uploads/cyber3.jpg', 'uploads/cyber5.jpg'),
-('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg'),
-('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg'),
-('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg'),
-('SSB7055', 'Car', 'Savidu', 'Illankoon', 'savidu@gmail.com', '0779634865', 'Nissan', '240SX', '2000', '2501cc - 3000cc', '51000', 'SSB', '7055', 'Petrol 95 Octane', 'Manual', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/blacknissan1.jpg', 'uploads/blacknissan2.jpg', 'uploads/blacknissan3.jpg', 'uploads/blacknissan4.jpg', 'uploads/blacknissan5.jpg', 'uploads/blacknissan6.jpg'),
-('TK1155', 'Bike', 'amila', 'rajaraththna', 'amilai@gmail.com', '0771114565', 'Bajaj', 'CT 100', '2015', '100cc - 150 cc', '5000', 'TK', '1155', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/ct1001.jpg', 'uploads/ct1002.jpg', 'uploads/ct1003.jpg', 'uploads/ct1004.jpg', 'uploads/ct1005.jpg', 'uploads/ct1006.jpg'),
-('YP8555', 'Tuk-Tuk', 'bluetuk', 'BeGamini', 'bluegamini@gmail.com', '0771112860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35025', 'YP', '8555', 'Petrol 92 Octane', 'Manual', 'Blue', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/bluetuk1.jpg', 'uploads/bluetuk2.jpg', 'uploads/bluetuk3.jpg', 'uploads/bluetuk4.jpg', 'uploads/bluetuk5.jpg', 'uploads/bluetuk6.jpg'),
-('YP8575', 'Tuk-Tuk', 'redtuk', 'Gamini', 'gamini@gmail.com', '0778222860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35000', 'YP', '8575', 'Petrol 92 Octane', 'Manual', 'Red', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/redtuk1.jpg', 'uploads/redtuk2.jpg', 'uploads/redtuk3.jpg', 'uploads/redtuk4.jpg', 'uploads/redtuk5.jpg', 'uploads/redtuk6.jpg');
+INSERT INTO `registered_vehicles` (`VehicleID`, `Vehicle_type`, `First_Name`, `Last_Name`, `Owners_email`, `Owners_contact_number`, `Vehicle_make`, `Vehicle_model`, `Model_year`, `Engine_capacity`, `Milage`, `Regi_No_p1`, `Regi_No_p2`, `Fuel_type`, `transmission`, `colour`, `availability`, `Renatal_charge`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `location`) VALUES
+('3014568', 'Car', 'Josh', 'Randnor', 'josh@email.com', '0579865981', 'Mercedes-Benz', 'E320', '1999', '2501cc - 3000cc', '67200', '301', '4568', 'Petrol 95 Octane', 'Automatic', 'Black', 'Yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/benzblack1.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblack3.jpg', 'uploads/benzblak4.jpg', 'uploads/benzblak6.jpg', 'uploads/benzvlak5.jpg', 'Galle'),
+('3018855', 'Car', 'takumi', 'nakimoto', 'corolla@gmail.com', '0779634865', 'Toyota', 'Corolla', '1997', '1301cc - 1500cc', '125001', '301', '8855', 'Petrol 92 Octane', 'Automatic', 'Gold', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/goldcorolla1.jpg', 'uploads/goldcorolla2.jpg', 'uploads/goldcorolla3.jpg', 'uploads/goldcorolla4.jpg', 'uploads/goldcorolla5.jpg', 'uploads/goldcorolla6.jpg', 'Matara'),
+('CAA1515', 'Car', 'Gamage', 'Saman', 'gamagesaman@gmail.com', '0715667859', 'Toyota', 'Prius', '2016', '801cc - 1000cc', '49999', 'CAA', '1515', 'Petrol 92 Octane', 'Automatic', 'Black', 'yes', 'Rs.40.00 perKm + Rs.1500.00', 'uploads/priyusa.jpg', 'uploads/priyusb.jpg', 'uploads/priyusc.jpg', 'uploads/priyusd.jpg', 'uploads/priyuse.jpg', 'uploads/priyusf.jpg', 'Kandy'),
+('CKC4589', 'Car', 'cyber', 'truck', 'resla@gmail.com', '0745898448', 'Tesla', 'Other', '2019', 'Electric', '35000', 'CKC', '4589', 'Electric', 'Automatic', 'Black', 'yes', 'Rs.80.00 perKm + Rs.2500.00', 'uploads/cyber1.jpg', 'uploads/cyber6.jpg', 'uploads/cyber7.jpg', 'uploads/cyber4.jpg', 'uploads/cyber3.jpg', 'uploads/cyber5.jpg', 'Colombo'),
+('GHH8855', 'Van', 'kamal', 'hettiyamuni', 'Kdh@gmail.com', '0778634860', 'Toyota', 'Van', '2015', '1301cc - 1500cc', '85000', 'GHH', '8855', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.50.00 perKm + Rs. 2000.00', 'uploads/toyotavan1.jpg', 'uploads/toyotavan2.jpg', 'uploads/toyotavan3.jpg', 'uploads/toyotavan4.jpg', 'uploads/toyotavan5.jpg', 'uploads/toyotavan6.jpg', 'Jaffna'),
+('GKG8575', 'Car', 'Vindula', 'Deshapriya', 'vidula@gmail.com', '0718244860', 'Audi', 'A5', '2015', '2501cc - 3000cc', '56000', 'GKG', '8575', 'Petrol 95 Octane', 'Automatic', 'White', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/whiteaudi.jpg', 'uploads/whiteaudi1.jpg', 'uploads/whiteaudi3.jpg', 'uploads/whiteaudi4.jpg', 'uploads/whiteaudi5.jpg', 'uploads/whiteaudi6.jpg', 'Polonnaruwa'),
+('JJ2255', 'Bike', 'kamila', 'jayarathtna', 'kamilai@gmail.com', '0716589410', 'Bajaj', 'Pulsar', '2010', '100cc - 150 cc', '5000', 'JJ', '2255', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/bajahpulsa6.jpg', 'uploads/bajajpulsar1.jpg', 'uploads/bajajpulsar3.jpg', 'uploads/bajajpulsar4.jpg', 'uploads/bajapulasa5.jpg', 'uploads/bujajpul;sar2.jpg', 'Matara'),
+('SSB7055', 'Car', 'Savidu', 'Illankoon', 'savidu@gmail.com', '0779634865', 'Nissan', '240SX', '2000', '2501cc - 3000cc', '51000', 'SSB', '7055', 'Petrol 95 Octane', 'Manual', 'Black', 'yes', 'Rs.100.00 perKm + Rs.4000.00', 'uploads/blacknissan1.jpg', 'uploads/blacknissan2.jpg', 'uploads/blacknissan3.jpg', 'uploads/blacknissan4.jpg', 'uploads/blacknissan5.jpg', 'uploads/blacknissan6.jpg', 'Galle'),
+('TK1155', 'Bike', 'amila', 'rajaraththna', 'amilai@gmail.com', '0771114565', 'Bajaj', 'CT 100', '2015', '100cc - 150 cc', '5000', 'TK', '1155', 'Petrol 92 Octane', 'Manual', 'Black', 'yes', 'Rs.30.00 perKm + Rs.500.00', 'uploads/ct1001.jpg', 'uploads/ct1002.jpg', 'uploads/ct1003.jpg', 'uploads/ct1004.jpg', 'uploads/ct1005.jpg', 'uploads/ct1006.jpg', 'Anuradhapura'),
+('YP8555', 'Tuk-Tuk', 'bluetuk', 'BeGamini', 'bluegamini@gmail.com', '0771112860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35025', 'YP', '8555', 'Petrol 92 Octane', 'Manual', 'Blue', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/bluetuk1.jpg', 'uploads/bluetuk2.jpg', 'uploads/bluetuk3.jpg', 'uploads/bluetuk4.jpg', 'uploads/bluetuk5.jpg', 'uploads/bluetuk6.jpg', 'Moneragala'),
+('YP8575', 'Tuk-Tuk', 'redtuk', 'Gamini', 'gamini@gmail.com', '0778222860', 'Bajaj', 'Three-wheelers', '2015', '251cc - 610cc', '35000', 'YP', '8575', 'Petrol 92 Octane', 'Manual', 'Red', 'yes', 'Rs.40.00 perKm + Rs.1000.00', 'uploads/redtuk1.jpg', 'uploads/redtuk2.jpg', 'uploads/redtuk3.jpg', 'uploads/redtuk4.jpg', 'uploads/redtuk5.jpg', 'uploads/redtuk6.jpg', 'Matale');
 
 -- --------------------------------------------------------
 
@@ -264,7 +288,7 @@ ALTER TABLE `rentalcharge`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `availability`
@@ -276,7 +300,7 @@ ALTER TABLE `availability`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `rentalcharge`

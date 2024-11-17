@@ -166,7 +166,7 @@ if($proceed == true){
     // Close the statement
     mysqli_stmt_close($stmt);
 
-    header("location: ./BookingRecipt.php");
+    header("location: ../Payment Confirm/payment.php");
 
     // echo '<script language="javascript">';
     // echo 'alert("Your Booking ID is: " . $BID)';

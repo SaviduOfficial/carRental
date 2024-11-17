@@ -124,7 +124,7 @@ if ($row = mysqli_fetch_assoc($result)) {
        
         <div class="btn-block">
           <button class="btn btn-warning" type="submit" name="confirm" >CONFIRM</button>
-        </div>
+          
       </form>
     </div>
   </body>

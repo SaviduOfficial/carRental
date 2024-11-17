@@ -40,10 +40,10 @@ Header
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
+/* 
 .left-column, .right-column {
   width: 48%;
-}
+} */
 
 .details h2 {
   font-size: 18px;
@@ -78,11 +78,11 @@ table {
 
 table th, table td {
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
+  /* padding: 8px; */
+  /* text-align: center; */
 }
 
-table th {
+/* table th {
   background-color: #007bff;
   color: white;
 }
@@ -110,7 +110,7 @@ table tr:last-child td {
 .footer a {
   color: #007bff;
   text-decoration: none;
-}
+} */
 
 .footer a:hover {
   text-decoration: underline;
