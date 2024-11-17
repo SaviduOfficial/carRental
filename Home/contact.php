@@ -20,19 +20,18 @@ session_start();
     
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2">
+        <a class="navbar-brand" href="home.php">
+            <img src="VRSLOGO.png" alt="VRS Logo" width="40" class="mr-2"> <!-- Placeholder for logo -->
             VRS
         </a>
         <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="../Home/home.php">Home</a>
-            <a class="nav-link" href="../Bookings/Booking.php">Booking</a>
-            <a class="nav-link active" href="#">Contact</a>
+            <a class="nav-link" href="home.php">Home</a>
+            <a class="nav-link" href="../Customer Login/currentbookings/currentBookings.php">Current Bookings</a>
+            <a class="nav-link" href="contact.php">Contact</a>
             <span class="nav-link"><?php echo htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="text-danger">Log Out</a></span>
         </div>
-    </nav>
+    </nav>   
 
     <!-- Contact Us Section -->
     <section class="hero">
