@@ -27,6 +27,7 @@ if (isset($_SESSION['BID'])) {
                     </div>
                     <div class="card-body">
                         <form method="POST" action="process_payment.php">
+                             
                             <input type="hidden" name="BID" value="<?php echo htmlspecialchars($bookingID); ?>">
 
                             <!-- Cardholder Name -->
@@ -64,12 +65,26 @@ if (isset($_SESSION['BID'])) {
                                 <label for="paymentAmount" class="form-label">Payment Amount</label>
                                 <input type="text" class="form-control" id="paymentAmount" name="paymentAmount" value="Rs.10000.00" readonly>
                             </div>
-
-                            <!-- Submit Button -->
+                            <br>
+                            
+                            <!-- Pay now Button -->
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-success">Pay Now</button>
                             </div>
+                            
+                            <hr/>
+                            
+                            
+                            <!-- Pay later Button -->
+                            <div class="d-grid">
+                            <!-- <p class="text-secondary text-center ">If you wish you can pay and confirm the booking later.</p> -->
+                                <!-- <button  class="btn btn-warning">Pay Later</button> -->
+                                <button class="btn btn-warning" onclick="window.location.href = '../Home/home.php'">Pay Later</button>
+
+                            </div>
+                            
                         </form>
+                        
                     </div>
                 </div>
                 <p class="text-muted text-center mt-3">Your payment is secure with us.</p>

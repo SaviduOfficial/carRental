@@ -3,7 +3,7 @@
 include "../../config.php";
 include "../../functions/func.php";
 
-echo "before request method ";
+// echo "before request method ";
 
 $proceed = false;
 

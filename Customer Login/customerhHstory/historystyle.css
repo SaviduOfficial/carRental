@@ -1,7 +1,7 @@
 body {
     background: -webkit-linear-gradient( #79d7d4, #c0e28c); /* Safari/Chrome */
     background: -moz-linear-gradient( #79d7d4, #c0e28c); /* Firefox */
-  background: linear-gradient(#79d7d4, #c0e28c); /* Standard */
+    background: linear-gradient(#79d7d4, #c0e28c); /* Standard */
     background-repeat: repeat;
     
 }

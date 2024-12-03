@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    background: linear-gradient(to bottom left, #79d7d4, #d7b02f) no-repeat center center;
+    font-family: Arial, sans-serif;
+    height: 100vh
+}
+  
+
+
+/* Navbar */
+
+/* 
+.items h2{
+    text-align: center;
+} */
+
+.logo{
+    width: 150px;
+    height: 120px;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px ;
+    border-radius: 50%;
+
+}
+
+/* .navbar_list ul li{
+    list-style:none;
+    display:inline-block;
+    margin: 0 20px;
+    position: relative;
+    margin-top: 40px;
+
+} */
+
+/* .navbar_list ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.navbar_list ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: palevioletred;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar_list ul li:hover::after{
+    width: 100%;
+} */
+
+
+
+/* #header {
+    margin-top: 173px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 40px;
+    color: white;
+    background: 100%;
+    background-color: black;
+    opacity: 0.8;
+
+} */
+.contact-us{
+    
+}
+
+
+
+
+
+
+
+
+  
+    
+
+
+  
+    
+  
+
+
+
+/* Hero Section */
+.hero {
+    
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* .hero .btn-warning {
+    color: #fff;
+    font-weight: bold;
+} */
+
+
+
+/* .items{
+    margin-top: 50px;
+} */
+
+
+
+
+.card-img-top {
+    height: 250px; 
+    object-fit: cover; /* Ensures the image scales and crops properly */
+    width: 100%; /* Makes sure the image takes the full width of the card */
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Ensure uniformity in card text alignment */
+}
+
+

@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     && !empty($_FILES['image1']['name']) && !empty($_FILES['image2']['name']) &&
     !empty($_FILES['image3']['name']) && !empty($_FILES['image4']['name']) && 
     !empty($_FILES['image5']['name']) && !empty($_FILES['image6']['name'])) {
-    
+     
     
 
 
@@ -55,18 +55,22 @@ if($proceed == true){
         echo "Please check the Registration number again! <br>  eg: abs/300/52 <br>";
         $proceed = false;
     }else{
-        echo "Verification 1 complete <br>";
+        // echo "Verification 1 complete <br>";
     }
 
     if(vehicleRegisterNumberP2($_POST['regNoPrt2']) == false){
         echo "Please check the Registration number again! <br> eg: 4562/8668/9321 <br>";
         $proceed = false;
     }else{
-        echo "Verification 2 complete ";
+        // echo "Verification 2 complete ";
     }
 
 }else{
-    echo "Something wrong check all the fields including images";
+    // echo "Something wrong check all the fields including images";
+    echo "<script>
+            alert('Something wrong check all the fields including images');
+            
+            </script>";
 }
 
 
@@ -93,7 +97,7 @@ if ($proceed == true){
 
     // Define variables for image paths
 
-     print_r($_FILES);
+    //  print_r($_FILES);
         $imgPaths = [];
 
         // Loop through uploaded image files and move them to the server directory
@@ -115,12 +119,12 @@ if ($proceed == true){
             }
         }
 
-        echo $imgPaths[0];
-        echo $imgPaths[1];
-        echo $imgPaths[2];
-        echo $imgPaths[3];
-        echo $imgPaths[4];
-        echo $imgPaths[5];
+        // echo $imgPaths[0];
+        // echo $imgPaths[1];
+        // echo $imgPaths[2];
+        // echo $imgPaths[3];
+        // echo $imgPaths[4];
+        // echo $imgPaths[5];
 
 
 
@@ -167,10 +171,19 @@ if ($proceed == true){
 
         $conn->close();
 
-        header("location: ../admin_home.php");
+        echo "<script>
+            alert('Vehicle Added to the System Succesfully');
+            window.location.href = '../admin_home.php';
+            </script>";
+
+        // header("location: ../admin_home.php");
 
     }else{
-        echo "vehicle registration number, engine capaciy or rental charge is wrong";
+        // echo "vehicle registration number, engine capaciy or rental charge is wrong";
+        echo "<script>
+            alert('vehicle registration number, engine capaciy or rental charge is wrong');
+            
+            </script>";
     }
 
 }
