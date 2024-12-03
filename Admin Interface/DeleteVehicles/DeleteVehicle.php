@@ -22,17 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s",  $vehicleID);
 
-
+        try{
+            
         if ($stmt->execute()) {
-            echo "Vehicle details updated successfully.";
-            header('location: searchInterface.php');
+            
+            echo "<script>
+            alert('Vehicle deleted successfully');
+            window.location.href = './searchInterface.php';
+            </script>";      
             
         } else {
             echo "Error updating vehicle details.";
         }
 
         $stmt->close();
+    }catch (Exception $e){
+        echo $e->getMessage();
     }
     
+}
 
 

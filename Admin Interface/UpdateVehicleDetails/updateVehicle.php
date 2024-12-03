@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($stmt2->execute()) {
                 echo "Final mileage in bookings table updated successfully.";
+                
                 $proceed = true;
             } else {
                 echo "Error updating final mileage in bookings table.";

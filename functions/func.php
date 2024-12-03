@@ -256,8 +256,11 @@ function totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity) {
             $updateStmt->bind_param("ssss", $totalCost, $vehicleID, $initialMilage, $finalMilage);
 
             if ($updateStmt->execute()) {
-                echo "Booking record updated successfully with the total rental charge: $totalCost";
-                header("location: ../admin_home.php");
+                
+                echo "<script>
+                alert('Record updated successfully');
+                window.location.href = '../admin_home.php';
+                </script>";
             } else {
                 echo "Error updating the booking record.";
             }
@@ -451,7 +454,7 @@ function getBookingDetails($conn, $BID)
 
 function changeAvailability($vehicleID, $availability){
 
-    include "../config.php";
+    include "../../config.php";
     $proceed = false;
 
       $stmt = $conn->prepare("UPDATE registered_vehicles SET availability = ? WHERE VehicleID = ?");

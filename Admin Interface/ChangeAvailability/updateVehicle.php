@@ -26,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Execute the statement
             if ($stmt2->execute()) {
-                echo "Record deleted successfully from availability table";
+                
+                echo "<script>
+                alert('Availability updated successfuly');
+                window.location.href = '../admin_home.php';
+                </script>";
             } else {
                 echo "Error deleting record: " . $stmt2->error;
             }
@@ -68,7 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Execute the statement
             if ($stmt3->execute()) {
-                echo "Record inserted successfully into availability table";
+                echo "<script>
+                alert('Availability updated successfuly');
+                window.location.href = '../admin_home.php';
+                </script>";
             } else {
                 echo "Error inserting record: " . $stmt3->error;
             }
@@ -81,5 +88,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }else {
             echo "Error inserting record: " . $stmt1->error;
         }
-    }/*$stmt1->close();*/
+    }
 }
