@@ -451,7 +451,7 @@ function getBookingDetails($conn, $BID)
 
 function changeAvailability($vehicleID, $availability){
 
-    include "../config.php";
+    include "../../config.php";
     $proceed = false;
 
       $stmt = $conn->prepare("UPDATE registered_vehicles SET availability = ? WHERE VehicleID = ?");
