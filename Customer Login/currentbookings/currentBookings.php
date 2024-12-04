@@ -43,6 +43,5 @@ showCustomerCurrentBooking($conn, $customerID);
 ?>
 
 
-    
 </body>
 </html>

@@ -498,7 +498,7 @@ function showCustomerBookingHistory($conn, $customerID) {
         echo "<h2 class='booking-header'>Your Booking History</h2>";
         
         // Start scrollable container
-        echo "<div class='table-container'>";
+        echo "<div class='bookingh-container'>";
         
         // Start the table structure
         echo "<table class='booking-history-table'>";
@@ -514,14 +514,13 @@ function showCustomerBookingHistory($conn, $customerID) {
                 <th>Vehicle Model</th>
                 <th>License Plate</th>
                 <th>Fuel Type</th>
-                <th>Colour</th>
+                
                 <th>Customer ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact Number</th>
+                
+                
                 <th>Email</th>
                 <th>Payment Status</th>
-                <th>Amount</th>
+                
                 <th>Starting Mileage</th>
                 <th>Ending Mileage</th>
               </tr>";
@@ -540,14 +539,14 @@ function showCustomerBookingHistory($conn, $customerID) {
             echo "<td>" . $row['Vehicle_model'] . "</td>";
             echo "<td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td>";
             echo "<td>" . $row['Fuel_type'] . "</td>";
-            echo "<td>" . $row['colour'] . "</td>";
+            // echo "<td>" . $row['colour'] . "</td>";
             echo "<td>" . $row['CustomerID'] . "</td>";
-            echo "<td>" . $row['First_Name'] . "</td>";
-            echo "<td>" . $row['Last_Name'] . "</td>";
-            echo "<td>" . $row['contact_Number'] . "</td>";
+            // echo "<td>" . $row['First_Name'] . "</td>";
+            // echo "<td>" . $row['Last_Name'] . "</td>";
+            // echo "<td>" . $row['contact_Number'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
             echo "<td>" . $row['paid_unpaid'] . "</td>";
-            echo "<td>" . $row['Rental_chage'] . "</td>";
+            // echo "<td>" . $row['Rental_chage'] . "</td>";
             echo "<td>" . $row['initialMileage'] . "</td>";
             echo "<td>" . $row['finalMileage'] . "</td>";
             echo "</tr>";
@@ -567,12 +566,12 @@ function showCustomerBookingHistory($conn, $customerID) {
 //customer history
 function showCustomerCurrentBooking($conn, $customerID) {
     // Query to get booking history for a specific customer
-    $query = "SELECT * FROM bookings WHERE CustomerID = ? AND paid_unpaid = ?";
+    $query = "SELECT * FROM bookings WHERE CustomerID = ?";
     
-    $paid_unpaid = "unpaid";
+    
     // Prepare and execute the query
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $customerID ,  $paid_unpaid);
+    $stmt->bind_param("s", $customerID);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -600,22 +599,22 @@ function showCustomerCurrentBooking($conn, $customerID) {
             $bookingCard .= "<tr><th>Start Date</th><td>" . $row['Booking_Date'] . "</td></tr>";
             $bookingCard .= "<tr><th>End Date</th><td>" . $row['Return_Date'] . "</td></tr>";
             $bookingCard .= "<tr><th>Pick Up Address</th><td>" . $row['Pickup_address'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Vehicle ID</th><td>" . $row['VehicleID'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Vehicle Type</th><td>" . $row['Vehicle_type'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Vehicle ID</th><td>" . $row['VehicleID'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Vehicle Type</th><td>" . $row['Vehicle_type'] . "</td></tr>";
             $bookingCard .= "<tr><th>Vehicle Make</th><td>" . $row['Vehicle_make'] . "</td></tr>";
             $bookingCard .= "<tr><th>Vehicle Model</th><td>" . $row['Vehicle_model'] . "</td></tr>";
             $bookingCard .= "<tr><th>License Plate</th><td>" . $row['Regi_no_p1'] . " - " . $row['Regi_no_p2'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Fuel Type</th><td>" . $row['Fuel_type'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Colour</th><td>" . $row['colour'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Customer ID</th><td>" . $row['CustomerID'] . "</td></tr>";
-            $bookingCard .= "<tr><th>First Name</th><td>" . $row['First_Name'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Last Name</th><td>" . $row['Last_Name'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Contact Number</th><td>" . $row['contact_Number'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Email</th><td>" . $row['email'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Fuel Type</th><td>" . $row['Fuel_type'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Colour</th><td>" . $row['colour'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Customer ID</th><td>" . $row['CustomerID'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>First Name</th><td>" . $row['First_Name'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Last Name</th><td>" . $row['Last_Name'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Contact Number</th><td>" . $row['contact_Number'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Email</th><td>" . $row['email'] . "</td></tr>";
             $bookingCard .= "<tr><th>Payment Status</th><td>" . $row['paid_unpaid'] . "</td></tr>";
             $bookingCard .= "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
             $bookingCard .= "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
-            $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
+            // $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
             // $bookingCard .= "</table>";
             // $bookingCard .= "</div>";
 

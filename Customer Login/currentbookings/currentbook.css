@@ -110,6 +110,12 @@ body {
     justify-content: space-between; /* Add space between the elements */
 }
 
+.bookingh-container {
+    display: flex;
+    align-items: center; /* Vertically center the elements */
+    margin: 100px;
+}
+
 
 
 button {
