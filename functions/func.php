@@ -252,6 +252,7 @@ function totalAmount($vehicleID, $initialMilage, $finalMilage, $ecapacity) {
 
             $updateQuery = "UPDATE bookings SET Rental_chage = ? WHERE VehicleID = ? AND initialMileage = ? 
             AND finalMileage = ?";
+            
             $updateStmt = $conn->prepare($updateQuery);
             $updateStmt->bind_param("ssss", $totalCost, $vehicleID, $initialMilage, $finalMilage);
 
@@ -614,7 +615,7 @@ function showCustomerCurrentBooking($conn, $customerID) {
             $bookingCard .= "<tr><th>Payment Status</th><td>" . $row['paid_unpaid'] . "</td></tr>";
             $bookingCard .= "<tr><th>Amount</th><td>" . $row['Rental_chage'] . "</td></tr>";
             $bookingCard .= "<tr><th>Starting Mileage</th><td>" . $row['initialMileage'] . "</td></tr>";
-            // $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
+            $bookingCard .= "<tr><th>Ending Mileage</th><td>" . $row['finalMileage'] . "</td></tr>";
             // $bookingCard .= "</table>";
             // $bookingCard .= "</div>";
 
@@ -622,8 +623,8 @@ function showCustomerCurrentBooking($conn, $customerID) {
             // Check if the payment status is "unpaid" and add a Pay Now button
             if ($row['paid_unpaid'] === 'unpaid') {
                 $_SESSION['BID']=$row['BID'];
-
-                
+                        
+                $_SESSION['finalMileage']=$row['finalMileage'];
                 $_SESSION['VehicleID']=$row['VehicleID'];
                 $_SESSION['Vehicle_type']=$row['Vehicle_type'];
                 $_SESSION['Vehicle_make']=$row['Vehicle_make'];

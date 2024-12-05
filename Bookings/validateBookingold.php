@@ -49,6 +49,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     $rentalCharge = $row['Renatal_charge'];
     $image1 = $row['image_1'];
     $location1=$row['location'];
+    $ecapacity = $_SESSION['Engine_capacity'];
     
     // Display or use the variables as needed
     // echo "Vehicle Type: " . $vehicleType . "<br>";
@@ -109,7 +110,11 @@ if($proceed == true){
     $Vehicle_type = $vehicleType;
     $Vehicle_make = $vehicleMake;
     $Vehicle_model = $vehicleModel;
-    $initialMileage = $mileage; 
+    $initialMileage = $mileage;
+
+
+    $finalMileage = $initialMileage*($Return_Date-$Booking_Date);
+
     $Regi_no_p1 = $regNoPart1;
     $Regi_no_p2 = $regNoPart2;
     $Fuel_type = $fuelType;
@@ -118,6 +123,10 @@ if($proceed == true){
     $image_1 = $image1;
     $locationbook=$location1;
 
+    totalAmount($vehicleID, $initialMileage, $finalMileage, $ecapacity);
+
+
+    // vehicleRentalAmount($MilageDriven, $RatePerkm, $addtional);
 
     // insertBooking($conn, $Booking_Date, $Return_Date, $Pickup_address, $VehicleID, $Vehicle_type, $Vehicle_make, 
     // $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $colour, $CustomerID, $First_Name, $Last_Name, $contact_Number, 
@@ -126,7 +135,7 @@ if($proceed == true){
     // Insert the booking into the database
     $insertQuery = "INSERT INTO bookings (Booking_Date, Return_Date, Pickup_address, VehicleID, Vehicle_type, Vehicle_make, 
                     Vehicle_model, Regi_no_p1, Regi_no_p2, Fuel_type, colour, CustomerID, First_Name, Last_Name, contact_Number, 
-                    email, Rental_chage, image_1, initialMileage, locationb) 
+                    email, Rental_chage, image_1, initialMileage, finalMileage, locationb) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare the statement
@@ -135,7 +144,7 @@ if($proceed == true){
     // Bind the parameters
     mysqli_stmt_bind_param($stmt, "sssssssssssssssssss", $Booking_Date, $Return_Date, $Pickup_address, $vehicleID, $Vehicle_type, 
         $Vehicle_make, $Vehicle_model, $Regi_no_p1, $Regi_no_p2, $Fuel_type, $ColourV, $CID, $First_Name, $Last_Name, 
-        $contact_Number, $email, $Rentalv, $image_1, $initialMileage,);
+        $contact_Number, $email, $Rentalv, $image_1, $initialMileage,$finalMileage, $locationbook);
 
     // Execute the statement
     mysqli_stmt_execute($stmt);
